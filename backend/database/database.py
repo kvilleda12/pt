@@ -1,9 +1,13 @@
 import asyncio
 import asyncpg
-from sqlalchemy import create_engine, Column, Integer, String, ForeignKey
+import sqlalchemy
+from sqlalchemy import create_engine, Column, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import DateTime, select, func, update
+from sqlalchemy import DateTime, select, func, update, Enum
 from sqlalchemy.orm import DeclarativeBase, relationship, Mapped, mapped_column, Session
+from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
+from sqlalchemy.orm import sessionmaker
+from datetime import datetime
 
 #in teh table for any new row increase the textbook_id by one. insert a string which links to the pdf name
 #I want the size of teh converted file into tc. So we take the file size of the txt
@@ -21,71 +25,68 @@ from sqlalchemy.orm import DeclarativeBase, relationship, Mapped, mapped_column,
 #have a section for top and bottom half. The specifically go into muscle group categories. Shoudlers, arms, upper 
 # half of legs, lower half 
 #  neck, hands, back, Chest 
-async def db_creation():  #initilizng the database creation
-    #NEED ADMIN ACCESS FOR THIS 
-    conn = await asyncpg.connect(
-        user = "postgres",
-        password = 'Joshua2014', 
-        host = "localhost",
-        database = "postgres"
-        )
-    try: #just checking to see if it was created correctly 
-        await conn.execute("CREATE DATABASE pt_db;")
-        print("Database 'pt_db' created successfully!")
-    except asyncpg.exceptions.DuplicateDatabaseError:
-        print("Database already exists.")
-    finally:
-        await conn.close()
-asyncio.run(db_creation())
+
+
+db = sqlalchemy.create_engine("postgre:///:memory") #initialize database
+session = sessionmaker(bind = db) 
 
 Base = declarative_base() #template for the tbales 
-
 
 # every class is a table
 class BP(Base): 
     
     __tablename__ = "part"
-    id = Column(Integer (1,2), primary_key= True) #let the #1 denote upper half and the #2 denote the lower half. 
-    upper_count = Column(Integer, ) #count teh total number of upper from our sources
-    lower_count = Column(Integer, ) #count the total number of lower from our sources
+    labels = (1,2)
+    id:Mapped[Enum] = mapped_column(Enum(*labels), name = 'bp_id_enum', primary_key= True) #let the #1 denote upper half and the #2 denote the lower half. 
+    upper_count:Mapped[int] = mapped_column() #count teh total number of upper from our sources
+    lower_count:Mapped[int] = mapped_column() #count the total number of lower from our sources
     
 class Body(Base): 
     __tablename__ = "body_part_counts"
-    id = Column(String('n', 'f', 'h', 'a', 'l', 's', 'c', 'b'), primary_key= True) 
-    counts = Column(Integer)
-    
+    labels = ('n', 'f', 'h', 'a', 'l', 's', 'c', 'b') #labels to be used for key configuration
+    id:Mapped[Enum] =mapped_column(Enum(*labels, name = 'Body_id_enum'), primary_key= True) 
+    counts :Mapped[int] = mapped_column()
+    where: Mapped[int] = mapped_column(ForeignKey("part.id"))
+    textbooks: Mapped[list["Textbook"]] = relationship("Textbook", back_populates="part") #multiple textbooks can conenct to this one body aprt
+    research_papers:Mapped[list["Research_paper"]] = relationship("Research_paper", back_populates= 'part') #multiple papers populate to the same body 
 
 
 class Textbook(Base): 
     __tablename__ = "textbook_sources"
-    textbook_id = Column(Integer, primary_key= True)
-    textbook_name = Column(String)
-    size = Column(float)
-    date_added = Column(DateTime)
-    where = Column(String)
-    part = Column(String), ForeignKey('Body.id')
+    textbook_id:Mapped[int] =  mapped_column(primary_key= True, index = True, Unique = True)
+    textbook_name:Mapped[str] = mapped_column()
+    size:Mapped[int] = mapped_column()
+    date_added:Mapped[datetime] = mapped_column(DateTime, default = datetime.utcnow)
+    where:Mapped[str] = mapped_column()
+    part: Mapped[str] = mapped_column(ForeignKey('body_part_counts.id')) #points to an id from the Body class
+    part: Mapped["Body"] = relationship("Body", back_populates="textbooks")
+    image:Mapped[list["Image"]] = relationship('Image', back_populates ='textbook_id' )
+    
 
 
     
 class Research_paper(Base): 
     __tablename__ = "research_paper_sources"
-    id = Column(Integer, primary_key= True)
-    paper_name = Column(String)
-    size = Column(float) 
-    date = Column(DateTime)
-    where = Column(String)
-    part = Column(String, ForeignKey("body_part_counts.id"))
+    id:Mapped[int] =mapped_column(primary_key= True, index = True, Unique = True)
+    paper_name:Mapped[str] = mapped_column()
+    size:Mapped[int] = mapped_column()
+    date:Mapped[DateTime] = mapped_column(DateTime, default= datetime.utcnow)
+    where:Mapped[str] = mapped_column()
+    part:Mapped[str] = mapped_column(ForeignKey("body_part_counts.id")) #points to an id from the Body class
+    part: Mapped["Body"] = relationship("Body", back_populates="research_papers")
+    image:Mapped[list["Image"]] = relationship('Image', back_populates= 'paper_id')
+
 
 class Image(Base): 
     __tablename__ = "image_sources" 
-    id = Column(Integer, primary_key= True)
-    date_added = Column(DateTime)
-    size = Column(Integer)
-    file_name= Column(String)
-    textbook_id = Column(Integer, ForeignKey('textbook_sources.id'))
-    textbook = relationship(Textbook)
-    paper_id = Column(Integer, ForeignKey('research_paper_sources'))
-    paper = relationship(Research_paper)
+    id:Mapped[int] =mapped_column( primary_key= True, index = True, Unique = True)
+    date_added:Mapped[DateTime] = mapped_column(DateTime, default= datetime.utcnow)
+    size:Mapped[int] = mapped_column()
+    file_name:Mapped[str] = mapped_column() 
+    textbook_id:Mapped[int] =mapped_column(ForeignKey('textbook_sources.id'),nullable = True) #points to textbook_id
+    textbook_id:Mapped["Textbook"] = relationship("Textbook", back_populates= 'image')
+    paper_id:Mapped[int]= mapped_column(ForeignKey('research_paper_sources.id'), nullable = True) #points to research paper_id
+    paper_id:Mapped["Research_paper"] = relationship("Research_paper", back_populates= 'image')
 
 
 
@@ -107,6 +108,22 @@ async def update_single_body_count(session, body_id: str):
         .where(Body.id == body_id)
         .values(counts=(t_count or 0) + (r_count or 0))
     )
+
+async def update_bp_count(session, BP_id = int):
+    b_count = await session.scalar(
+        select(func.count().select_from(Body).where(Body.part == BP.id))
+    )
+    await session.execute( 
+        update(BP)
+        .where (BP.id == BP_id)
+        .values(counts = (b_count or 0))
+    )
+
+
+def main() -> None: 
+    Base.metadata.create_all(db)
+
+    
 
 
 
