@@ -1,7 +1,7 @@
 import asyncio
 import asyncpg
 import sqlalchemy
-from sqlalchemy import create_engine, Column, ForeignKey
+from sqlalchemy import create_engine, ForeignKey, inspect
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import DateTime, select, func, update, Enum
 from sqlalchemy.orm import DeclarativeBase, relationship, Mapped, mapped_column, Session
@@ -27,9 +27,8 @@ from datetime import datetime
 #  neck, hands, back, Chest 
 
 
-db = sqlalchemy.create_engine("postgre:///:memory") #initialize database
+db = sqlalchemy.create_engine("postgresql://postgres:Joshua2014@localhost/pt_db") #initialize database
 session = sessionmaker(bind = db) 
-
 Base = declarative_base() #template for the tbales 
 
 # every class is a table
@@ -58,9 +57,9 @@ class Textbook(Base):
     size:Mapped[int] = mapped_column()
     date_added:Mapped[datetime] = mapped_column(DateTime, default = datetime.utcnow)
     where:Mapped[str] = mapped_column()
-    part: Mapped[str] = mapped_column(ForeignKey('body_part_counts.id')) #points to an id from the Body class
+    part_id: Mapped[Enum] = mapped_column(ForeignKey('body_part_counts.id')) #points to an id from the Body class
     part: Mapped["Body"] = relationship("Body", back_populates="textbooks")
-    image:Mapped[list["Image"]] = relationship('Image', back_populates ='textbook_id' )
+    images:Mapped[list["Image"]] = relationship('Image', back_populates ='textbook' )
     
 
 
@@ -72,21 +71,21 @@ class Research_paper(Base):
     size:Mapped[int] = mapped_column()
     date:Mapped[DateTime] = mapped_column(DateTime, default= datetime.utcnow)
     where:Mapped[str] = mapped_column()
-    part:Mapped[str] = mapped_column(ForeignKey("body_part_counts.id")) #points to an id from the Body class
+    part_id:Mapped[Enum] = mapped_column(ForeignKey("body_part_counts.id")) #points to an id from the Body class
     part: Mapped["Body"] = relationship("Body", back_populates="research_papers")
-    image:Mapped[list["Image"]] = relationship('Image', back_populates= 'paper_id')
+    images:Mapped[list["Image"]] = relationship('Image', back_populates= 'paper')
 
 
 class Image(Base): 
     __tablename__ = "image_sources" 
-    id:Mapped[int] =mapped_column( primary_key= True, index = True, Unique = True)
+    id:Mapped[int] =mapped_column( primary_key= True, index = True, unique = True)
     date_added:Mapped[DateTime] = mapped_column(DateTime, default= datetime.utcnow)
     size:Mapped[int] = mapped_column()
     file_name:Mapped[str] = mapped_column() 
-    textbook_id:Mapped[int] =mapped_column(ForeignKey('textbook_sources.id'),nullable = True) #points to textbook_id
-    textbook_id:Mapped["Textbook"] = relationship("Textbook", back_populates= 'image')
+    textbook_id:Mapped[int] =mapped_column(ForeignKey('textbook_sources.textbook_id'),nullable = True) #points to textbook_id
+    textbook:Mapped["Textbook"] = relationship("Textbook", back_populates= 'images')
     paper_id:Mapped[int]= mapped_column(ForeignKey('research_paper_sources.id'), nullable = True) #points to research paper_id
-    paper_id:Mapped["Research_paper"] = relationship("Research_paper", back_populates= 'image')
+    paper:Mapped["Research_paper"] = relationship("Research_paper", back_populates= 'images')
 
 
 
@@ -129,3 +128,6 @@ def main() -> None:
 
 
 
+inspector = inspect(db)
+table_names = inspector.get_table_names() 
+print("Tables", table_names)
