@@ -38,7 +38,7 @@ class BP(Base):
 
 class Body(Base):
     __tablename__ = "body_part_counts"
-    labels = ('n', 'f', 'h', 'a', 'l', 's', 'c', 'b') #only these labels can be assigned. n for neck, f for feet, h for head, a for arms, l for legs, s for shoudlers, c for chest, b for bacl
+    labels = ('n', 'f', 'h', 'a', 'l', 's', 'c', 'b', 'e') #only these labels can be assigned. n for neck, f for feet, h for head, a for arms, l for legs, s for shoudlers, c for chest, b for back, m for multi (no specfiication in the title)
     id:Mapped[str]= mapped_column(Enum(*labels, name='body_id_enum'), primary_key=True) 
     counts:Mapped[int] = mapped_column(Integer)
     where:Mapped[int] = mapped_column(Integer, ForeignKey("part.id"))
@@ -49,6 +49,7 @@ class Textbook(Base):
     __tablename__ = "textbook_sources"
     textbook_id:Mapped[int]= mapped_column(Integer, primary_key=True, index=True, unique=True) #make sure constraints are true
     textbook_name:Mapped[str] = mapped_column(String)
+    author:Mapped[str] = mapped_column(String)
     size:Mapped[int] = mapped_column(Integer)
     date_added:Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
     where:Mapped[str] = mapped_column(String)

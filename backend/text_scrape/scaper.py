@@ -1,36 +1,64 @@
-from pypdf import PdfReader
-import pymupdf 
+import fitz 
+import os
+from datetime import datetime
+from backend.database import SessionLocal, Textbook  # adjust import path as needed
+from backend.database import Body  # assuming Body enum/model is also defined
+from sqlalchemy.orm import Session
 
 
-#need to create a database before startign 
-# to extract all the text 
-pdf = "Mobility-Morsole.pdf"
-doc = pymupdf.open(pdf)
-out = open("{pdf}.txt", 'wb')
-for page in doc: 
-    text = page.get_text().encode('utf8')
-    out.write(text)
-    out.write(bytes((12,)))
-out.close() 
+extensions_allowed = [".pdf", ".epub", ".docx", ".txt"]
+files = [] 
+def get_paths (folder_name = 'file_sources'): #iterating over the paths 
+    dir = os.path.dirname(__file__)
+    folder_path = os.path.abspath(os.path.join(dir, "..", "file_sources"))
+    for file in os.listdir(folder_path):
+        if any(file.lower().endswith(ext) for ext in extensions_allowed):
+            path = os.path.join(folder_path, file)
+            files.append(path)
+    return files #returns list of paths
 
-#to extract all the images from teh same file 
+if __name__ == "__main__":
+    files = get_paths()
+    for f in files:
+        print(f"{f}")
 
-for page_index in range(len(doc)): # iterate over pdf pages
-    page = doc[page_index] # get the page
-    image_list = page.get_images()
 
-    # print the number of images found on the page
-    if image_list:
-        print(f"Found {len(image_list)} images on page {page_index}")
-    else:
-        print("No images found on page", page_index)
+def extract_file_info_for_db(files):
+   db: Session = SessionLocal()
+   for path in files: 
+    file_name = os.path.basename(path)
+    size = os.path.getsize(file_name)
+    split_title = path.split('--')
+    title = split_title[0].strip().lower()
+    author = split_title[1].strip()
+    part_id = 'm'  # default = misc
+    title_keywords = {
+            'neck': 'n',
+            'chest': 'c',
+            'head': 'h',
+            'arms': 'a',
+            'legs': 'l',
+            'shoulders': 's',
+            'back': 'b'
+        }
+    for keyword, pid in title_keywords.items():
+       if keyword in title: 
+          part_id = pid
+          break 
+    new_t = Textbook(
+       textbook_name= title, 
+       author = author,
+       size = size ,
+       date_added = datetime.utcnow(),
+       where = 'Annas',
+       part_id = part_id, 
+    )
+    db.add(new_t)
+    db.commit() 
+    db.close()
 
-    for image_index, img in enumerate(image_list, start=1): # enumerate the image list
-        xref = img[0] # get the XREF of the image
-        pix = pymupdf.Pixmap(doc, xref) # create a Pixmap
 
-        if pix.n - pix.alpha > 3: # CMYK: convert to RGB first
-            pix = pymupdf.Pixmap(pymupdf.csRGB, pix)
 
-        pix.save("page_%s-image_%s.png" % (page_index, image_index)) # save the image as png
-        pix = None
+    
+
+
