@@ -13,7 +13,7 @@ def get_paths (folder_name = 'file_sources'): #iterating over the paths
     folder_path = os.path.abspath(os.path.join(dir, "..", "file_sources"))
     for file in os.listdir(folder_path):
         if any(file.lower().endswith(ext) for ext in extensions_allowed):
-            path = os.path.join(folder_path, file)
+            path = os.path.join(    folder_path, file)
             files.append(path)
     return files #returns list of paths
 
@@ -56,7 +56,7 @@ def extract_file_info_for_db(files):
     db.add(new_t)
     db.commit() 
     db.close()
-
+    print("files processed")
 
 
     
