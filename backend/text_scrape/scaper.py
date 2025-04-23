@@ -1,36 +1,31 @@
-import fitz 
 import os
+import fitz
 from datetime import datetime
-from backend.database import SessionLocal, Textbook  # adjust import path as needed
-from backend.database import Body  # assuming Body enum/model is also defined
-from sqlalchemy.orm import Session
+from backend.database.database import SessionLocal, Textbook, Body # adjust import path as needed
+
 
 
 extensions_allowed = [".pdf", ".epub", ".docx", ".txt"]
-files = [] 
 def get_paths (folder_name = 'file_sources'): #iterating over the paths 
     dir = os.path.dirname(__file__)
     folder_path = os.path.abspath(os.path.join(dir, "..", "file_sources"))
-    for file in os.listdir(folder_path):
-        if any(file.lower().endswith(ext) for ext in extensions_allowed):
-            path = os.path.join(    folder_path, file)
+    files = [] 
+    for f in os.listdir(folder_path):
+        if any(f.lower().endswith(ext) for ext in extensions_allowed):
+            path = os.path.join( folder_path, f)
             files.append(path)
     return files #returns list of paths
 
-if __name__ == "__main__":
-    files = get_paths()
-    for f in files:
-        print(f"{f}")
-
-
 def extract_file_info_for_db(files):
-   db: Session = SessionLocal()
+   db =  SessionLocal()
    for path in files: 
-    file_name = os.path.basename(path)
-    size = os.path.getsize(file_name)
+    #file_name = os.path.basename(path)
+    size = os.path.getsize(path)
+
     split_title = path.split('--')
+
     title = split_title[0].strip().lower()
-    author = split_title[1].strip()
+    author = split_title[1].strip() if len(split_title) > 1 else "unknown"
     part_id = 'm'  # default = misc
     title_keywords = {
             'neck': 'n',
@@ -54,9 +49,21 @@ def extract_file_info_for_db(files):
        part_id = part_id, 
     )
     db.add(new_t)
-    db.commit() 
-    db.close()
-    print("files processed")
+   db.commit() 
+   db.close()
+   print("files processed")
+
+
+
+def main():
+    files = get_paths()
+    for f in files:
+        print("Found file:", f)
+    extract_file_info_for_db(files)
+
+if __name__ == "__main__":
+    main()
+
 
 
     

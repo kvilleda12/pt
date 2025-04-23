@@ -4,6 +4,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import DateTime, select, func, update, Enum
 from sqlalchemy.orm import relationship, Mapped, mapped_column, Session, sessionmaker
 from datetime import datetime
+import pandas as pd
 
 #in the table for any new row increase the textbook_id by one. insert a string which links to the pdf name
 #I want the size of teh converted file into txt. So we take the file size of the txt
@@ -25,6 +26,7 @@ from datetime import datetime
 
 db = create_engine("postgresql://postgres:Joshua2014@localhost/pt_db")
 session = sessionmaker(bind=db)
+SessionLocal = session
 Base = declarative_base()
 
 class BP(Base):
@@ -33,7 +35,7 @@ class BP(Base):
     upper_count:Mapped[int] = mapped_column(Integer) 
     lower_count:Mapped[int] = mapped_column(Integer)
     __table_args__ = (
-        CheckConstraint('id IN (1, 2)', name='check_valid_bp_id'), #makes sure only 1 and 2 are the valuable 
+        CheckConstraint('id IN ( 1, 2, 3)', name='check_valid_bp_id'), #makes sure only 1 and 2 are the valuable 
     )
 
 class Body(Base):
@@ -117,4 +119,3 @@ if __name__ == "__main__":
     table_names = inspector.get_table_names()
     print("Tables", table_names)
 
-    
