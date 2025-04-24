@@ -1,5 +1,5 @@
 import sqlalchemy
-from sqlalchemy import create_engine, ForeignKey, inspect, Integer, CheckConstraint, String
+from sqlalchemy import create_engine, ForeignKey, inspect, Integer, CheckConstraint, String, UniqueConstraint
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import DateTime, select, func, update, Enum
 from sqlalchemy.orm import relationship, Mapped, mapped_column, Session, sessionmaker
@@ -58,6 +58,9 @@ class Textbook(Base):
     part_id:Mapped[str] = mapped_column(Enum(*Body.labels, name='body_id_enum'), ForeignKey('body_part_counts.id')) #points to the id in body parts
     part:Mapped['Body'] = relationship("Body", back_populates="textbooks") #can acess the body
     images:Mapped[list['Image']] = relationship('Image', back_populates='textbook') #textbooks can have many images
+    __table_args__ = (
+        UniqueConstraint('textbook_name', 'author', name='uq_textbook_author'),
+    )
     
 class Research_paper(Base):
     __tablename__ = "research_paper_sources"
@@ -69,6 +72,9 @@ class Research_paper(Base):
     part_id:Mapped[str] = mapped_column(Enum(*Body.labels, name='body_id_enum'), ForeignKey("body_part_counts.id")) #point to body parts id
     part:Mapped['Body'] = relationship("Body", back_populates="research_papers") #can acess Body
     images:Mapped[list['Image']] = relationship('Image', back_populates='paper') #can have multiple images
+    __table_args__ = (
+        UniqueConstraint('paper_name', name='uq_textbook'),
+    )
 
 class Image(Base):
     __tablename__ = "image_sources"
