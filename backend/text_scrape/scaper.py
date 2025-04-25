@@ -29,7 +29,7 @@ def extract_file_info_for_db(files):
     fp = '/users/kevinvilleda/pt/backend/file_sources/'
     title, _ext = os.path.splitext(os.path.basename(fp))#remove the path from the file``
     author = split_title[1].strip() if len(split_title) > 1 else "unknown"
-    part_id = 'e'  # default = misc
+    part_id = 'e'  # default = everything
     title_keywords = {
             'neck': 'n',
             'chest': 'c',
