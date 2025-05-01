@@ -57,19 +57,29 @@ def extract_file_info_for_db(files):
    db.close()
    print("files processed")
    #extracting text from the pdf. Now to save the pdf in the actualy text 
-def extract_text_images_from_pdf(files, into = 'text_files', other = 'image_storage', json_path = 'tracker.json', context_overlap = True): 
+
+def extract_text_images_from_pdf(files, into = 'text_files', other = 'image_storage', json_path = 'tracker.json', c = 'counter.txt', context_overlap = True): 
     #making sure we point to text_files
 
     base_dir = os.path.dirname(__file__) #go into the directory of where scaper is at
     text_pointer = os.path.abspath(os.path.join(base_dir,'..', into)) #redirect to the backend and then make sure we are appending it to text_files which is in oru arg
-    image_pointer = os.path.abspath(os.path.join('image_storage'))
+    image_pointer = os.path.abspath(os.path.join(base_dir, '..', other ))
     j_p = os.path.abspath(os.path.join(base_dir, '..', json_path))
+    counter_pointer = os.path.abspath(os.path.join(base_dir, '..', c))
 
     os.makedirs(text_pointer, exist_ok = True) #make sure it exist
     os.makedirs(image_pointer, exist_ok = True)
 
     j_file = []
     img_counter = 0
+
+    #at the end go ahead and manually rewrite the text file 
+    if os.path.exists(counter_pointer):
+        with open(counter_pointer, 'r') as f:
+            img_counter = int(f.read().strip() or 0)
+    else:
+        img_counter = 0
+
 
     for file in files: 
         document = fitz.open(file)
@@ -80,47 +90,47 @@ def extract_text_images_from_pdf(files, into = 'text_files', other = 'image_stor
         txt_name = base +".txt"
 
         txt_path = os.path.join(text_pointer, txt_name)
-        txt_file = open(txt_path, 'w', encoding = 'utf-8')
-        if file.contain('.pdf)'):
+        with open(txt_path, 'w', encoding = 'utf-8') as txt_file:
             for page_num, page in enumerate(document, start = 1):
                 text = page.get_text() 
                 txt_file.write(text)
                 txt_file.write('\n\n')
-                #to extract the images
-                blocks = page.get_text('dict')['blocks'] #each page is basically seperated into blocks
-                #we want to look for teh blocks that contain nubmers because images converted to numbers
-                for block in blocks: 
-                    if block.get('type') != 1: 
-                        continue
-                    img_id = f"IMG_{img_counter:06d}"
-                    img_counter +=1 
-                    pic = fitz.Pixmap(document, block['Image'])
-                    img_filename = f"{img_id}.png"
-                    img_path = os.path.absjoin(image_pointer, img_filename)
-                    pic.save(img_path)
-                    pic = None
+                if _ext.lower() == '.pdf':
+                    #to extract the images
+                    blocks = page.get_text('dict')['blocks'] #each page is basically seperated into blocks
+                    #we want to look for teh blocks that contain nubmers because images converted to numbers
+                    for block in blocks: 
+                        if block.get('type') != 1: 
+                            continue
+                        img_id = f"IMG_{img_counter:06d}"
+                        img_counter +=1 
+                        #saving the iamge
+                        pic = fitz.Pixmap(document, block['image'])
+                        img_filename = f"{img_id}.png"
+                        img_path = os.path.join(image_pointer, img_filename)
+                        pic.save(img_path)
+                        pic = None
 
-                    context_text = ''
-                    if context_overlap: 
-                        y0, y1 = block['bbox'][1], block['bbox'][3]
-                        context_lines = [] 
-                        for text_block in blocks: 
-                            if  text_block.get('type') != 0:
-                                continue
-                            text_block_y0, text_block_y1 = text_block['bbox'][1], text_block['bbox'][3]
-                            if not (text_block_y1 < y0 or text_block_y0 > y1): 
-                                context_lines.append(text_block['text'].strip())
-
-
-                
-
-            
-                
-
-
-
-
-                 
+                        context_text = ''
+                        if context_overlap: 
+                            y0, y1 = block['bbox'][1], block['bbox'][3]
+                            context_lines = [] 
+                            for text_block in blocks: 
+                                if  text_block.get('type') != 0:
+                                    continue
+                                text_block_y0, text_block_y1 = text_block['bbox'][1], text_block['bbox'][3]
+                                if not (text_block_y1 < y0 or text_block_y0 > y1): 
+                                    context_lines.append(text_block['text'].strip())
+                            context_text = '\n\n'.join(context_lines)
+                        j_file.append({
+                            'id': img_id,
+                            'context': context_text
+                        })
+            document.close()
+        with open(j_p, 'w', encoding = 'utf-8') as json_file:
+            json.dump(j_file, json_file, indent = 4)
+        with open(counter_pointer, 'w', encoding = 'utf-8') as update: 
+            update.write(img_counter)               
         print("succesful: {txt_path}")
 
 
