@@ -86,6 +86,7 @@ class Image(Base):
     textbook:Mapped['Textbook'] = relationship("Textbook", back_populates='images') #has access to the object
     paper_id:Mapped[int] = mapped_column(Integer, ForeignKey('research_paper_sources.id'), nullable=True) #points to paper
     paper:Mapped['Research_paper'] = relationship("Research_paper", back_populates='images') #has access to paper
+    page:Mapped[int] = mapped_column(Integer)
 
 
 #textbook count in body. Summarizes the resources for each given label so we can know which parts we need to get more sources for
@@ -115,6 +116,13 @@ async def update_bp_count(session, bp_id: int):
                 lower_count=b_count if bp_id == 2 else 0)
     )
 
+#what I need to do now. As i iterate trhough the text if i see an image I want to take the image 
+    #and the context around it saving it in its own file. Our model will also be trained on these 
+    #images so it can understand what it sees. 
+
+
+
+
 #to run
 def main() -> None:
     Base.metadata.create_all(db)
@@ -124,4 +132,3 @@ if __name__ == "__main__":
     inspector = inspect(db)
     table_names = inspector.get_table_names()
     print("Tables", table_names)
-
