@@ -1,5 +1,5 @@
 import sqlalchemy
-from sqlalchemy import create_engine, ForeignKey, inspect, Integer, CheckConstraint, String, UniqueConstraint
+from sqlalchemy import create_engine, ForeignKey, inspect, Integer, CheckConstraint, String, UniqueConstraint, Boolean
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import DateTime, select, func, update, Enum
 from sqlalchemy.orm import relationship, Mapped, mapped_column, Session, sessionmaker
@@ -87,6 +87,7 @@ class Image(Base):
     paper_id:Mapped[int] = mapped_column(Integer, ForeignKey('research_paper_sources.id'), nullable=True) #points to paper
     paper:Mapped['Research_paper'] = relationship("Research_paper", back_populates='images') #has access to paper
     page:Mapped[int] = mapped_column(Integer)
+    has_context: Mapped[bool] = mapped_column(Boolean, default=True)
 
 
 #textbook count in body. Summarizes the resources for each given label so we can know which parts we need to get more sources for

@@ -9,6 +9,7 @@ import hashlib
 
 extensions_allowed = [".pdf", ".epub", ".docx", ".txt"]
 
+#convert all the files in file_sources into a readable file list
 def get_paths (folder_name = 'file_sources'): #iterating over the paths 
     dir = os.path.dirname(__file__)
     folder_path = os.path.abspath(os.path.join(dir, "..", "file_sources"))
@@ -19,6 +20,7 @@ def get_paths (folder_name = 'file_sources'): #iterating over the paths
             files.append(path)
     return files #returns list of paths
 
+#to get the information necessary for the datable. We only actually want to store the names for resource referencing
 def extract_file_info_for_db(files):
    db =  SessionLocal()
    for path in files: 
@@ -57,12 +59,9 @@ def extract_file_info_for_db(files):
    db.commit() 
    db.close()
    print("files processed")
-   #extracting text from the pdf. Now to save the pdf in the actualy text 
 
-import os
-import json
-import fitz  # PyMuPDF
 
+#getting images and text from sources. 
 def extract_text_images_from_pdf(files, into='text_files', other='image_storage', json_path='tracker.json', c='counter.txt', context_overlap=True):
     # Set up paths
     base_dir = os.path.dirname(__file__)
@@ -75,7 +74,17 @@ def extract_text_images_from_pdf(files, into='text_files', other='image_storage'
     os.makedirs(image_pointer, exist_ok=True)
 
     j_file = []
+    existing_ids = set()
+    if os.path.exists(j_p):
+        with open(j_p, 'r', encoding='utf-8') as json_file:
+            try:
+                existing_entries = json.load(json_file)
+                existing_ids = {entry['id'] for entry in existing_entries}
+                j_file.extend(existing_entries)  # preserve previous entries
+            except json.JSONDecodeError:
+                print("error. Can't find json")
     img_counter = 0
+
 
     if os.path.exists(counter_pointer):
         with open(counter_pointer, 'r') as f:
@@ -111,8 +120,8 @@ def extract_text_images_from_pdf(files, into='text_files', other='image_storage'
             img_counter += 1
 
             try:
-                pix = fitz.Pixmap(document, xref)
-                if pix.colorspace is None or pix.n > 4:
+                pix = fitz.Pixmap(document, xref) #make sure its rgb
+                if pix.n != 3:
                     pix = fitz.Pixmap(fitz.csRGB, pix)
 
                 # Compute hash to detect duplicates
@@ -120,7 +129,7 @@ def extract_text_images_from_pdf(files, into='text_files', other='image_storage'
                 img_hash = hashlib.md5(img_bytes).hexdigest()
 
                 if img_hash in seen_hashes:
-                    print(f"⚠️ Skipping duplicate image {img_id}")
+                    print(f" duplicate: {img_id}")
                     continue
                 seen_hashes.add(img_hash)
 
@@ -131,24 +140,32 @@ def extract_text_images_from_pdf(files, into='text_files', other='image_storage'
                 pix = None
 
             except Exception as e:
-                print(f"❌ Failed to save image {img_id}: {e}")
+                print(f"failed to save {img_id}: {e}")
                 continue
 
-            # Collect context if needed
+            #to get context
             context_text = ''
             if context_overlap:
-                blocks = page.get_text('dict')['blocks']
-                context_lines = [
-                    tb['text'].strip()
-                    for tb in blocks
-                    if tb.get('type') == 0
-                ]
-                context_text = '\n\n'.join(context_lines)
+                try:
+                    image_rect = fitz.Rect(fitz.Pixmap(document, xref).irect)
+                    blocks = page.get_text('dict')['blocks']
+                    context_lines = []
+                    for tb in blocks:
+                        if tb.get("type") == 0 and "bbox" in tb:
+                            text_rect = fitz.Rect(tb["bbox"])
+                        if image_rect.intersects(text_rect) or image_rect.is_near(text_rect, 100):  # Adjust 100 as needed
+                            context_lines.append(tb["text"].strip())
 
-            j_file.append({
-                'id': img_id,
-                'context': context_text
-            })
+                    context_text = "\n\n".join(context_lines)
+                except Exception as e: 
+                    print(" no context for {img_id}: e")
+                    context_text = ""
+
+            if img_id not in existing_ids:
+                j_file.append({
+                    'id': img_id,
+                    'context': context_text
+                })
 
         document.close()
 
@@ -160,7 +177,7 @@ def extract_text_images_from_pdf(files, into='text_files', other='image_storage'
     with open(counter_pointer, 'w', encoding='utf-8') as update:
         update.write(str(img_counter))
 
-    print(f"\n✅ Done! Saved .txt files to '{into}', images to '{other}', and context JSON to '{json_path}'.")
+    print(f"saved '{into}', images to '{other}', and context JSON to '{json_path}'.")
 
 
 def main():
