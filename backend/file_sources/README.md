@@ -1,1 +1,1 @@
-
+* This folder stores our **FILE SOURCES** not **.TXT** files. Please only put pdfs or textbooks with images here and don't forget to update the database with the source. These are the soruces the model is being trained on. 
