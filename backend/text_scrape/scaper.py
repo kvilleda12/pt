@@ -68,34 +68,35 @@ def extract_file_info_for_db(files):
 
 #find the images within a page   
 def extract_page_image(page, dpi=300):
-    pix = page.get_pixmap(dpi=dpi)
-    img_bytes = pix.tobytes("png")
-    pil_img = Image.open(io.BytesIO(img_bytes))
-    return pil_img, img_bytes
+    pix_img = page.get_pixmap(dpi=dpi) #convert to picelated
+    img_binary = pix_img.tobytes("png")
+    processed_img = Image.open(io.BytesIO(img_binary))
+    return processed_img, img_binary
 
 #get all the text out of the image. Will be used to convert pdf test into a txt file
-def ocr_page_text(pil_img):
-    full_text = pytesseract.image_to_string(pil_img)
-    ocr_data = pytesseract.image_to_data(pil_img, output_type=pytesseract.Output.DICT)
-    return full_text, ocr_data
+def ocr_page_text(processed_img):
+    full_text = pytesseract.image_to_string(processed_img)
+    ocr_dict = pytesseract.image_to_data(processed_img, output_type=pytesseract.Output.DICT)
+    return full_text, ocr_dict
 
 #find the image regions within a page. So we can find the captions afterwards. 
-def detect_image_regions(pil_img, min_area=5000):
-    open_cv_image = np.array(pil_img)
+def detect_image_regions(processed_img, min_area=5000):
+    open_cv_image = np.array(processed_img) 
     # Convert RGB to BGR
     open_cv_image = open_cv_image[:, :, ::-1].copy()
 
-    gray = cv2.cvtColor(open_cv_image, cv2.COLOR_BGR2GRAY)
+    grayscale = cv2.cvtColor(open_cv_image, cv2.COLOR_BGR2GRAY)
     
-    # Use an adaptive threshold for better results on varied backgrounds
-    thresh = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
+    # Find the image regions by making them white on a black background. 
+    thresh = cv2.adaptiveThreshold(grayscale, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
                                    cv2.THRESH_BINARY_INV, 11, 2)
 
-    # Find contours
-    contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    # finds the outermost boundary points of the white iamge
+    boundary_points, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     
+    #filtering out uneseccary regions that are too small or like specs basically. Also lines and things like that but we still take vertical boxes. 
     regions = []
-    for cnt in contours:
+    for cnt in boundary_points:
         x, y, w, h = cv2.boundingRect(cnt)
         area = w * h
         aspect_ratio = w / float(h) if h > 0 else 0
@@ -104,103 +105,87 @@ def detect_image_regions(pil_img, min_area=5000):
         if area > min_area and (0.1 < aspect_ratio < 10.0):
              regions.append((x, y, w, h))
              
-    return regions
+    return regions #tuple containing the x,y, w, h
 
 
 
-def has_content_started(ocr_data, page_num, total_pages):
+def has_content_started(ocr_dict, page_num, total_pages):
     """
     Check if we've reached the main content of the book.
     """
-    if not ocr_data or 'text' not in ocr_data:
+    if not ocr_dict or 'text' not in ocr_dict:
         return False
 
-    full_text = ' '.join([text.strip() for text in ocr_data['text'] if text.strip()])
+    full_text = ' '.join([text.strip() for text in ocr_dict['text'] if text.strip()])
 
-    # If we are very deep into the book, it's safe to assume content has started.
-    # This avoids issues with OCR failing on a single content page.
+    # Just a safety check in case we don't find content in the first 25 pages
     if page_num > 25 or page_num > total_pages * 0.15:
         return True
 
-    # Look for patterns that indicate actual content has started
+    # Look for patterns that indicate actual content has started. Can be updated for better pattern matching but this is basic and works
     content_patterns = [
-        rf'\b(page|pg\.?)\s+{page_num}\b', # "Page 5" or "pg. 5"
+        rf'\b(page|pg\.?)\s+{page_num}\b', 
         r'\bchapter\s+\d+',
         r'\bsection\s+\d+',
         r'\b(figure|fig|table)\s+\d+',
-        r'introduction' # The word "Introduction" is a strong signal
+        r'introduction'
     ]
 
     for pattern in content_patterns:
         if re.search(pattern, full_text, re.IGNORECASE):
             return True
 
-    # Check for substantial text content (avoids sparse title pages)
-    words = [word for word in ocr_data['text'] if len(word.strip()) > 2]
+    # check number of words
+    words = [word for word in ocr_dict['text'] if len(word.strip()) > 2]
     if len(words) > 50:
         return True
 
     return False
                             
 #to find the captions we get an image and then we look use euclidean distance of the blob to find the nearest 'figure' description. None if there is
-def extract_all_captions(ocr_data, word_limit=50):
+def extract_all_captions(ocr_dict, word_limit=50): #keep word limit. Can be edited
+
     captions = []
-    if not ocr_data or 'text' not in ocr_data:
+
+    #no captions move onto the next
+    if not ocr_dict or 'text' not in ocr_dict:
         return captions
 
-    n = len(ocr_data['text'])
+    n = len(ocr_dict['text'])
     
-    # Pre-group words by their block and line numbers for better context
+    # Go through and check the dictionairy. splits the text word by word then regroups them together depending on the block or line number
     lines = {}
     for i in range(n):
-        block_num = ocr_data['block_num'][i]
-        line_num = ocr_data['line_num'][i]
+        block_num = ocr_dict['block_num'][i]
+        line_num = ocr_dict['line_num'][i]
         if (block_num, line_num) not in lines:
             lines[(block_num, line_num)] = []
         lines[(block_num, line_num)].append(i)
 
     for (block_num, line_num), idxs in lines.items():
-        line_text = ' '.join(ocr_data['text'][i] for i in idxs if ocr_data['text'][i].strip()).strip()
-
-        # Improved Regex:
-        # - Handles "Figure", "Fig", "Chart", "Table"
-        # - More flexible with spacing and punctuation
-        match = re.search(r"^(?:figure|fig|chart|table)\s*[\d\.\-A-Za-z]+[:\.]?", line_text, re.IGNORECASE)
+        line_text = ' '.join(ocr_dict['text'][i] for i in idxs if ocr_dict['text'][i].strip()).strip()
+        match = re.search(r"^(?:figure|fig|chart|table)\s*[\d\.\-A-Za-z]+[:\.]?", line_text, re.IGNORECASE) #can be improved here
         
+        #now to match the caption to the image. take the important cordiantes and calculate how far they are from the image itself
         if match:
-            # We found a potential caption start
-            
-            # --- Better Bounding Box Calculation ---
-            # Get the bounding box of the entire matched line
-            x_coords = [ocr_data['left'][i] for i in idxs]
-            y_coords = [ocr_data['top'][i] for i in idxs]
-            w_coords = [ocr_data['width'][i] for i in idxs]
-            h_coords = [ocr_data['height'][i] for i in idxs]
-            
+            x_coords = [ocr_dict['left'][i] for i in idxs] #leftmost x
+            y_coords = [ocr_dict['top'][i] for i in idxs] #rightmost x
+            w_coords = [ocr_dict['width'][i] for i in idxs] #width
+            h_coords = [ocr_dict['height'][i] for i in idxs] #height
             x, y = min(x_coords), min(y_coords)
             w = max(x_coords) + max(w_coords) - x
             h = max(y_coords) + max(h_coords) - y
 
-            # Use the center of this more accurate bounding box
             center_x = x + w / 2
             center_y = y + h / 2
 
-            # --- Full Caption Text Aggregation ---
-            # Start with the current line
             full_caption_text = [line_text]
-            
-            # Look ahead for subsequent lines that are part of the same caption
-            # (This is a simplified lookahead, more advanced logic could be added)
-            
-            # For now, we'll just use a word limit from the start of the caption
+            #trying to stat the word limti. Get that amount of text right after but can be upgraded. 
             start_index = idxs[0]
             words = []
             for i in range(start_index, min(start_index + word_limit, n)):
-                 words.append(ocr_data['text'][i])
-            
+                 words.append(ocr_dict['text'][i]) 
             final_caption = ' '.join(words).strip()
-
-
             captions.append({
                 'center': (center_x, center_y),
                 'text': final_caption,
@@ -213,24 +198,22 @@ def match_caption_to_region(captions, region):
         return "No caption found"
 
     x_img, y_img, w_img, h_img = region
-    center_x_img = x_img + w_img / 2
-    bottom_y_img = y_img + h_img
+    center_x_img = x_img + w_img / 2 #midpoint of image
+    bottom_y_img = y_img + h_img #image below current image
 
     best_match = None
     min_dist = float('inf')
 
     for caption in captions:
-        center_x_cap, center_y_cap = caption['center']
+        center_x_cap, center_y_cap = caption['center'] #extract the center coordinates 
 
-        # Prioritize captions that are BELOW the image
+        # We need to update this to be better. But basically look only for those captions below the iamge
         if center_y_cap > bottom_y_img:
-            # Calculate a weighted distance
-            # Give much more weight to horizontal distance to favor vertical alignment
-            dx = (center_x_img - center_x_cap)
-            dy = (center_y_cap - bottom_y_img) # Distance from bottom of image to top of caption
+            horizontal_diff = (center_x_img - center_x_cap) #horizontal distance between image center 
+            vertical_diff = (center_y_cap - bottom_y_img) #vertical distance 
             
             # Weighted Euclidean distance
-            distance = np.sqrt((2 * dx)**2 + dy**2) # Weight horizontal distance more
+            distance = np.sqrt((2 * horizontal_diff)**2 + vertical_diff**2) # Weight horizontal distance more because we want it to be right below the image not off to the side
 
             if distance < min_dist:
                 min_dist = distance
@@ -238,11 +221,12 @@ def match_caption_to_region(captions, region):
 
     return best_match if best_match else "No caption found"
 
-def save_image(pil_img, bbox, out_dir, img_id, seen_hashes):
+
+def save_image(processed_img, bbox, out_dir, img_id, seen_hashes):
     x, y, w, h = bbox
-    crop = pil_img.crop((x, y, x+w, y+h))
+    crop = processed_img.crop((x, y, x+w, y+h))
     
-    # Filter out single-letter image crops (previous working version)
+    #sometimes images are just letters. pytesseract an letter image classifier to filter out images
     try:
         letter_text = pytesseract.image_to_string(crop, config='--psm 10').strip()
         if len(letter_text) == 1 and re.match(r'^[A-Za-z0-9]$', letter_text):
@@ -251,7 +235,7 @@ def save_image(pil_img, bbox, out_dir, img_id, seen_hashes):
     except Exception:
         pass
 
-    # Optional whitespace filter
+    # since pytesseract isn't 100% also run a white space filter
     try:
         gray = crop.convert('L')
         arr = np.array(gray)
@@ -264,7 +248,8 @@ def save_image(pil_img, bbox, out_dir, img_id, seen_hashes):
     except Exception:
         pass
     crop = crop.convert('L')
-    # Duplicate check & save
+
+    #checking to see if its duplicate image
     buf = io.BytesIO()
     crop.save(buf, format='PNG')
     img_bytes = buf.getvalue()
@@ -295,18 +280,18 @@ def process_pdf_file(file, text_pointer, image_pointer, existing_ids, seen_hashe
     with open(txt_path, 'w', encoding='utf-8') as tf:
         for page_num, page in enumerate(doc, start=1):
             print(f"\n--- Analyzing Page {page_num} of {len(doc)} ---")
-            pil_img, _ = extract_page_image(page)
-            full_text, ocr_data = ocr_page_text(pil_img)
+            processed_img, _ = extract_page_image(page)
+            full_text, ocr_dict = ocr_page_text(processed_img)
             if not content_has_begun:
-                if has_content_started(ocr_data, page_num, len(doc)):
+                if has_content_started(ocr_dict, page_num, len(doc)):
                     print(f"*** Content detected on page {page_num}. Starting extraction. ***")
                     content_has_begun = True
                 else:
                     print(f"Skipping page {page_num} (likely front matter).")
                     continue # Skip to the next page
             tf.write(f"\n\n--- Page {page_num} ---\n{full_text}")
-            regions = detect_image_regions(pil_img)
-            captions = extract_all_captions(ocr_data)
+            regions = detect_image_regions(processed_img)
+            captions = extract_all_captions(ocr_dict)
             print(f"Page {page_num}: Found {len(regions)} potential image regions.")
             print(f"Page {page_num}: Found {len(captions)} potential captions.")
             if captions:
@@ -314,7 +299,7 @@ def process_pdf_file(file, text_pointer, image_pointer, existing_ids, seen_hashe
                     print(f"  - Caption {i}: '{cap['text'][:50]}...' at {cap['center']}")
             for bbox in regions:
                 img_id = f"IMG_{img_counter:06d}"; img_counter += 1
-                img_bytes = save_image(pil_img, bbox, image_pointer, img_id, seen_hashes)
+                img_bytes = save_image(processed_img, bbox, image_pointer, img_id, seen_hashes)
                 if not img_bytes:
                     continue
                 context_text = match_caption_to_region(captions, bbox)
@@ -353,30 +338,29 @@ def test_first_20_pages_from_file_sources():
 
     print("--- STARTING TEST: Processing first 20 pages of each PDF ---")
 
-    # 1. Setup test directories and paths
+
     base = os.path.dirname(__file__)
     src_dir = os.path.abspath(os.path.join(base, '..', 'file_sources'))
     txt_out_dir = os.path.abspath(os.path.join(base, '..', 'test_text'))
     img_out_dir = os.path.abspath(os.path.join(base, '..', 'test_images'))
     tracker_json_path = os.path.abspath(os.path.join(base, '..', 'test_tracker.json'))
 
-    # 2. Clean up previous test runs
+
     shutil.rmtree(txt_out_dir, ignore_errors=True)
     shutil.rmtree(img_out_dir, ignore_errors=True)
     if os.path.exists(tracker_json_path):
         os.remove(tracker_json_path)
 
-    # 3. Recreate test directories
+
     os.makedirs(txt_out_dir, exist_ok=True)
     os.makedirs(img_out_dir, exist_ok=True)
 
-    # 4. Initialize tracking variables
+
     j_file_data = []
     existing_ids = set()
     img_counter = 0
     seen_hashes = set()
 
-    # 5. Loop through PDFs and process the first 20 pages of each
     pdf_files = list(Path(src_dir).glob('*.pdf'))
     if not pdf_files:
         print("No PDF files found in 'file_sources' directory. Test cannot run.")
@@ -384,7 +368,6 @@ def test_first_20_pages_from_file_sources():
 
     for pdf_path in pdf_files:
         print(f"\n>>> Processing test file: {pdf_path.name}")
-        # Call the main processing function, but with a page limit!
         img_counter = process_pdf_file(
             file=str(pdf_path),
             text_pointer=txt_out_dir,
@@ -393,10 +376,9 @@ def test_first_20_pages_from_file_sources():
             seen_hashes=seen_hashes,
             img_counter=img_counter,
             j_file=j_file_data,
-            page_limit=20  # <-- The crucial argument for the test
+            page_limit=20  
         )
 
-    # 6. Save the final results of the test run
     with open(tracker_json_path, 'w', encoding='utf-8') as f:
         json.dump(j_file_data, f, indent=4)
 
