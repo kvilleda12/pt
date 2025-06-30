@@ -105,6 +105,9 @@ def detect_image_regions(pil_img, min_area=5000):
              regions.append((x, y, w, h))
              
     return regions
+
+
+
 def has_content_started(ocr_data, page_num, total_pages):
     """
     Check if we've reached the main content of the book.
