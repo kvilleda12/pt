@@ -1,0 +1,21 @@
+.navbar {
+    display: flex;
+    justify-content: center;
+    transition: background-color 0.5s ease, color 0.3s ease;
+}
+
+.navbar:hover {
+    background-color: #0c7e75
+}
+
+.navItem {
+    display: inline-block;
+    padding: 14px 55px;
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.navItem:hover {
+    color: #10b981;
+}
