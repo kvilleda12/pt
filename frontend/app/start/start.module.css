@@ -1,0 +1,38 @@
+.layout {
+    display: grid;
+    grid-template-rows: 50px 1fr 150px;
+    min-height: 100vh;
+    margin: 0 auto;
+    background-color: #050122;
+    position: relative;
+    overflow: hidden;
+}
+
+.layout::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: url("data:image/svg+xml;utf8,<svg width='100' height='100' xmlns='http://www.w3.org/2000/svg'><circle cx='15' cy='20' r='1.5' fill='white' opacity='0.1'/><circle cx='70' cy='60' r='1.2' fill='white' opacity='0.2'/><circle cx='90' cy='40' r='1.1' fill='white' opacity='0.3'/></svg>");
+    background-size: 200px 200px;
+    animation: stars-move 20s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes stars-move {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 40px 60px;
+    }
+}
+
+.header {
+    text-align: center;
+    margin-top: 40px;
+    font-weight: 550;
+    position: relative;
+    z-index: 1;
+    font-size: 1.7rem;
+}
