@@ -4,7 +4,7 @@
   background: #0d9488;
 
   display: grid;
-  grid-template-rows: 20px 80px 150px 20px;
+  grid-template-rows: 20px 80px 50px 20px;
   align-items: center;
   justify-items: center;
   min-height: 100svh;
@@ -14,7 +14,7 @@
 }
 
 .title {
-  font-size: 4rem;
+  font-size: 5rem;
   font-weight: 400;
   line-height: 1.2;
   color: #ffffff;
@@ -50,9 +50,9 @@
   position: relative;
   background: var(--foreground);
   color: var(--background);
-  border-radius: 40px;
-  height: 78px;
-  min-width: 150px;
+  border-radius: 35px;
+  height: 70px;
+  min-width: 175px;
   width: auto;
   padding: 0 20px;
   border: none;
@@ -103,11 +103,11 @@
 
 .aboutPage {
   display: grid;
-  grid-template-rows: 40px 1fr;
+  grid-template-rows: 0px 1fr;
   align-items: center;
   justify-items: center;
-  padding: 80px;
-  gap: 100px;
+  padding: 60px;
+  gap: 80px;
 }
 
 .aboutDescription {
@@ -116,6 +116,33 @@
   color: #ffffff;
   text-align: center;
   margin-top: 16px;
+}
+
+.founderProfile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.founderName {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.sectionHeader {
+  font-size: 2.5em;
+  font-weight: 600;
+  color: #ffffff;
+  margin-top: 32px;
+}
+
+.founderImage {
+  border-radius: 70%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
 }
 
 a.primary {
