@@ -9,12 +9,13 @@ import argparse
 import itertools
 
 # === Folder setup ===
-ROOT = Path(__file__).resolve().parent.parent
-TEXT_DIR = ROOT / "text_files" / "articles_cleaned"
-IMG_DIR = ROOT / "text_files" / "articles_with_images"
-LOG_PATH = ROOT / "database" / "web_sources.csv"
+ROOT = Path(__file__).resolve().parent.parent  # Root of the backend folder
+TEXT_DIR = ROOT / "backend" / "text_files"  # Text-only articles
+FILE_SOURCES_DIR = ROOT / "backend" / "file_sources"  # Articles with images
+LOG_PATH = ROOT / "backend" / "database" / "web_sources.csv"
+
 TEXT_DIR.mkdir(parents=True, exist_ok=True)
-IMG_DIR.mkdir(parents=True, exist_ok=True)
+FILE_SOURCES_DIR.mkdir(parents=True, exist_ok=True)
 LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
 
 HEADERS = {"User-Agent": "Mozilla/5.0"}
@@ -48,7 +49,7 @@ def extract_text(url: str):
 
 def save_text(text: str, url: str, has_images: bool) -> Path:
     name = url.split("//")[-1].split("/")[0].replace(".", "_")
-    folder = IMG_DIR if has_images else TEXT_DIR
+    folder = FILE_SOURCES_DIR if has_images else TEXT_DIR
     filename = folder / f"{name}_{int(time.time())}.txt"
     filename.write_text(text, encoding="utf-8")
     return filename
@@ -127,7 +128,7 @@ if __name__ == "__main__":
                 time.sleep(delay)
 
             print(f"\n🔁 Sleeping for 60 seconds before next cycle...\n")
-            time.sleep(60)  # optional cooldown between cycles
+            time.sleep(60)  # cooldown before next cycle
 
     else:
         print("⚠️ Please provide either --query or --topics-file.")
