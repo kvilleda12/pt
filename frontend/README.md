@@ -1,9 +1,10 @@
-### Frontend
+# Frontend
 
 ## Getting Started
 
 - First, install Node.js and Node Package Manager (npm) (yarn works as well).
 - Second, run ```npm install``` to install dependencies.
+    - Use ```cd frontend/``` to move into the root of the frontend folder.
 - Finally, use either of the following commands to run the local development server [deployed on [http://localhost:3000](http://localhost:3000)]:
 
 ```bash
@@ -11,12 +12,6 @@ npm run dev
 # or
 pnpm run dev
 ```
-
-## Tech Stack
-Next.js is used along with React to create a Single Page Application. 
-
-To learn more about Next.js, take a look at the following resources:
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 
 ## How It Works
 
@@ -48,7 +43,7 @@ frontend/
 - **Tailwind CSS:** Utility-first CSS framework for rapid UI development (if enabled in your project).
 - **Custom Animations:** Keyframes and gradients are used for interactive and animated UI elements.
 
-## Contributing
+## How to Contribute
 
 1. Clone this repository.
 2. Create a new branch: `git checkout -b feature/your-feature-name`
