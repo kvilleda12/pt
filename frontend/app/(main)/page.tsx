@@ -12,8 +12,6 @@ export default function Home() {
   };
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
 
   return (
     <div className={styles.page}>
@@ -36,13 +34,13 @@ export default function Home() {
         <button className={styles.buttonPrimary}>
           <Link href="/start">Start</Link>
         </button>
-
-        <div className="absolute top-[5px] left-[5px]" ></div>
-        <SignInButton onClick={openModal} />
+        <div className="absolute top-[5px] left-[5px]" >
+          <SignInButton onClick={() => setIsModalOpen(true)} />
+        </div>
       </main>
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4">
-          <SignUpForm onClose={closeModal} />
+          <SignUpForm onClose={() => setIsModalOpen(false)} />
         </div>
       )}
     </div>
