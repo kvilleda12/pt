@@ -23,8 +23,12 @@ import pandas as pd
 # half of legs, lower half 
 #  neck, hands, back, Chest 
 
+#port 5432
 
-db = create_engine("postgresql://postgres:Joshua2014@localhost/pt_db")
+
+
+
+db = create_engine("postgresql://postgres:Joshua2014@localhost/pt_db", connect_args= {"options": '-c search_path=training_sources,frontend_data,public'},)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=db)
 Base = declarative_base()
 
@@ -84,9 +88,9 @@ class Image(Base):
     date_added:Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow) #current time
     size:Mapped[int] = mapped_column(Integer)
     file_name:Mapped[str] = mapped_column(String)
-    textbook_id:Mapped[int] = mapped_column(Integer, ForeignKey('textbook_sources.textbook_id'), nullable=True) #points to the textbook_id
+    textbook_id:Mapped[int] = mapped_column(Integer, ForeignKey('training_sources.textbook_sources.textbook_id'), nullable=True) #points to the textbook_id
     textbook:Mapped['Textbook'] = relationship("Textbook", back_populates='images') #has access to the object
-    paper_id:Mapped[int] = mapped_column(Integer, ForeignKey('research_paper_sources.id'), nullable=True) #points to paper
+    paper_id:Mapped[int] = mapped_column(Integer, ForeignKey('training_sources.research_paper_sources.id'), nullable=True) #points to paper
     paper:Mapped['Research_paper'] = relationship("Research_paper", back_populates='images') #has access to paper
     page:Mapped[int] = mapped_column(Integer)
     has_context: Mapped[bool] = mapped_column(Boolean, default=True)
@@ -104,7 +108,7 @@ class user_login(Base):
     username:Mapped[str] = mapped_column(String, unique = True )
     password:Mapped[str] = mapped_column(String, nullable = False)
     name:Mapped[str] = mapped_column(String)
-    emai:Mapped[str] = mapped_column(String, unique = True, nullable = False)
+    email:Mapped[str] = mapped_column(String, unique = True, nullable = False)
 
 
 
