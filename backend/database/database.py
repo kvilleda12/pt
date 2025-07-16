@@ -25,12 +25,13 @@ import pandas as pd
 
 
 db = create_engine("postgresql://postgres:Joshua2014@localhost/pt_db")
-session = sessionmaker(bind=db)
-SessionLocal = session
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=db)
 Base = declarative_base()
 
 class BP(Base):
+
     __tablename__ = "part"
+    __table_args__ = {'schema': 'your_schema_name'}
     id:Mapped[int] = mapped_column(Integer, primary_key=True)  # 1 for upper half, 2 for lower half
     upper_count:Mapped[int] = mapped_column(Integer) 
     lower_count:Mapped[int] = mapped_column(Integer)
@@ -40,6 +41,7 @@ class BP(Base):
 
 class Body(Base):
     __tablename__ = "body_part_counts"
+    __table_args__ = {'schema': 'your_schema_name'}
     labels = ('n', 'f', 'h', 'a', 'l', 's', 'c', 'b', 'e') #only these labels can be assigned. n for neck, f for feet, h for head, a for arms, l for legs, s for shoudlers, c for chest, b for back, m for multi (no specfiication in the title)
     id:Mapped[str]= mapped_column(Enum(*labels, name='body_id_enum'), primary_key=True) 
     counts:Mapped[int] = mapped_column(Integer)
@@ -49,6 +51,7 @@ class Body(Base):
 
 class Textbook(Base):
     __tablename__ = "textbook_sources"
+    __table_args__ = {'schema': 'your_schema_name'}
     textbook_id:Mapped[int]= mapped_column(Integer, primary_key=True, index=True, unique=True) #make sure constraints are true
     textbook_name:Mapped[str] = mapped_column(String)
     author:Mapped[str] = mapped_column(String)
@@ -64,6 +67,7 @@ class Textbook(Base):
     
 class Research_paper(Base):
     __tablename__ = "research_paper_sources"
+    __table_args__ = {'schema': 'your_schema_name'}
     id:Mapped[int] = mapped_column(Integer, primary_key=True, index=True, unique=True)
     paper_name:Mapped[str] = mapped_column(String)
     size:Mapped[int] = mapped_column(Integer)
@@ -78,6 +82,7 @@ class Research_paper(Base):
 
 class Image(Base):
     __tablename__ = "image_sources"
+    __table_args__ = {'schema': 'your_schema_name'}
     id:Mapped[int] = mapped_column(Integer, primary_key=True, index=True, unique=True)
     date_added:Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow) #current time
     size:Mapped[int] = mapped_column(Integer)
@@ -89,6 +94,8 @@ class Image(Base):
     page:Mapped[int] = mapped_column(Integer)
     has_context: Mapped[bool] = mapped_column(Boolean, default=True)
 
+
+#creating for user_authetication
 
 #textbook count in body. Summarizes the resources for each given label so we can know which parts we need to get more sources for
 async def update_single_body_count(session, body_id: str):
@@ -117,14 +124,7 @@ async def update_bp_count(session, bp_id: int):
                 lower_count=b_count if bp_id == 2 else 0)
     )
 
-#what I need to do now. As i iterate trhough the text if i see an image I want to take the image 
-    #and the context around it saving it in its own file. Our model will also be trained on these 
-    #images so it can understand what it sees. 
 
-
-
-
-#to run
 def main() -> None:
     Base.metadata.create_all(db)
 
