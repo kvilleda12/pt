@@ -1,7 +1,7 @@
 import sqlalchemy
 from sqlalchemy import create_engine, ForeignKey, inspect, Integer, CheckConstraint, String, UniqueConstraint, Boolean
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import DateTime, select, func, update, Enum
+from sqlalchemy import DateTime, select, func, update, Enum, BigInteger
 from sqlalchemy.orm import relationship, Mapped, mapped_column, Session, sessionmaker
 from datetime import datetime
 import pandas as pd
@@ -23,27 +23,32 @@ import pandas as pd
 # half of legs, lower half 
 #  neck, hands, back, Chest 
 
+#port 5432
 
-db = create_engine("postgresql://postgres:Joshua2014@localhost/pt_db")
-session = sessionmaker(bind=db)
-SessionLocal = session
+
+
+
+db = create_engine("postgresql://postgres:Joshua2014@localhost/pt_db", connect_args= {"options": '-c search_path=training_sources,frontend_data,public'},)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=db)
 Base = declarative_base()
 
 class BP(Base):
+
     __tablename__ = "part"
     id:Mapped[int] = mapped_column(Integer, primary_key=True)  # 1 for upper half, 2 for lower half
     upper_count:Mapped[int] = mapped_column(Integer) 
     lower_count:Mapped[int] = mapped_column(Integer)
     __table_args__ = (
-        CheckConstraint('id IN ( 1, 2, 3)', name='check_valid_bp_id'), #makes sure only 1 and 2 are the valuable 
+        CheckConstraint('id IN ( 1, 2, 3)', name='check_valid_bp_id'), {'schema': 'training_sources'}#makes sure only 1 and 2 are the valuable 
     )
 
 class Body(Base):
     __tablename__ = "body_part_counts"
+    __table_args__ = {'schema': 'training_sources'}
     labels = ('n', 'f', 'h', 'a', 'l', 's', 'c', 'b', 'e') #only these labels can be assigned. n for neck, f for feet, h for head, a for arms, l for legs, s for shoudlers, c for chest, b for back, m for multi (no specfiication in the title)
     id:Mapped[str]= mapped_column(Enum(*labels, name='body_id_enum'), primary_key=True) 
     counts:Mapped[int] = mapped_column(Integer)
-    where:Mapped[int] = mapped_column(Integer, ForeignKey("part.id"))
+    where:Mapped[int] = mapped_column(Integer, ForeignKey("training_sources.part.id"))
     textbooks:Mapped[list['Textbook']] = relationship("Textbook", back_populates="part") #can have multiple textbooks
     research_papers:Mapped[list['Research_paper']] = relationship("Research_paper", back_populates='part') #can have miltiple research papers
 
@@ -55,11 +60,11 @@ class Textbook(Base):
     size:Mapped[int] = mapped_column(Integer)
     date_added:Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
     where:Mapped[str] = mapped_column(String)
-    part_id:Mapped[str] = mapped_column(Enum(*Body.labels, name='body_id_enum'), ForeignKey('body_part_counts.id')) #points to the id in body parts
+    part_id:Mapped[str] = mapped_column(Enum(*Body.labels, name='body_id_enum'), ForeignKey('training_sources.body_part_counts.id')) #points to the id in body parts
     part:Mapped['Body'] = relationship("Body", back_populates="textbooks") #can acess the body
     images:Mapped[list['Image']] = relationship('Image', back_populates='textbook') #textbooks can have many images
     __table_args__ = (
-        UniqueConstraint('textbook_name', 'author', name='uq_textbook_author'),
+        UniqueConstraint('textbook_name', 'author', name='uq_textbook_author'), {'schema': 'training_sources'}
     )
     
 class Research_paper(Base):
@@ -69,25 +74,43 @@ class Research_paper(Base):
     size:Mapped[int] = mapped_column(Integer)
     date:Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
     where:Mapped[str] = mapped_column(String)
-    part_id:Mapped[str] = mapped_column(Enum(*Body.labels, name='body_id_enum'), ForeignKey("body_part_counts.id")) #point to body parts id
+    part_id:Mapped[str] = mapped_column(Enum(*Body.labels, name='body_id_enum'), ForeignKey("training_sources.body_part_counts.id")) #point to body parts id
     part:Mapped['Body'] = relationship("Body", back_populates="research_papers") #can acess Body
     images:Mapped[list['Image']] = relationship('Image', back_populates='paper') #can have multiple images
     __table_args__ = (
-        UniqueConstraint('paper_name', name='uq_textbook'),
+        UniqueConstraint('paper_name', name='uq_textbook'), {'schema': 'training_sources'}
     )
 
 class Image(Base):
     __tablename__ = "image_sources"
+    __table_args__ = {'schema': 'training_sources'}
     id:Mapped[int] = mapped_column(Integer, primary_key=True, index=True, unique=True)
     date_added:Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow) #current time
     size:Mapped[int] = mapped_column(Integer)
     file_name:Mapped[str] = mapped_column(String)
-    textbook_id:Mapped[int] = mapped_column(Integer, ForeignKey('textbook_sources.textbook_id'), nullable=True) #points to the textbook_id
+    textbook_id:Mapped[int] = mapped_column(Integer, ForeignKey('training_sources.textbook_sources.textbook_id'), nullable=True) #points to the textbook_id
     textbook:Mapped['Textbook'] = relationship("Textbook", back_populates='images') #has access to the object
-    paper_id:Mapped[int] = mapped_column(Integer, ForeignKey('research_paper_sources.id'), nullable=True) #points to paper
+    paper_id:Mapped[int] = mapped_column(Integer, ForeignKey('training_sources.research_paper_sources.id'), nullable=True) #points to paper
     paper:Mapped['Research_paper'] = relationship("Research_paper", back_populates='images') #has access to paper
     page:Mapped[int] = mapped_column(Integer)
     has_context: Mapped[bool] = mapped_column(Boolean, default=True)
+
+#this is where the front end schema starts 
+#its called frontend_data
+#creating for user_authetication
+
+class user_login(Base): 
+    __tablename__ = "user_info"
+    __table_args__ = (
+        UniqueConstraint('username', 'email'), {'schema': 'frontend_data'}
+    )
+    id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
+    username:Mapped[str] = mapped_column(String, unique = True )
+    password:Mapped[str] = mapped_column(String, nullable = False)
+    name:Mapped[str] = mapped_column(String)
+    email:Mapped[str] = mapped_column(String, unique = True, nullable = False)
+
+
 
 
 #textbook count in body. Summarizes the resources for each given label so we can know which parts we need to get more sources for
@@ -117,14 +140,7 @@ async def update_bp_count(session, bp_id: int):
                 lower_count=b_count if bp_id == 2 else 0)
     )
 
-#what I need to do now. As i iterate trhough the text if i see an image I want to take the image 
-    #and the context around it saving it in its own file. Our model will also be trained on these 
-    #images so it can understand what it sees. 
 
-
-
-
-#to run
 def main() -> None:
     Base.metadata.create_all(db)
 
