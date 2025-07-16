@@ -1,0 +1,229 @@
+.page {
+  --button-primary-hover: #661919;
+  --button-secondary-hover: #661919;
+  background: #0d9488;
+
+  display: grid;
+  grid-template-rows: 20px 80px 50px 20px;
+  align-items: center;
+  justify-items: center;
+  min-height: 100svh;
+  padding: 80px;
+  gap: 64px;
+  font-family: var(--font-geist-sans);
+
+  position:relative;
+
+}
+
+.title {
+  font-size: 5rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #ffffff;
+  text-align: center;
+  font-family: var(--font-geist-sans);
+  letter-spacing: -0.02em;
+}
+
+.subheading {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #ffffff;
+  text-align: center;
+  font-family: var(--font-geist-sans);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 32px;
+}
+
+.main code {
+  font-family: inherit;
+  background: #661919;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.buttonPrimary {
+  position: relative;
+  background: var(--foreground);
+  color: var(--background);
+  border-radius: 35px;
+  height: 70px;
+  min-width: 175px;
+  width: auto;
+  padding: 0 20px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 21px;
+  line-height: 20px;
+  font-weight: 500;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.buttonPrimary::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 130px;
+  padding: 2px;
+  background: linear-gradient(120deg, #00ffe7, #fff700, #00ffe7, #fff700, #00ffe7);
+  background-size: 200% 200%;
+  filter: blur(2px) brightness(1.5);
+  opacity: 0;
+  transition: opacity 0.2s;
+  z-index: 0;
+  animation: electric-border 1.2s linear infinite;
+  pointer-events: none;
+}
+
+.buttonPrimary:hover::before {
+  opacity: 1;
+}
+
+.buttonPrimary > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes electric-border {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.aboutPage {
+  display: grid;
+  grid-template-rows: 0px 1fr;
+  align-items: center;
+  justify-items: center;
+  padding: 60px;
+  gap: 80px;
+}
+
+.aboutDescription {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 16px;
+}
+
+.founderProfile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.founderName {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.sectionHeader {
+  font-size: 2.5em;
+  font-weight: 600;
+  color: #ffffff;
+  margin-top: 32px;
+}
+
+.founderImage {
+  border-radius: 70%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+a.primary {
+  background: var(--foreground);
+  color: var(--background);
+  gap: 8px;
+}
+
+a.secondary {
+  border-color: var(--gray-alpha-200);
+  min-width: 158px;
+}
+
+.footer {
+  grid-row-start: 3;
+  display: flex;
+  gap: 24px;
+}
+
+.footer img {
+  flex-shrink: 0;
+}
+
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+  a.primary:hover {
+    background: var(--button-primary-hover);
+    border-color: transparent;
+  }
+
+  a.secondary:hover {
+    background: var(--button-secondary-hover);
+    border-color: transparent;
+  }
+
+  .footer a:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 32px;
+    padding-bottom: 80px;
+  }
+
+  .main {
+    align-items: center;
+  }
+
+  .main ol {
+    text-align: center;
+  }
+
+  .ctas {
+    flex-direction: column;
+  }
+
+  .ctas a {
+    font-size: 14px;
+    height: 40px;
+    padding: 0 16px;
+  }
+
+  a.secondary {
+    min-width: auto;
+  }
+
+  .footer {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .logo {
+    filter: invert();
+  }
+}
