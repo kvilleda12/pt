@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+### Frontend
 
 ## Getting Started
 
-First, run the development server:
+- First, install Node.js and Node Package Manager (npm) (yarn works as well).
+- Second, run ```npm install``` to install dependencies.
+- Finally, use either of the following commands to run the local development server [deployed on [http://localhost:3000](http://localhost:3000)]:
 
 ```bash
 npm run dev
 # or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
+## Tech Stack
+Next.js is used along with React to create a Single Page Application. 
 
 To learn more about Next.js, take a look at the following resources:
-
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## How It Works
 
-## Deploy on Vercel
+This frontend is built with [Next.js](https://nextjs.org/) and [React](https://react.dev/). It uses a component-based architecture for modularity and maintainability. The main features include:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Dynamic Routing:** Pages are organized in the `/app` directory, following Next.js conventions.
+- **Reusable Components:** UI elements such as the navbar, footer, and custom features are located in `/app/ui-components`.
+- **State Management:** React hooks (`useState`, `useEffect`, etc.) are used for local component state.
+- **API Integration:** Data fetching is handled using Next.js server functions or React hooks.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Project Structure
+
+```
+frontend/
+├── app/
+│   ├── ui-components/    # Reusable React components
+│   ├── layout.tsx        # Layout for the entire application
+│   ├── page.tsx          # Main entry page
+│   └── ...
+├── public/               # Static assets (images, icons, etc.)
+├── README.md
+├── package.json
+└── ... Other dependencies ...
+```
+
+## Styling
+
+- **CSS Modules:** Local component styles are defined in `.module.css` files.
+- **Tailwind CSS:** Utility-first CSS framework for rapid UI development (if enabled in your project).
+- **Custom Animations:** Keyframes and gradients are used for interactive and animated UI elements.
+
+## Contributing
+
+1. Clone this repository.
+2. Create a new branch: `git checkout -b feature/your-feature-name`
+3. Make your changes and commit: `git commit -m "Add your message"`
+4. Push to your branch: `git push origin feature/your-feature-name`
+5. Open a pull request.
+
+
