@@ -19,3 +19,52 @@
 .navItem:hover {
     color: #10b981;
 }
+
+.suspenseMessage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    animation: fadeIn 0.8s ease, pulse 1.5s infinite alternate;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, -60%) scale(0.95);}
+    to   { opacity: 1; transform: translate(-50%, -50%) scale(1);}
+}
+
+@keyframes pulse {
+    from { text-shadow: 0 0 8px #10b981, 0 0 2px #fff; }
+    to   { text-shadow: 0 0 20px #10b981, 0 0 8px #fff; }
+}
+
+.shinyText {
+    color: #d0d0d0da;
+  background: linear-gradient(
+    120deg,
+    rgba(20, 201, 153, 0) 40%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  display: inline-block;
+  animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: -100%;
+  }
+}
+
+.shinyText.disabled {
+  animation: none;
+}
