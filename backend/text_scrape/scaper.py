@@ -193,6 +193,7 @@ def extract_all_captions(ocr_dict, word_limit=50): #keep word limit. Can be edit
             })
     return captions
 
+#matches caption to iamge based on the text around the image. 
 def match_caption_to_region(captions, region):
     if not captions:
         return "No caption found"
@@ -221,7 +222,7 @@ def match_caption_to_region(captions, region):
 
     return best_match if best_match else "No caption found"
 
-
+#saves the image
 def save_image(processed_img, bbox, out_dir, img_id, seen_hashes):
     x, y, w, h = bbox
     crop = processed_img.crop((x, y, x+w, y+h))
@@ -272,7 +273,7 @@ def save_tracker_entry(j_file, img_id, context_text, existing_ids):
         j_file.append({'id': img_id, 'context': entry_context})
 
 
-def process_pdf_file(file, text_pointer, image_pointer, existing_ids, seen_hashes, img_counter, j_file, context_overlap=True, page_limit = None):
+def process_pdf_file(file, text_pointer, image_pointer, existing_ids, seen_hashes, img_counter, j_file, context_overlap=True):
     doc = fitz.open(file)
     base = os.path.splitext(os.path.basename(file))[0]
     txt_path = os.path.join(text_pointer, base + ".txt")
@@ -327,34 +328,21 @@ def extract_text_images_from_pdfs(files, into='text_files', other='image_storage
     open(counter_pointer, 'w').write(str(img_counter))
     print(f"Saved text to '{into}', images to '{other}', and context JSON to '{json_path}'.")
 
-def test_first_20_pages_from_file_sources():
-    """
-    Sets up a clean test environment and runs the full extraction and
-    captioning process on the first 20 pages of each PDF found in
-    the file_sources directory.
-    """
+
+def get_all_info_from_source():
     from pathlib import Path
     import shutil
-
-    print("--- STARTING TEST: Processing first 20 pages of each PDF ---")
-
-
     base = os.path.dirname(__file__)
     src_dir = os.path.abspath(os.path.join(base, '..', 'file_sources'))
-    txt_out_dir = os.path.abspath(os.path.join(base, '..', 'test_text'))
-    img_out_dir = os.path.abspath(os.path.join(base, '..', 'test_images'))
-    tracker_json_path = os.path.abspath(os.path.join(base, '..', 'test_tracker.json'))
+    txt_out_dir = os.path.abspath(os.path.join(base, '..', 'text_files'))
+    img_out_dir = os.path.abspath(os.path.join(base, '..', 'image_storage'))
+    tracker_json_path = os.path.abspath(os.path.join(base, '..', 'tracker.json'))
 
 
     shutil.rmtree(txt_out_dir, ignore_errors=True)
     shutil.rmtree(img_out_dir, ignore_errors=True)
     if os.path.exists(tracker_json_path):
         os.remove(tracker_json_path)
-
-
-    os.makedirs(txt_out_dir, exist_ok=True)
-    os.makedirs(img_out_dir, exist_ok=True)
-
 
     j_file_data = []
     existing_ids = set()
@@ -363,11 +351,11 @@ def test_first_20_pages_from_file_sources():
 
     pdf_files = list(Path(src_dir).glob('*.pdf'))
     if not pdf_files:
-        print("No PDF files found in 'file_sources' directory. Test cannot run.")
+        print("No PDF files found in 'file_sources' directory.")
         return
 
     for pdf_path in pdf_files:
-        print(f"\n>>> Processing test file: {pdf_path.name}")
+        print(f"\n>>> Processing file: {pdf_path.name}")
         img_counter = process_pdf_file(
             file=str(pdf_path),
             text_pointer=txt_out_dir,
@@ -375,23 +363,24 @@ def test_first_20_pages_from_file_sources():
             existing_ids=existing_ids,
             seen_hashes=seen_hashes,
             img_counter=img_counter,
-            j_file=j_file_data,
-            page_limit=20  
+            j_file=j_file_data 
         )
 
     with open(tracker_json_path, 'w', encoding='utf-8') as f:
         json.dump(j_file_data, f, indent=4)
 
-    print("\n--- TEST COMPLETE ---")
+    print("\n-Results")
     print(f"Total images extracted: {len(j_file_data)}")
-    print(f"Test text files saved to: '{txt_out_dir}'")
+    print(f"Text files saved to: '{txt_out_dir}', number extracted: {len(txt_out_dir)}")
     print(f"Test images saved to: '{img_out_dir}'")
-    print(f"Test tracker JSON saved to: '{tracker_json_path}'")
+    print(f"JSON captions saved to: '{tracker_json_path}'")
+
+    
 def main():
     files = get_paths()
-    #extract_file_info_for_db(files)
-    #extract_text_images_from_pdfs(files, into = 'text_files', other = 'image_storage', json_path = 'tracker.json', c = 'counter.txt', context_overlap = True )
-    test_first_20_pages_from_file_sources()
+    extract_file_info_for_db(files)
+    extract_text_images_from_pdfs(files, into = 'text_files', other = 'image_storage', json_path = 'tracker.json', c = 'counter.txt', context_overlap = True )
+    get_all_info_from_source()
 
 if __name__ == "__main__":
     main()
