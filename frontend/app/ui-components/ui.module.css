@@ -1,25 +1,3 @@
-.navbar {
-    display: flex;
-    justify-content: center;
-    transition: background-color 0.5s ease, color 0.3s ease;
-}
-
-.navbar:hover {
-    background-color: #0c7e75
-}
-
-.navItem {
-    display: inline-block;
-    padding: 14px 55px;
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.navItem:hover {
-    color: #10b981;
-}
-
 .suspenseMessage {
     position: absolute;
     top: 50%;
@@ -67,4 +45,28 @@
 
 .shinyText.disabled {
   animation: none;
+}
+
+.orbContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.orbContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%; /* optional, adjust as needed */
+  height: 100%; /* optional, adjust as needed */
+}
+
+.orbContent > * {
+  pointer-events: auto; /* allow button to be clickable */
 }

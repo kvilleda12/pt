@@ -1,10 +1,10 @@
 .page {
   --button-primary-hover: #661919;
   --button-secondary-hover: #661919;
-  background: #0d9488;
+  background: var(--background);
 
   display: grid;
-  grid-template-rows: 20px 80px 50px 20px;
+  grid-template-rows: 20px 30px 250px;
   align-items: center;
   justify-items: center;
   min-height: 100svh;
@@ -12,7 +12,7 @@
   gap: 64px;
   font-family: var(--font-geist-sans);
 
-  position:relative;
+  position: relative;
 
 }
 
@@ -20,7 +20,7 @@
   font-size: 5rem;
   font-weight: 400;
   line-height: 1.2;
-  color: #ffffff;
+  color: var(--foreground);
   text-align: center;
   font-family: var(--font-geist-sans);
   letter-spacing: -0.02em;
@@ -29,8 +29,7 @@
 .subheading {
   font-size: 1.5rem;
   font-weight: 400;
-  line-height: 1.2;
-  color: #ffffff;
+  color: var(--foreground);
   text-align: center;
   font-family: var(--font-geist-sans);
 }
@@ -39,23 +38,16 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 32px;
-}
-
-.main code {
-  font-family: inherit;
-  background: #661919;
-  padding: 2px 4px;
-  border-radius: 4px;
-  font-weight: 600;
+  margin-top: 150px;
 }
 
 .buttonPrimary {
   position: relative;
-  background: var(--foreground);
-  color: var(--background);
-  border-radius: 35px;
-  height: 70px;
-  min-width: 175px;
+  background: transparent;
+  color: var(--foreground);
+  border-radius: 100px;
+  height: 220px;
+  min-width: 220px;
   width: auto;
   padding: 0 20px;
   border: none;
@@ -63,42 +55,37 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 21px;
+  font-size: 28px;
   line-height: 20px;
-  font-weight: 500;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   overflow: hidden;
-  z-index: 1;
 }
 
-.buttonPrimary::before {
-  content: "";
-  position: absolute;
-  inset: -3px;
-  border-radius: 130px;
-  padding: 2px;
-  background: linear-gradient(120deg, #00ffe7, #fff700, #00ffe7, #fff700, #00ffe7);
-  background-size: 200% 200%;
-  filter: blur(2px) brightness(1.5);
-  opacity: 0;
-  transition: opacity 0.2s;
-  z-index: 0;
-  animation: electric-border 1.2s linear infinite;
-  pointer-events: none;
+.buttonPrimary span {
+  color: white;
+  text-shadow:
+    0 0 8px #a200ff,
+    0 0 2px #ff60ca,
+    1px 1px 2px #000,
+    -1px -1px 2px #000,
+    1px -1px 2px #000,
+    -1px 1px 2px #000;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #f2cbff, #a200ff, #ff60ca);
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: shine 2s linear infinite;
 }
 
-.buttonPrimary:hover::before {
-  opacity: 1;
-}
-
-.buttonPrimary > * {
-  position: relative;
-  z-index: 1;
-}
-
-@keyframes electric-border {
+@keyframes shine {
   0% {
     background-position: 0% 50%;
   }
+
   100% {
     background-position: 200% 50%;
   }
