@@ -2,6 +2,7 @@
 import Link from "next/link";
 import styles from "./page.module.css";
 import SplitText from "@/app/ui-components/reactbits/SplitText.js";
+import Orb from "@/app/ui-components/reactbits/Orb.js";
 import SignInButton from '../ui-components/SignInButton';
 import SignUpForm from '../ui-components/SignUpForm';
 import React, { useState } from 'react';
@@ -31,9 +32,28 @@ export default function Home() {
       />
       <h4 className={styles.subheading}>Your intelligent physical therapy assistant</h4>
       <main className={styles.main}>
-        <button className={styles.buttonPrimary}>
-          <Link href="/start">Start</Link>
-        </button>
+        <div
+          style={{
+            width: '100%',
+            height: '600px',
+            position: 'relative',
+            marginTop: '220px',     
+            display: 'flex',
+            alignItems: 'flex-start',
+            justifyContent: 'center', 
+          }}
+        >
+          <Orb
+            hoverIntensity={.7}
+            rotateOnHover={true}
+            hue={310}
+            forceHoverState={false}
+          >
+            <button className={styles.buttonPrimary}>
+              <Link href="/start"><span>START</span></Link>
+            </button>
+          </Orb>
+        </div>
         <div className="absolute top-[5px] left-[5px]" >
           <SignInButton onClick={() => setIsModalOpen(true)} />
         </div>

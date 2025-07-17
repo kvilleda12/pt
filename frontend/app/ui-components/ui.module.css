@@ -46,3 +46,27 @@
 .shinyText.disabled {
   animation: none;
 }
+
+.orbContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.orbContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%; /* optional, adjust as needed */
+  height: 100%; /* optional, adjust as needed */
+  pointer-events: none; /* if you want the orb to get mouse events, remove if you want button clickable */
+}
+
+.orbContent > * {
+  pointer-events: auto; /* allow button to be clickable */
+}
