@@ -37,7 +37,6 @@ export default function Home() {
             width: '100%',
             height: '600px',
             position: 'relative',
-            marginTop: '220px',     
             display: 'flex',
             alignItems: 'flex-start',
             justifyContent: 'center', 
