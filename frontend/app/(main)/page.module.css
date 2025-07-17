@@ -13,7 +13,6 @@
   font-family: var(--font-geist-sans);
 
   position: relative;
-
 }
 
 .title {
@@ -108,20 +107,36 @@
   margin-top: 16px;
 }
 
-
 .aboutImage {
-  display: flex; /* Aligns iamge/text
-  align-items: center; /* centers */
-  gap: 2rem; /* gap between both */
-  margin-bottom: 1rem; 
+  display: flex;
+  gap: 16px;
+  margin-bottom: 1rem;
+  justify-content: center;
+}
+
+.aboutImage img {
+  border-radius: 18px;         /* Rounded corners, or use 50% for a circle */
+  box-shadow: 0 8px 32px rgba(162, 0, 255, 0.18), 0 2px 8px rgba(0,0,0,0.12);
+  max-width: 440px;           /* Responsive size */
+  width: 100%;
+  height: auto;
+  border: 1.5px solid #9e27ff;  /* Optional: neon border for pop */
+  object-fit: cover;
+  background: #1a0033;        /* Fallback bg color */
+  transition: box-shadow 0.3s;
+}
+
+.aboutImage img:hover {
+  box-shadow: 0 12px 48px #8260ff88, 0 2px 8px rgba(0,0,0,0.18);
+  border-color: #652dff;
 }
 
 .aboutCompanyDescription { 
-  font-size : 1.9rem; 
-  line-height: 1.6;
+  font-size : 1.5rem; 
+  line-height: 1.4;
   color: #ffffff;
   text-align: center;
-  margin-top: 10px
+  margin-top: 120px
   
 }
 /*founder stuff */
@@ -153,19 +168,25 @@
   }
 }
 .profileMiddle {
-  animation-delay: 0.2s; 
+  animation-delay: 0.3s; 
 }
 .profileLeft {
-  animation-delay: 0.5s; 
+  animation-delay: 0.6s; 
 }
 .profileRight {
-  animation-delay: 0.8s; 
+  animation-delay: 0.9s; 
 }
 .founderName {
   font-size: 1.6rem;
   font-weight: 600;
   color: #ffffff;
   font-weight: bold;  
+}
+
+.founderTitle {
+  color: #ffffff;
+  font-style: italic;
+  margin-bottom: 18px;
 }
 
 .sectionHeader {
@@ -188,6 +209,14 @@
   gap: 10rem; 
   flex-wrap: wrap; 
   align-items: center;
+  align-items: flex-start;
+}
+
+.founderDescription {
+  font-size: 1.2rem;
+  color: #ffffff;
+  max-width: 330px; 
+  line-height: 1.5;
 }
 
 a.primary {
