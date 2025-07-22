@@ -27,7 +27,6 @@ import os
 
 #port 5432
 
-#postgresql://postgres:[Tk*JNYgyX3a#W*D]@db.knbfpziwhvtbbmjlpbmq.supabase.co:5432/postgres
 
 
 load_dotenv()
