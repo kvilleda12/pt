@@ -1,11 +1,12 @@
+
 'use client';
 import Link from "next/link";
 import styles from "./page.module.css";
 import SplitText from "@/app/ui-components/reactbits/SplitText.js";
 import Orb from "@/app/ui-components/reactbits/Orb.js";
-import SignInButton from '../ui-components/SignInButton';
-import SignUpForm from '../ui-components/SignUpForm';
+
 import React, { useState } from 'react';
+import Auth from '../ui-components/Auth';
 
 export default function Home() {
   const handleAnimationComplete = () => {
@@ -48,19 +49,15 @@ export default function Home() {
             hue={310}
             forceHoverState={false}
           >
-            <button className={styles.buttonPrimary}>
-              <Link href="/start"><span>START</span></Link>
+            <button onClick = {() => setIsModalOpen(true)} 
+            className={styles.buttonPrimary}>
+               <span>START</span>
             </button>
           </Orb>
         </div>
-        <div className="absolute top-[5px] left-[5px]" >
-          <SignInButton onClick={() => setIsModalOpen(true)} />
-        </div>
       </main>
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4">
-          <SignUpForm onClose={() => setIsModalOpen(false)} />
-        </div>
+        <Auth onClose={() => setIsModalOpen(false)} />
       )}
     </div>
   );

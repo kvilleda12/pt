@@ -5,6 +5,8 @@ from sqlalchemy import DateTime, select, func, update, Enum, BigInteger
 from sqlalchemy.orm import relationship, Mapped, mapped_column, Session, sessionmaker
 from datetime import datetime
 import pandas as pd
+from dotenv import load_dotenv
+import os
 
 #in the table for any new row increase the textbook_id by one. insert a string which links to the pdf name
 #I want the size of teh converted file into txt. So we take the file size of the txt
@@ -25,10 +27,17 @@ import pandas as pd
 
 #port 5432
 
+#postgresql://postgres:[Tk*JNYgyX3a#W*D]@db.knbfpziwhvtbbmjlpbmq.supabase.co:5432/postgres
 
 
+load_dotenv()
+DATABASE_URL = os.getenv("DATABASE_URL")
 
-db = create_engine("postgresql://postgres:Joshua2014@localhost/pt_db", connect_args= {"options": '-c search_path=training_sources,frontend_data,public'},)
+if DATABASE_URL is None:
+    raise ValueError("DATABASE_URL environment variable not found. Please create a .env file.")
+
+
+db = create_engine(DATABASE_URL, connect_args= {"options": '-c search_path=training_sources,frontend_data,public'},)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=db)
 Base = declarative_base()
 
@@ -104,11 +113,11 @@ class user_login(Base):
     __table_args__ = (
         UniqueConstraint('username', 'email'), {'schema': 'frontend_data'}
     )
-    id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
-    username:Mapped[str] = mapped_column(String, unique = True )
-    password:Mapped[str] = mapped_column(String, nullable = False)
-    name:Mapped[str] = mapped_column(String)
+    id: Mapped[int] = mapped_column(BigInteger, primary_key=True, index = True)
     email:Mapped[str] = mapped_column(String, unique = True, nullable = False)
+    username:Mapped[str] = mapped_column(String, unique = True, index = False, nullable = False )
+    name:Mapped[str] = mapped_column(String, nullable = False)
+    hashed_password:Mapped[str] = mapped_column(String, nullable = False)
 
 
 
