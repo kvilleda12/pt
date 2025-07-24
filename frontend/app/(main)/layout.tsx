@@ -4,7 +4,7 @@ import GooeyNav from "@/app/ui-components/reactbits/GooeyNav.js";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 
-export default function RootLayout({
+export default function Layout({
   children,
 }: Readonly<{
   children: React.ReactNode;
