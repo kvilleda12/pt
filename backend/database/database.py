@@ -4,7 +4,6 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import DateTime, select, func, update, Enum, BigInteger
 from sqlalchemy.orm import relationship, Mapped, mapped_column, Session, sessionmaker
 from datetime import datetime
-import pandas as pd
 from dotenv import load_dotenv
 import os
 

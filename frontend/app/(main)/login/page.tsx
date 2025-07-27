@@ -2,33 +2,33 @@
 import { signIn } from '@/auth';
 import Link from 'next/link';
 import { useState } from 'react';
-import { redirect } from 'next/navigation';
+// 1. Import useSearchParams to read URL errors
+import { useSearchParams } from 'next/navigation';
 
 export default function LoginPage() {
+    const searchParams = useSearchParams();
+    // 2. Get the error message from the URL
+    const callbackError = searchParams.get('error');
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
+    
+    // 3. This error message will be displayed to the user
+    const error = callbackError === 'CredentialsSignin' 
+        ? 'Invalid email or password. Please try again.'
+        : null;
 
+    // 4. Simplify the submit handler
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setLoading(true);
-        setError(null);
-        try {
-            await signIn('credentials', {
-                email: email,
-                password: password,
-                redirect: true,
-                callbackUrl: '/start'
-            });
-            console.log('redirecting post sign in...')
-            redirect('/start');
-        } catch (err: any) {
-            console.error('Sign in error:', err);
-            setError(err.message || 'Failed to sign in. Please try again.');
-        } finally {
-            setLoading(false);
-        }
+        // Let signIn handle the redirect and errors. No try/catch needed here.
+        await signIn('credentials', {
+            email: email,
+            password: password,
+            callbackUrl: '/start' // Redirect to /start on success
+        });
     };
 
     return (
@@ -101,4 +101,3 @@ export default function LoginPage() {
         </div>
     );
 }
-

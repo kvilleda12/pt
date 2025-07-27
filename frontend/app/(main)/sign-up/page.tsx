@@ -6,6 +6,7 @@ import { redirect } from 'next/navigation';
 
 export default function SignUpPage() {
     const [email, setEmail] = useState('');
+    const [name, setName] = useState('');
     const [password, setPassword] = useState('');
     const [username, setUsername] = useState('');
     const [error, setError] = useState<string | null>(null);
@@ -17,7 +18,7 @@ export default function SignUpPage() {
         setError(null);
 
         try {
-            await handleSignUp(email, password, username);
+            await handleSignUp(email, password, username, name);
             console.log('redirecting post sign up...')
             redirect('/start');
         } catch (err: any) {
@@ -45,6 +46,18 @@ export default function SignUpPage() {
                                 onChange={(e) => setEmail(e.target.value)}
                                 className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200"
                                 placeholder="Enter your email"
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium text-gray-300 mb-2" htmlFor="name">Full Name</label>
+                            <input
+                                type="text"
+                                id="name"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200"
+                                placeholder="Enter your full name"
                                 required
                             />
                         </div>

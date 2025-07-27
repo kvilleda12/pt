@@ -5,7 +5,7 @@ export const handleSignIn = async (email: string, password: string) => {
     const response = await fetch('http://localhost:8000/api/auth/signin', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ email, password, name}),
     });
     const data = await response.json();
     console.log('Sign in response:', data);
@@ -18,12 +18,12 @@ export const handleSignIn = async (email: string, password: string) => {
   }
 };
 
-export const handleSignUp = async (email: string, password: string, username: string) => {
+export const handleSignUp = async (email: string, password: string, username: string, name:string) => {
   try {
     const response = await fetch('http://localhost:8000/api/auth/signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password, username }),
+      body: JSON.stringify({ email, password, username, name}),
     });
     const data = await response.json();
     if (!response.ok) throw new Error(data.detail || 'Failed to create account.');
