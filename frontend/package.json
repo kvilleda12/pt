@@ -11,13 +11,16 @@
   "dependencies": {
     "@react-three/drei": "^10.5.0",
     "@react-three/fiber": "^9.2.0",
+    "bcryptjs": "^3.0.2",
     "gsap": "^3.13.0",
     "next": "15.3.4",
+    "next-auth": "^5.0.0-beta.29",
     "ogl": "^1.0.11",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-intersection-observer": "^9.16.0",
-    "three": "^0.178.0"
+    "three": "^0.178.0",
+    "zod": "^4.0.10"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
