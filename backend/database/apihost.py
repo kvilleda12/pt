@@ -60,7 +60,7 @@ def signup(user: schemas.UserCreate, db: Session = Depends(dependency.get_db)):
     db.commit()
     db.refresh(new_user)
     
-    return {"message": "User created successfully!", "user_id": new_user.id}
+    return { ok: True, "message": "User created successfully!", "user_id": new_user.id }
 
 @app.post("/api/auth/signin")
 def signin(payload: schemas.UserSignIn, db: Session = Depends(dependency.get_db)):
@@ -73,4 +73,13 @@ def signin(payload: schemas.UserSignIn, db: Session = Depends(dependency.get_db)
             detail="Incorrect email or password",
         )
         
-    return {"message": "Sign in successful"}
+    return {
+        ok: True,
+        "message": "Sign in successful"
+        "user": {
+            "id": db_user.id,
+            "email": db_user.email,
+            "name": db_user.name,
+            "username": db_user.username
+        }
+    }

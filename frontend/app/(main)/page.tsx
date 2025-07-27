@@ -1,19 +1,13 @@
-
 'use client';
 import Link from "next/link";
 import styles from "./page.module.css";
 import SplitText from "@/app/ui-components/reactbits/SplitText.js";
 import Orb from "@/app/ui-components/reactbits/Orb.js";
 
-import React, { useState } from 'react';
-import Auth from '../ui-components/Auth';
-
 export default function Home() {
   const handleAnimationComplete = () => {
     console.log('Title animated!');
   };
-
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <div className={styles.page}>
@@ -40,7 +34,7 @@ export default function Home() {
             position: 'relative',
             display: 'flex',
             alignItems: 'flex-start',
-            justifyContent: 'center', 
+            justifyContent: 'center',
           }}
         >
           <Orb
@@ -49,16 +43,12 @@ export default function Home() {
             hue={310}
             forceHoverState={false}
           >
-            <button onClick = {() => setIsModalOpen(true)} 
-            className={styles.buttonPrimary}>
-               <span>START</span>
+            <button className={styles.buttonPrimary}>
+              <Link href="/start"><span>START</span></Link>
             </button>
           </Orb>
         </div>
       </main>
-      {isModalOpen && (
-        <Auth onClose={() => setIsModalOpen(false)} />
-      )}
     </div>
   );
 }

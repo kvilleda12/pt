@@ -6,7 +6,7 @@ import { useInView } from 'react-intersection-observer';
 
 export default function About() {
   //creating animation for the title slide
-  const titleText = "Changing the Way Physical Therapy is done";
+  const titleText = "The Future of Physical Therapy";
   const letters = titleText.split('');
 
   const { ref, inView } = useInView({
@@ -51,7 +51,7 @@ export default function About() {
           <span
             key={index}
             className={styles.animatedLetter}
-            style={{ animationDelay: `${index * 40}ms` }}
+            style={{ animationDelay: `${index * 25}ms` }}
           >
             {char === ' ' ? '\u00A0' : char}
           </span>
