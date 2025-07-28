@@ -21,7 +21,7 @@ export default function Home() {
         threshold={0.1}
         rootMargin="-100px"
         textAlign="center"
-        onLetterAnimationComplete={() => {}}
+        onLetterAnimationComplete={() => { }}
       />
       <h4 className={styles.subheading}>Your intelligent physical therapy assistant</h4>
       <main className={styles.main}>
@@ -41,9 +41,11 @@ export default function Home() {
             hue={310}
             forceHoverState={false}
           >
-            <button className={styles.buttonPrimary}>
-              <Link href="/login"><span>START</span></Link>
-            </button>
+            <Link href="/login">
+              <button className={styles.buttonPrimary}>
+                <span>START</span>
+              </button>
+            </Link>
           </Orb>
         </div>
       </main>

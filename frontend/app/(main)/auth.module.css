@@ -1,0 +1,156 @@
+.authPage {
+    min-height: 80vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    position: relative;
+    gap: 20px;
+}
+
+.authPage::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.03)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    pointer-events: none;
+}
+
+.headingBox {
+    text-align: center;
+    margin-bottom: 3rem;
+    z-index: 1;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 1rem;
+    letter-spacing: -0.025em;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.subtitle {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+.formContainer {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 1.5rem;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    padding: 3rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    width: 100%;
+    max-width: 450px;
+    z-index: 1;
+}
+
+.errorMessage {
+    color: #dc2626;
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+    padding: 0.75rem 1rem;
+    background: rgba(220, 38, 38, 0.1);
+    border-radius: 0.5rem;
+    border: 1px solid rgba(220, 38, 38, 0.2);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1.5rem;
+}
+
+.label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #1f2937;
+}
+
+.inputElem {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    border-radius: 0.75rem;
+    border: 2px solid #e5e7eb;
+    background: #fff;
+    color: #1f2937;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.inputElem::placeholder {
+    color: #9ca3af;
+    font-weight: 400;
+}
+
+.inputElem:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    background: #fff;
+}
+
+.inputElem:hover {
+    border-color: #d1d5db;
+}
+
+.submitButton {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border-radius: 0.75rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.submitButton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.submitButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.submitButton:hover::before {
+    left: 100%;
+}
+
+.submitButton:active {
+    transform: translateY(0);
+}
+
+.submitButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
