@@ -42,7 +42,7 @@ def check_email(payload: schemas.EmailCheck, db: Session = Depends(dependency.ge
 @app.post("/api/auth/signup", status_code=201)
 def signup(user: schemas.UserCreate, db: Session = Depends(dependency.get_db)):
     existing_user = db.query(database.user_login).filter(
-        (database.user_login.email == user_login.email) | (database.user_login.username == user_login.username)
+        (database.user_login.email == user.email) | (database.user_login.username == user.username)
     ).first()
     if existing_user:
         raise HTTPException(status_code=400, detail="Email or Username already registered")
@@ -60,7 +60,7 @@ def signup(user: schemas.UserCreate, db: Session = Depends(dependency.get_db)):
     db.commit()
     db.refresh(new_user)
     
-    return { ok: True, "message": "User created successfully!", "user_id": new_user.id }
+    return { 'ok': True, "message": "User created successfully!", "user_id": new_user.id }
 
 @app.post("/api/auth/signin")
 def signin(payload: schemas.UserSignIn, db: Session = Depends(dependency.get_db)):
@@ -74,8 +74,8 @@ def signin(payload: schemas.UserSignIn, db: Session = Depends(dependency.get_db)
         )
         
     return {
-        ok: True,
-        "message": "Sign in successful",
+        'ok': True,
+        "message": "Sign in successful", 
         "user": {
             "id": db_user.id,
             "email": db_user.email,

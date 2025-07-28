@@ -4,6 +4,8 @@ import styles from "./page.module.css";
 import SplitText from "@/app/ui-components/reactbits/SplitText.js";
 import Orb from "@/app/ui-components/reactbits/Orb.js";
 
+
+
 export default function Home() {
   return (
     <div className={styles.page}>
@@ -40,7 +42,7 @@ export default function Home() {
             forceHoverState={false}
           >
             <button className={styles.buttonPrimary}>
-              <Link href="/start"><span>START</span></Link>
+              <Link href="/login"><span>START</span></Link>
             </button>
           </Orb>
         </div>
