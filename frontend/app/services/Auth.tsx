@@ -34,6 +34,7 @@ export const handleSignUp = async (email: string, password: string, username: st
   }
 };
 
+// consider removing
 export const verifyEmail = async (email: string) => {
   try {
     const response = await fetch('http://localhost:8000/api/auth/check-email', {

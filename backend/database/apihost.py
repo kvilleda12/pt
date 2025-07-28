@@ -75,7 +75,7 @@ def signin(payload: schemas.UserSignIn, db: Session = Depends(dependency.get_db)
         
     return {
         ok: True,
-        "message": "Sign in successful"
+        "message": "Sign in successful",
         "user": {
             "id": db_user.id,
             "email": db_user.email,

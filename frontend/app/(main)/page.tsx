@@ -5,10 +5,6 @@ import SplitText from "@/app/ui-components/reactbits/SplitText.js";
 import Orb from "@/app/ui-components/reactbits/Orb.js";
 
 export default function Home() {
-  const handleAnimationComplete = () => {
-    console.log('Title animated!');
-  };
-
   return (
     <div className={styles.page}>
       <SplitText
@@ -23,7 +19,7 @@ export default function Home() {
         threshold={0.1}
         rootMargin="-100px"
         textAlign="center"
-        onLetterAnimationComplete={handleAnimationComplete}
+        onLetterAnimationComplete={() => {}}
       />
       <h4 className={styles.subheading}>Your intelligent physical therapy assistant</h4>
       <main className={styles.main}>
