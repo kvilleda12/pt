@@ -11,6 +11,7 @@ export const authConfig = {
     authorized({ auth, request: { nextUrl } }) {
       const isLoggedIn = !!auth?.user;
       const isRestricted = restrictedPaths.some(path => nextUrl.pathname.startsWith(path));
+      console.log('authentication middleware. isLogged in', isLoggedIn, 'isRestricted', isRestricted);
       if (isRestricted) {
         if (isLoggedIn) return true;
         return false; // Redirect unauthenticated users to login page

@@ -66,12 +66,18 @@ def signup(user: schemas.UserCreate, db: Session = Depends(dependency.get_db)):
 def signin(payload: schemas.UserSignIn, db: Session = Depends(dependency.get_db)):
     db_user = db.query(database.user_login).filter(database.user_login.email == payload.email).first()
     
-    # Check if user exists/password is real
-    if not db_user or not verify_password(payload.password, db_user.hashed_password):
-        raise HTTPException(
-            status_code=401,
-            detail="Incorrect email or password",
-        )
+    # Check user first to safely access password.
+    if not db_user:
+        return {
+            'ok': False,
+            "message": "Unable to sign in. Please verify your email and password.",
+            }
+    
+    if not verify_password(payload.password, db_user.hashed_password):
+        return {
+            'ok': False,
+            "message": "Unable to sign in. Please verify your email and password.",
+            }
         
     return {
         'ok': True,

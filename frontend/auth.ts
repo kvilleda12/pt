@@ -13,6 +13,7 @@ export const { auth, signIn, signOut } = NextAuth({
                     .object({ email: z.string().email(), password: z.string().min(5) })
                     .safeParse(credentials);
 
+                console.log('auth.ts, authenticating user:', parsedCredentials);
                 if (parsedCredentials.success) {
                     const { email, password } = parsedCredentials.data;
                     try {
