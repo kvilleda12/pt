@@ -2,7 +2,7 @@ import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 import { authConfig } from './auth.config';
 import { z } from 'zod';
-import { handleSignIn } from '@/app/services/Auth';
+import { handleSignIn } from '@/app/services/actions';
 
 export const { auth, signIn, signOut } = NextAuth({
     ...authConfig,

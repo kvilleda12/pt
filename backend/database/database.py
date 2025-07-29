@@ -26,15 +26,11 @@ import os
 
 #port 5432
 
-
-
 load_dotenv()
 DATABASE_URL = os.getenv("DATABASE_URL")
 
 if DATABASE_URL is None:
     raise ValueError("DATABASE_URL environment variable not found. Please create a .env file.")
-
-print(f"Attempting to connect with URL: {DATABASE_URL}")
 
 db = create_engine(DATABASE_URL, connect_args= {"options": '-c search_path=training_sources,frontend_data,public'},)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=db)
