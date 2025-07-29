@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
-from backend.database.database import Base, user_login
+from backend.database.database import Base, User
 from backend.database.dependency import get_db
 from fastapi.middleware.cors import CORSMiddleware
 from backend.database.schemas import UserCreate

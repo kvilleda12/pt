@@ -1,5 +1,5 @@
 import sqlalchemy
-from sqlalchemy import create_engine, ForeignKey, inspect, Integer, CheckConstraint, String, UniqueConstraint, Boolean
+from sqlalchemy import create_engine, ForeignKey, inspect, Integer, CheckConstraint, String, UniqueConstraint, Boolean, Text, Date
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import DateTime, select, func, update, Enum, BigInteger
 from sqlalchemy.orm import relationship, Mapped, mapped_column, Session, sessionmaker
@@ -40,7 +40,6 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=db)
 Base = declarative_base()
 
 class BP(Base):
-
     __tablename__ = "part"
     id:Mapped[int] = mapped_column(Integer, primary_key=True)  # 1 for upper half, 2 for lower half
     upper_count:Mapped[int] = mapped_column(Integer) 
@@ -48,16 +47,22 @@ class BP(Base):
     __table_args__ = (
         CheckConstraint('id IN ( 1, 2, 3)', name='check_valid_bp_id'), {'schema': 'training_sources'}#makes sure only 1 and 2 are the valuable 
     )
+    
+BODY_PART_LABELS = ('n', 'f', 'h', 'a', 'l', 's', 'c', 'b', 'e')
 
 class Body(Base):
     __tablename__ = "body_part_counts"
     __table_args__ = {'schema': 'training_sources'}
     labels = ('n', 'f', 'h', 'a', 'l', 's', 'c', 'b', 'e') #only these labels can be assigned. n for neck, f for feet, h for head, a for arms, l for legs, s for shoudlers, c for chest, b for back, m for multi (no specfiication in the title)
-    id:Mapped[str]= mapped_column(Enum(*labels, name='body_id_enum'), primary_key=True) 
+    id: Mapped[str] = mapped_column(
+        Enum(*BODY_PART_LABELS, name='body_id_enum'), 
+        primary_key=True
+    )
     counts:Mapped[int] = mapped_column(Integer)
-    where:Mapped[int] = mapped_column(Integer, ForeignKey("training_sources.part.id"))
+    source_part_id:Mapped[int] = mapped_column(Integer, ForeignKey("training_sources.part.id"))
     textbooks:Mapped[list['Textbook']] = relationship("Textbook", back_populates="part") #can have multiple textbooks
     research_papers:Mapped[list['Research_paper']] = relationship("Research_paper", back_populates='part') #can have miltiple research papers
+    reports: Mapped[list["ProblemReport"]] = relationship(back_populates="body_part")
 
 class Textbook(Base):
     __tablename__ = "textbook_sources"
@@ -106,20 +111,66 @@ class Image(Base):
 #its called frontend_data
 #creating for user_authetication
 
-class user_login(Base): 
-    __tablename__ = "user_info"
-    __table_args__ = (
-        UniqueConstraint('username', 'email'), {'schema': 'frontend_data'}
+class User(Base):
+    __tablename__ = "users"
+    __table_args__ = ({'schema': 'frontend_data'})
+
+    id: Mapped[int] = mapped_column(BigInteger, primary_key=True)
+
+    email: Mapped[str] = mapped_column(String(255), unique=True, nullable=False, index=True)
+    username: Mapped[str] = mapped_column(String(100), unique=True, nullable=False, index=True)
+    name: Mapped[str] = mapped_column(String(255), nullable=False)
+    hashed_password: Mapped[str] = mapped_column(String(255), nullable=False)
+    date_of_birth: Mapped[datetime] = mapped_column(Date, nullable=True)
+
+    reports: Mapped[list["ProblemReport"]] = relationship(back_populates="user")
+
+    created_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now())
+    updated_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now(), onupdate=func.now())
+
+    #most recent login
+    last_login_at: Mapped[datetime] = mapped_column(DateTime, nullable=True)
+
+    #login history
+    login_history: Mapped[list["LoginHistory"]] = relationship(back_populates="user")
+
+class ProblemReport(Base):
+    __tablename__ = "problem_reports"
+    __table_args__ = ({'schema': 'frontend_data'})
+    id: Mapped[int] = mapped_column(primary_key=True)
+    user_id: Mapped[int] = mapped_column(ForeignKey("frontend_data.users.id"), nullable=False, index=True)
+    user: Mapped["User"] = relationship(back_populates="reports")
+
+    # This column will store the foreign key
+    body_part_id: Mapped[str] = mapped_column(
+        Enum(*BODY_PART_LABELS, name='body_id_enum'),
+        ForeignKey('training_sources.body_part_counts.id'),
+        nullable=False
     )
-    id: Mapped[int] = mapped_column(BigInteger, primary_key=True, index = True)
-    email:Mapped[str] = mapped_column(String, unique = True, nullable = False)
-    username:Mapped[str] = mapped_column(String, unique = True, index = False, nullable = False )
-    name:Mapped[str] = mapped_column(String, nullable = False)
-    hashed_password:Mapped[str] = mapped_column(String, nullable = False)
+    # hisstry for specific problem
+    had_this_problem_before: Mapped[bool] = mapped_column(Boolean, server_default="0", nullable=False)
+    previous_problem_date: Mapped[datetime] = mapped_column(DateTime, nullable=True)
+    what_helped_before: Mapped[str] = mapped_column(Text, nullable=True)
+    
+    # General History
+    had_physical_therapy_before: Mapped[bool] = mapped_column(Boolean, server_default="0", nullable=False)
+    previous_unrelated_problem: Mapped[str] = mapped_column(Text, nullable=True)
 
+class LoginHistory(Base):
+    __tablename__ = "login_history"
+    __table_args__ = ({'schema': 'frontend_data'})
 
+    id: Mapped[int] = mapped_column(BigInteger, primary_key=True)
+    user_id: Mapped[int] = mapped_column(ForeignKey("frontend_data.users.id"), nullable=False, index=True)
+    
+    # timestamp for one login
+    login_timestamp: Mapped[datetime] = mapped_column(DateTime, server_default=func.now())
+    
+    # You could also store other info here, like IP address or device type
+    ip_address: Mapped[str] = mapped_column(String(100), nullable=True)
 
-
+    user: Mapped["User"] = relationship(back_populates="login_history")
+    
 #textbook count in body. Summarizes the resources for each given label so we can know which parts we need to get more sources for
 async def update_single_body_count(session, body_id: str):
     t_count = await session.scalar(
