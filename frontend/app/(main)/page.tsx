@@ -7,10 +7,6 @@ import Orb from "@/app/ui-components/reactbits/Orb.js";
 
 
 export default function Home() {
-  const handleAnimationComplete = () => {
-    console.log('Title animated!');
-  };
-
   return (
     <div className={styles.page}>
       <SplitText
@@ -25,7 +21,7 @@ export default function Home() {
         threshold={0.1}
         rootMargin="-100px"
         textAlign="center"
-        onLetterAnimationComplete={handleAnimationComplete}
+        onLetterAnimationComplete={() => { }}
       />
       <h4 className={styles.subheading}>Your intelligent physical therapy assistant</h4>
       <main className={styles.main}>
@@ -45,9 +41,11 @@ export default function Home() {
             hue={310}
             forceHoverState={false}
           >
-            <button className={styles.buttonPrimary}>
-              <Link href="/login"><span>START</span></Link>
-            </button>
+            <Link href="/login">
+              <button className={styles.buttonPrimary}>
+                <span>START</span>
+              </button>
+            </Link>
           </Orb>
         </div>
       </main>
