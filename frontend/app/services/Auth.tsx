@@ -1,3 +1,4 @@
+'use server';
 
 // Calls API to handle Sign In, returns a user object if successful
 export const handleSignIn = async (email: string, password: string) => {
@@ -5,7 +6,7 @@ export const handleSignIn = async (email: string, password: string) => {
     const response = await fetch('http://localhost:8000/api/auth/signin', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password, name}),
+      body: JSON.stringify({ email, password }),
     });
     const data = await response.json();
     console.log('Sign in response:', data);
