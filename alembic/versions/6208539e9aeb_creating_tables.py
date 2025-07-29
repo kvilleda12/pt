@@ -50,49 +50,7 @@ def upgrade() -> None:
     sa.PrimaryKeyConstraint('id'),
     schema='training_sources'
     )
-    op.create_table('research_paper_sources',
-    sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('paper_name', sa.String(), nullable=False),
-    sa.Column('size', sa.Integer(), nullable=False),
-    sa.Column('date', sa.DateTime(), nullable=False),
-    sa.Column('where', sa.String(), nullable=False),
-    sa.Column('part_id', sa.Enum('n', 'f', 'h', 'a', 'l', 's', 'c', 'b', 'e', name='body_id_enum'), nullable=False),
-    sa.ForeignKeyConstraint(['part_id'], ['training_sources.body_part_counts.id'], ),
-    sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('paper_name', name='uq_textbook'),
-    schema='training_sources'
-    )
-    op.create_index(op.f('ix_training_sources_research_paper_sources_id'), 'research_paper_sources', ['id'], unique=True, schema='training_sources')
-    op.create_table('textbook_sources',
-    sa.Column('textbook_id', sa.Integer(), nullable=False),
-    sa.Column('textbook_name', sa.String(), nullable=False),
-    sa.Column('author', sa.String(), nullable=False),
-    sa.Column('size', sa.Integer(), nullable=False),
-    sa.Column('date_added', sa.DateTime(), nullable=False),
-    sa.Column('where', sa.String(), nullable=False),
-    sa.Column('part_id', sa.Enum('n', 'f', 'h', 'a', 'l', 's', 'c', 'b', 'e', name='body_id_enum'), nullable=False),
-    sa.ForeignKeyConstraint(['part_id'], ['training_sources.body_part_counts.id'], ),
-    sa.PrimaryKeyConstraint('textbook_id'),
-    sa.UniqueConstraint('textbook_name', 'author', name='uq_textbook_author'),
-    schema='training_sources'
-    )
-    op.create_index(op.f('ix_training_sources_textbook_sources_textbook_id'), 'textbook_sources', ['textbook_id'], unique=True, schema='training_sources')
-    op.create_table('image_sources',
-    sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('date_added', sa.DateTime(), nullable=False),
-    sa.Column('size', sa.Integer(), nullable=False),
-    sa.Column('file_name', sa.String(), nullable=False),
-    sa.Column('textbook_id', sa.Integer(), nullable=True),
-    sa.Column('paper_id', sa.Integer(), nullable=True),
-    sa.Column('page', sa.Integer(), nullable=False),
-    sa.Column('has_context', sa.Boolean(), nullable=False),
-    sa.ForeignKeyConstraint(['paper_id'], ['training_sources.research_paper_sources.id'], ),
-    sa.ForeignKeyConstraint(['textbook_id'], ['training_sources.textbook_sources.textbook_id'], ),
-    sa.PrimaryKeyConstraint('id'),
-    schema='training_sources'
-    )
-    op.create_index(op.f('ix_training_sources_image_sources_id'), 'image_sources', ['id'], unique=True, schema='training_sources')
-    # ### end Alembic commands ###
+
 
 
 def downgrade() -> None:
