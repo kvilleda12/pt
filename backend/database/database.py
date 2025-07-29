@@ -146,8 +146,10 @@ class ProblemReport(Base):
     body_part_id: Mapped[str] = mapped_column(
         Enum(*BODY_PART_LABELS, name='body_id_enum'),
         ForeignKey('training_sources.body_part_counts.id'),
-        nullable=False
+        nullable=True
     )
+
+    body_part: Mapped["Body"] = relationship(back_populates="reports")
     # hisstry for specific problem
     had_this_problem_before: Mapped[bool] = mapped_column(Boolean, server_default="0", nullable=False)
     previous_problem_date: Mapped[datetime] = mapped_column(DateTime, nullable=True)

@@ -35,21 +35,21 @@ def get_password_hash(password):
 
 @app.post("/api/auth/check-email")
 def check_email(payload: schemas.EmailCheck, db: Session = Depends(dependency.get_db)):
-    db_user = db.query(database.user_login).filter(database.user_login.email == payload.email).first()
+    db_user = db.query(database.User).filter(database.User.email == payload.email).first()
     return {"exists": db_user is not None}
 
 
 @app.post("/api/auth/signup", status_code=201)
 def signup(user: schemas.UserCreate, db: Session = Depends(dependency.get_db)):
-    existing_user = db.query(database.user_login).filter(
-        (database.user_login.email == user.email) | (database.user_login.username == user.username)
+    existing_user = db.query(database.User).filter(
+        (database.User.email == user.email) | (database.User.username == user.username)
     ).first()
     if existing_user:
         raise HTTPException(status_code=400, detail="Email or Username already registered")
 
     hashed_password = get_password_hash(user.password) 
     
-    new_user = database.user_login(
+    new_user = database.User(
         email=user.email, 
         hashed_password=hashed_password, 
         name=user.name,
@@ -64,7 +64,7 @@ def signup(user: schemas.UserCreate, db: Session = Depends(dependency.get_db)):
 
 @app.post("/api/auth/signin")
 def signin(payload: schemas.UserSignIn, db: Session = Depends(dependency.get_db)):
-    db_user = db.query(database.user_login).filter(database.user_login.email == payload.email).first()
+    db_user = db.query(database.User).filter(database.User.email == payload.email).first()
     
     # Check user first to safely access password.
     if not db_user:
