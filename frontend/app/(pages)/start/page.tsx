@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from "react";
-import HumanModel from "../ui-components/human-model";
+import HumanModel from "../../ui-components/human-model";
 import styles from "./start.module.css"
 
 // This component is the start page where the user selects the area of pain
