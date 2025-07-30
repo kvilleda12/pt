@@ -1,6 +1,7 @@
 import type { NextAuthConfig } from 'next-auth';
 
-const restrictedPaths = ['/start', '/dashboard'];
+// const restrictedPaths = ['/start', '/dashboard'];
+const restrictedPaths = ['/start'];
 
 export const authConfig = {
   pages: {
