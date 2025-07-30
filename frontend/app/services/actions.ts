@@ -9,12 +9,26 @@ export async function authenticate(
   formData: FormData
 ) {
   try {
-    await signIn('credentials', formData);
+    const email = formData.get('email') as string;
+    const password = formData.get('password') as string;
+    
+    // Call signIn with credentials object instead of formData
+    await signIn('credentials', { 
+      email, 
+      password, 
+      redirect: false 
+    });
+    
   } catch (error: any) {
+    console.error('Authentication error:', error);
+    
     if (error.type === 'CredentialsSignin') {
       return 'Invalid credentials. Please try again.';
     }
-    return 'An unexpected error occurred.';
+    return 'An unexpected error occurred. Please try again.';
+  } finally {
+    // If we get here, authentication was successful, so redirect
+    redirect('/start');
   }
 }
 
@@ -28,12 +42,17 @@ export const handleSignIn = async (email: string, password: string) => {
     });
     const data = await response.json();
     console.log('Sign in response:', data);
-    if (!response.ok) throw new Error(data.detail || 'Sign in failed. Incorrect email or password.');
+    
+    if (!response.ok) {
+      console.error('API error response:', data);
+      throw new Error(data.detail || 'Sign in failed. Incorrect email or password.');
+    }
+    
     return data.user;
 
   } catch (err: any) {
     console.error('Error during sign in:', err);
-    throw new Error('Failed to sign in.');
+    throw new Error('Failed to sign in: ' + err.message);
   }
 };
 
