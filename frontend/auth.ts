@@ -2,7 +2,7 @@ import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 import { authConfig } from './auth.config';
 import { z } from 'zod';
-import { handleSignIn } from '@/app/services/Auth';
+import { handleSignIn } from '@/app/services/actions';
 
 export const { auth, signIn, signOut } = NextAuth({
     ...authConfig,
@@ -18,15 +18,22 @@ export const { auth, signIn, signOut } = NextAuth({
                     const { email, password } = parsedCredentials.data;
                     try {
                         const user = await handleSignIn(email, password);
-                        if (!user) return null;
+                        if (!user) {
+                            throw new Error('Invalid credentials');
+                        }
                         return user;
                     } catch (error) {
                         console.error('Error during sign in:', error);
-                        return null;
+                        // Throw a proper CredentialsSignin error so it can be caught by the authenticate function
+                        const authError = new Error('Invalid credentials');
+                        (authError as any).type = 'CredentialsSignin';
+                        throw authError;
                     }
                 } else {
                     console.error('Invalid credentials:', parsedCredentials.error);
-                    return null;
+                    const authError = new Error('Invalid credentials');
+                    (authError as any).type = 'CredentialsSignin';
+                    throw authError;
                 }
             },
         }),

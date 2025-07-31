@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { useFormState, useFormStatus } from 'react-dom';
+import { useFormStatus } from 'react-dom';
+import { useActionState } from 'react';
 import { authenticate } from '@/app/services/actions';
 import styles from '../auth.module.css';
 
@@ -23,7 +24,7 @@ function SubmitButton() {
 export default function LoginPage() {
   // 'errorMessage' will hold the string returned from the server action on failure
   // 'dispatch' is the function to trigger the action
-  const [errorMessage, dispatch] = useFormState(authenticate, undefined);
+  const [errorMessage, dispatch] = useActionState(authenticate, undefined);
 
   return (
     <div className={styles.authPage}>

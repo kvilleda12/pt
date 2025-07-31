@@ -1,34 +1,21 @@
 'use client';
-import { handleSignUp } from '@/app/services/Auth';
+import { useFormStatus } from 'react-dom';
+import { useActionState } from 'react';
+import { signUpAndSignIn } from '@/app/services/actions'; // Import the new action
 import Link from 'next/link';
-import { useState } from 'react';
-import { redirect } from 'next/navigation';
 import styles from '../auth.module.css';
 
 export default function SignUpPage() {
-    const [email, setEmail] = useState('');
-    const [name, setName] = useState('');
-    const [password, setPassword] = useState('');
-    const [username, setUsername] = useState('');
-    const [error, setError] = useState<string | null>(null);
-    const [loading, setLoading] = useState(false);
+    const [errorMessage, dispatch] = useActionState(signUpAndSignIn, undefined);
 
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        setLoading(true);
-        setError(null);
-
-        try {
-            await handleSignUp(email, password, username, name);
-            console.log('redirecting post sign up...')
-            redirect('/start');
-        } catch (err: any) {
-            console.error('Sign up error:', err);
-            setError(err.message || 'Failed to create account. Please try again.');
-        } finally {
-            setLoading(false);
-        }
-    };
+    function SubmitButton() {
+        const { pending } = useFormStatus();
+        return (
+            <button type="submit" disabled={pending} className={styles.submitButton} >
+                {pending ? 'Creating Account...' : 'Sign Up'}
+            </button>
+        );
+    }
 
     return (
         <div className={styles.authPage}>
@@ -39,19 +26,18 @@ export default function SignUpPage() {
                 </p>
             </div>
             <div className={styles.formContainer}>
-                {error && (
+                {errorMessage && (
                     <div className="mb-6 p-3 bg-red-500/20 border border-red-500/30 rounded-lg text-center">
-                        <p className={styles.errorMessage}>{error}</p>
+                        <p className={styles.errorMessage}>{errorMessage}</p>
                     </div>
                 )}
 
-                <form onSubmit={handleSubmit} className={styles.form}>
+                <form action={dispatch} className={styles.form}>
                     <label className={styles.label} htmlFor="name">Full Name</label>
                     <input
                         type="text"
                         id="name"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
+                        name="name"
                         className={styles.inputElem}
                         placeholder="Enter your full name"
                         required
@@ -60,8 +46,7 @@ export default function SignUpPage() {
                     <input
                         type="text"
                         id="username"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
+                        name="username"
                         className={styles.inputElem}
                         placeholder="Choose a username"
                         required
@@ -70,8 +55,7 @@ export default function SignUpPage() {
                     <input
                         type="email"
                         id="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        name="email"
                         className={styles.inputElem}
                         placeholder="Enter your email"
                         required
@@ -80,21 +64,12 @@ export default function SignUpPage() {
                     <input
                         type="password"
                         id="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
+                        name="password"
                         className={styles.inputElem}
                         placeholder="Enter your password"
                         required
                     />
-                    <div className="pt-2">
-                        <button
-                            type="submit"
-                            disabled={loading}
-                            className={styles.submitButton}
-                        >
-                            {loading ? 'Creating Account...' : 'Create Account'}
-                        </button>
-                    </div>
+                    <SubmitButton />
                 </form>
             </div>
             {/* Signin Link */}

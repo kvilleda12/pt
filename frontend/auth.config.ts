@@ -1,6 +1,7 @@
 import type { NextAuthConfig } from 'next-auth';
 
-const restrictedPaths = ['/start', '/dashboard'];
+// const restrictedPaths = ['/start', '/dashboard'];
+const restrictedPaths = ['/start'];
 
 export const authConfig = {
   pages: {
@@ -11,13 +12,25 @@ export const authConfig = {
     authorized({ auth, request: { nextUrl } }) {
       const isLoggedIn = !!auth?.user;
       const isRestricted = restrictedPaths.some(path => nextUrl.pathname.startsWith(path));
-      console.log('authentication middleware. isLogged in', isLoggedIn, 'isRestricted', isRestricted);
+      const isOnLoginPage = nextUrl.pathname === '/login';
+      const isOnSignUpPage = nextUrl.pathname === '/sign-up';
+      
+      console.log('authentication middleware (auth.config.ts): isLogged in', isLoggedIn, 'isRestricted', isRestricted);
+      
+      // If user is logged in and on login/sign-up pages, redirect to /start
+      if (isLoggedIn && (isOnLoginPage || isOnSignUpPage)) {
+        console.log('Auth middleware redirecting to /start');
+        
+        // Use environment variable for base URL or fallback to current origin
+        const baseUrl = process.env.BASE_URL || nextUrl.origin;
+        return Response.redirect(`${baseUrl}/start`);
+      }
+      
       if (isRestricted) {
         if (isLoggedIn) return true;
         return false; // Redirect unauthenticated users to login page
-      } else if (isLoggedIn) {
-        // return Response.redirect(new URL('/dashboard', nextUrl));    // Redirect authenticated users to dashboard
       }
+      
       return true;
     },
   },
