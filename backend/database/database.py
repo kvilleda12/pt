@@ -97,7 +97,7 @@ class Research_paper(Base):
 class Image(Base):
     __tablename__ = "image_sources"
     __table_args__ = {'schema': 'training_sources'}
-    id:Mapped[int] = mapped_column(Integer, primary_key=True, index=True, unique=True)
+    iid:Mapped[str] = mapped_column(String, primary_key=True) # 
     date_added:Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow) #current time
     size:Mapped[int] = mapped_column(Integer)
     file_name:Mapped[str] = mapped_column(String)

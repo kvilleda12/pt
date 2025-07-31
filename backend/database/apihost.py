@@ -9,6 +9,8 @@ from passlib.context import CryptContext
 from . import schemas, dependency, database
 app = FastAPI()
 
+
+
 origins = [
     "http://localhost",
     "http://localhost:3000", # The address of your React frontend
@@ -89,3 +91,7 @@ def signin(payload: schemas.UserSignIn, db: Session = Depends(dependency.get_db)
             "username": db_user.username
         }
     }
+
+
+
+#in this scenario 
