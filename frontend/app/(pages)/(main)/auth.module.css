@@ -143,3 +143,52 @@
     cursor: not-allowed;
     transform: none;
 }
+
+@media (max-width: 640px) {
+    .authPage {
+        padding: 1rem;
+    }
+
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .formContainer {
+        padding: 2rem;
+        width: 100%;
+        max-width: 90%;
+    }
+}
+
+.loadingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid hsl(var(--primary-hsl) / 0.2);
+    border-top: 3px solid hsl(var(--primary-hsl));
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.logoutForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
