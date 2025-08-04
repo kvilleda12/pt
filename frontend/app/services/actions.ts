@@ -1,6 +1,6 @@
 'use server';
 
-import { signIn } from '@/auth';
+import { signIn, signOut } from '@/auth';
 import { redirect } from 'next/navigation';
 
 // server action to handle authentication through useFormState. Caputres and receives form data.
@@ -96,3 +96,13 @@ export async function signUpAndSignIn(prevState: string | undefined, formData: F
   // Step 3: If both steps succeed, redirect to the start page
   redirect('/start');
 }
+
+export const handleSignOut = async () => {
+  try {
+    await signOut({ redirect: false });
+  } catch (err) {
+    console.error('Error during sign out:', err);
+    throw new Error('Failed to sign out: ' + (err as Error).message);
+  }
+  redirect('/'); // Redirect to home page after sign out
+};

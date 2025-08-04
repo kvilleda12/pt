@@ -1,0 +1,74 @@
+.errorPage {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: clamp(1rem, 5vw, 3rem);
+    text-align: center;
+    transform: translateY(-5vh);
+    gap: 1.5rem;
+}
+
+.errorContent {
+    max-width: 600px;
+}
+
+.errorTitle {
+    font-size: 48px;
+    font-weight: 700;
+    color: hsl(var(--foreground-hsl));
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    letter-spacing: 0.04em;
+    margin-top: -1rem;
+}
+
+.errorSubtitle {
+    font-size: 32px;
+    color: hsl(var(--foreground-hsl) / 0.7);
+    line-height: 1.5;
+    margin-bottom: 2rem;
+    font-weight: 400;
+}
+
+.errorButton {
+    padding: 0.875rem 1.75rem;
+    background-color: var(--foreground);
+    color: var(--background);
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.errorButton:hover {
+    transform: translateY(-1px);
+}
+
+.errorButton:active {
+    transform: translateY(0);
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .errorPage {
+        transform: translateY(-3vh);
+    }
+    
+    .errorButton {
+        padding: 0.75rem 1.5rem;
+    }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .errorButton {
+        transition: none;
+    }
+    
+    .errorButton:hover {
+        transform: none;
+    }
+}
