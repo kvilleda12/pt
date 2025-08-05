@@ -37,3 +37,39 @@
     font-size: 1.7rem;
     letter-spacing: 0.03em;
 }
+
+.selectionInfo {
+    margin: 1rem 0;
+    padding: 1rem;
+    background-color: hsl(var(--primary-hsl) / 0.1);
+    border: 1px solid hsl(var(--primary-hsl) / 0.3);
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
+.continueButton {
+    padding: 1rem 2rem;
+    background-color: var(--background-color);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: all 0.2s ease;
+}
+
+.continueButton:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px hsl(var(--primary-hsl) / 0.3);
+}
+
+.debugButton {
+    padding: 0.5rem 1rem;
+    background-color: #666;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
