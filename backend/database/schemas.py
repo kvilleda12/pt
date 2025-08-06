@@ -11,3 +11,7 @@ class EmailCheck(BaseModel):
 class UserSignIn(BaseModel):
     email: str
     password: str
+    
+class BodyPartSelection(BaseModel):
+    body_part: str
+    email: str
