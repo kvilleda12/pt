@@ -1,6 +1,6 @@
 .layout {
     display: grid;
-    grid-template-rows: 50px 1fr 150px;
+    grid-template-rows: 50px 1fr;
     min-height: 100vh;
     margin: 0 auto;
     background-color: #050122;
@@ -23,6 +23,7 @@
     0% {
         background-position: 0 0;
     }
+
     100% {
         background-position: 40px 60px;
     }
@@ -35,4 +36,79 @@
     position: relative;
     z-index: 1;
     font-size: 1.7rem;
+    letter-spacing: 0.03em;
 }
+
+.subtitle {
+    text-align: center;
+    margin-top: 30px;
+    font-weight: 400;
+    color: #ccc;
+    font-size: .95rem;
+    position: relative;
+    z-index: 1;
+}
+
+.modelContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.continueButton {
+    padding: 1rem 2rem;
+    background-color: white;
+    color: #130d3e;
+    border: none;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    
+    /* Initial state - hidden */
+    opacity: 0;
+    transform: translateY(-50%);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Fade in animation */
+    animation: fadeInButton 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.continueButton:hover {
+    transform: translateY(-51px);
+    box-shadow: 0 4px 12px rgba(19, 13, 62, 0.15);
+}
+
+@keyframes fadeInButton {
+    from {
+        opacity: 0;
+        transform: translateY(-50%) translateX(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(-50%) translateX(0);
+    }
+}
+
+/* Alternative approach using CSS custom properties for dynamic control */
+.continueButton--fade-in {
+    --fade-delay: 0s;
+    animation-delay: var(--fade-delay);
+}
+
+/* Debug button for testing purposes
+.debugButton {
+    padding: 0.5rem 1rem;
+    background-color: #666;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+*/
