@@ -1,6 +1,7 @@
 // contexts/BodyPartContext.tsx
 import { createContext, useContext, useState, ReactNode } from 'react';
 
+// This file provides a context (global variables) to manage the selected body part state in /start/page.tsx
 interface BodyPartContextType {
     selectedBodyPart: string;
     setSelectedBodyPart: (part: string) => void;

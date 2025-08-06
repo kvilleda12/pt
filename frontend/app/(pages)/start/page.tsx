@@ -2,7 +2,7 @@
 import HumanModel from "@/app//ui-components/human-model";
 import styles from "./start.module.css";
 import { BodyPartProvider, useBodyPart } from "@/app/contexts/BodyPartContext";
-import { redirect } from "next/navigation";
+import { redirect } from 'next/navigation';
 
 function StartContent() {
     const { selectedBodyPart } = useBodyPart();
@@ -17,26 +17,30 @@ function StartContent() {
     return (
         <div className={styles.layout}>
             <h2 className={styles.header}>Select the area where you feel pain</h2>
-            
-            <HumanModel />
+            <h3 className={styles.subtitle}>You can drag the model to view different angles.</h3>
+            <div className={styles.modelContainer}>
+                <HumanModel />
 
-            {selectedBodyPart && (
-                <button 
-                    className={styles.continueButton}
-                    onClick={handleContinue}
-                >
-                    Continue with {selectedBodyPart.replace('_', ' ')}
-                </button>
-            )}
+                {selectedBodyPart && (
+                    <button
+                        className={styles.continueButton}
+                        onClick={handleContinue}
+                    >
+                        Continue with {selectedBodyPart.replace('_', ' ')}
+                    </button>
+                )}
+            </div>
 
-            {/* Debug button */}
-            <button 
+
+            {/* Debug button 
+            <button
                 onClick={() => (window as any).toggleHitboxes?.(true)}
                 className={styles.debugButton}
                 style={{ position: 'absolute', top: '10px', right: '10px' }}
             >
                 Show Hitboxes (Debug)
             </button>
+            */}
         </div>
     );
 }
