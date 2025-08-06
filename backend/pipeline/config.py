@@ -18,7 +18,7 @@ SKIPPED_SOURCES_JSON_PATH = os.path.join(BASE_DIR, 'backend', 'skipped_sources.j
 
 # queries for research paper
 LABELS_TO_SCRAPE = {
-    'n': 'neck pain physical therapy OR cervical spine rehabilitation exercises',
+    'n': 'neck pain physical therapy',
     'f': 'foot injury rehabilitation OR ankle biomechanics physical therapy',
     'h': 'headache physical therapy OR concussion rehabilitation',
     'a': 'arm injury physical therapy OR upper limb movement analysis',

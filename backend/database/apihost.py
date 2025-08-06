@@ -5,10 +5,15 @@ from backend.database.dependency import get_db
 from fastapi.middleware.cors import CORSMiddleware
 from backend.database.schemas import UserCreate
 from passlib.context import CryptContext
+from backend.llm import llm_api
 
 from . import schemas, dependency, database
 app = FastAPI()
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 origins = [
     "http://localhost",
     "http://localhost:3000", # The address of your React frontend
@@ -99,3 +104,8 @@ def set_body_part(payload: schemas.BodyPartSelection, db: Session = Depends(depe
     return {"status": "success", "body_part_received": payload.body_part}
 
 
+<<<<<<< Updated upstream
+=======
+#llama call
+app.include_router(llm_api.router, prefix = "/api/llm")
+>>>>>>> Stashed changes

@@ -6,9 +6,11 @@ import time
 import json
 import shutil
 from bs4 import BeautifulSoup
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service as ChromeService
-from webdriver_manager.chrome import ChromeDriverManager
+import undetected_chromedriver as uc
+from selenium.webdriver.chrome.options import Options as ChromeOptions
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from semanticscholar import SemanticScholar
 from .config import (
     LABELS_TO_SCRAPE, TEXTBOOK_QUERIES, SOURCES_PER_LABEL,
@@ -75,30 +77,45 @@ def has_images(pdf_path: str) -> bool:
 
 #this will setup a temporary browser for us to bypass the human verification check
 def download_file(url: str, destination_folder: str, filename: str) -> str | None:
-
-    # Set up a temporary download directory for the browser
+    """
+    Handles downloading by opening a browser, waiting for manual human
+    verification, and then programmatically clicking the download button.
+    """
     temp_download_dir = os.path.join(os.path.dirname(destination_folder), 'browser_downloads')
     os.makedirs(temp_download_dir, exist_ok=True)
 
-    options = webdriver.ChromeOptions()
-    # save to temp
+    options = ChromeOptions()
     prefs = {"download.default_directory": temp_download_dir}
     options.add_experimental_option("prefs", prefs)
 
     driver = None
     try:
-        print(f"⬇️ Opening browser for: {filename}")
-        # Automatically downloads and manages the correct browser driver
-        driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
+        print(f"⬇️ Opening stealth browser for: {filename}")
+        driver = uc.Chrome(options=options)
         driver.get(url)
 
-        # solve the captcha
+        # 1. The script pauses, waiting for you to solve the human check.
+        input(">>> Please solve the human verification check in the browser, then press Enter in this terminal to continue...")
 
-        input(">>> Solve the captcha check in the browser. It takes a few minutes for the window to pop up, wait for the download to start, and then press Enter in this terminal to continue...")
+        # =========================================================
+        # NEW: The program now takes over to click the download button.
+        # =========================================================
+        print("... Human check complete. Searching for the download button...")
+        try:
+            # We wait up to 30 seconds for a button with text like "Download" to appear and be clickable.
+            download_button = WebDriverWait(driver, 30).until(
+                EC.element_to_be_clickable((By.XPATH, "//*[contains(text(), 'Download')]"))
+            )
+            print("... Download button found. Clicking now.")
+            download_button.click()
+        except Exception as button_error:
+            print(f"❌ Could not find or click the download button. Error: {button_error}")
+            raise # Raise the error to be caught by the main try/except block
+        # =========================================================
 
-        # wait up to 8 minutes for the download to finish can be adjusted as needed
+        # 3. The script waits for the download to finish.
         print("... Waiting for download to finish ...")
-        download_wait_time = 480  # 8 minutes
+        download_wait_time = 300
         time_waited = 0
         downloaded_file_path = os.path.join(temp_download_dir, filename)
 
@@ -107,28 +124,22 @@ def download_file(url: str, destination_folder: str, filename: str) -> str | Non
             time_waited += 1
 
         if os.path.exists(downloaded_file_path):
-            # move file to the file_sources since its in temp folder rn
             final_path = os.path.join(destination_folder, filename)
             shutil.move(downloaded_file_path, final_path)
-            print(f"✅ file in: {final_path}")
+            print(f"✅ Download complete and file moved to: {final_path}")
             return final_path
         else:
-            print("❌ download not possible.")
+            print("❌ Download timed out or file was not found.")
             return None
 
     except Exception as e:
         print(f"❌ An error occurred during the browser download: {e}")
         return None
     finally:
-        # close browser
         if driver:
             driver.quit()
-        # clean temp download
         if os.path.exists(temp_download_dir):
             shutil.rmtree(temp_download_dir)
-
-
-
 
  # 1. <input type="search" name="q" placeholder="Title, author, DOI, ISBN, MD5, …" value="physical therapy" class="js-slash-focus js-search-main-input grow bg-black/6.7 px-2 py-1 mr-2 rounded">
             #to find the text books -><main class  = "main"> --> form action = "/search" ... --> <div class = "flex w-full ---> "min-w-[0] w-full ---> div class "mb-4" m -->
