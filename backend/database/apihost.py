@@ -9,8 +9,6 @@ from passlib.context import CryptContext
 from . import schemas, dependency, database
 app = FastAPI()
 
-
-
 origins = [
     "http://localhost",
     "http://localhost:3000", # The address of your React frontend
@@ -34,6 +32,7 @@ def get_password_hash(password):
     return pwd_context.hash(password)
 
 
+# --- AUTH ROUTES ---
 
 @app.post("/api/auth/check-email")
 def check_email(payload: schemas.EmailCheck, db: Session = Depends(dependency.get_db)):
@@ -92,6 +91,11 @@ def signin(payload: schemas.UserSignIn, db: Session = Depends(dependency.get_db)
         }
     }
 
+# --- USER DATA ROUTES ---
+@app.post("/api/set-body-part")
+def set_body_part(payload: schemas.BodyPartSelection, db: Session = Depends(dependency.get_db)):
+    print(f"API received body part selection: {payload.body_part}")
+    # In a real application, you might want to save this to the database or perform other actions.
+    return {"status": "success", "body_part_received": payload.body_part}
 
 
-#in this scenario 

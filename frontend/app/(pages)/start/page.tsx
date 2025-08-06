@@ -3,6 +3,7 @@ import HumanModel from "@/app//ui-components/human-model";
 import styles from "./start.module.css";
 import { BodyPartProvider, useBodyPart } from "@/app/contexts/BodyPartContext";
 import { redirect } from 'next/navigation';
+import { handleBodyPartClick } from '@/app/services/userSetupActions';
 
 function StartContent() {
     const { selectedBodyPart } = useBodyPart();
@@ -10,6 +11,7 @@ function StartContent() {
     const handleContinue = () => {
         if (selectedBodyPart) {
             console.log("Continuing with selected body part:", selectedBodyPart);
+            handleBodyPartClick(selectedBodyPart); // Send to server
             redirect('/start/questionnaire')  // Navigate to next step
         }
     };

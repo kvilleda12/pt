@@ -63,9 +63,7 @@ export function BodyPartHitboxes() {
             if (intersects.length > 0) {
                 const bodyPart = intersects[0].object.userData.bodyPart;
                 console.log('Body part clicked:', bodyPart);
-
                 setSelectedBodyPart(bodyPart); // Update context                
-                handleBodyPartClick(bodyPart, intersects[0].point); // Send to server
             } else {
                 console.log('No body part hit');
             }
@@ -105,20 +103,3 @@ export function BodyPartHitboxes() {
     return null; // This component doesn't render anything visual
 }
 
-// Server communication function
-async function handleBodyPartClick(bodyPart: string, position: THREE.Vector3) {
-    console.log('Sending body part click to server:', bodyPart, position);
-    // try {
-    //     await fetch('/api/body-part-click', {
-    //         method: 'POST',
-    //         headers: { 'Content-Type': 'application/json' },
-    //         body: JSON.stringify({
-    //             bodyPart,
-    //             position: { x: position.x, y: position.y, z: position.z },
-    //             timestamp: new Date().toISOString()
-    //         })
-    //     });
-    // } catch (error) {
-    //     console.error('Failed to track body part click:', error);
-    // }
-}
