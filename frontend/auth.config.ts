@@ -1,7 +1,6 @@
 import type { NextAuthConfig } from 'next-auth';
 
-// const restrictedPaths = ['/start', '/dashboard'];
-const restrictedPaths = ['/start'];
+const restrictedPaths = ['/start', '/app']; // TODO: Add more restricted paths as needed
 
 export const authConfig = {
   pages: {
@@ -23,12 +22,12 @@ export const authConfig = {
         
         // Use environment variable for base URL or fallback to current origin
         const baseUrl = process.env.BASE_URL || nextUrl.origin;
-        return Response.redirect(`${baseUrl}/start`);
+        return Response.redirect(`${baseUrl}/start`); // TODO: redirect to start or dashboard if setup or not
       }
       
       if (isRestricted) {
         if (isLoggedIn) return true;
-        return false; // Redirect unauthenticated users to login page
+        return false; // TODO: Redirect unauthenticated users to /restricted
       }
       
       return true;

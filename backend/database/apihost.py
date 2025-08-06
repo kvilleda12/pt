@@ -10,10 +10,6 @@ from backend.llm import llm_api
 from . import schemas, dependency, database
 app = FastAPI()
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 origins = [
     "http://localhost",
     "http://localhost:3000", # The address of your React frontend
@@ -97,15 +93,53 @@ def signin(payload: schemas.UserSignIn, db: Session = Depends(dependency.get_db)
     }
 
 # --- USER DATA ROUTES ---
-@app.post("/api/set-body-part")
-def set_body_part(payload: schemas.BodyPartSelection, db: Session = Depends(dependency.get_db)):
-    print(f"API received body part selection: {payload.body_part}")
-    # In a real application, you might want to save this to the database or perform other actions.
-    return {"status": "success", "body_part_received": payload.body_part}
+@app.post("/api/set-up-user")
+def set_up_user(payload: schemas.SetUp, db: Session = Depends(dependency.get_db)):
+    db_user = db.query(database.User).filter(database.User.email == payload.email).first()
+    if not db_user:
+        return {
+            'ok': False,
+            "message": "Unable to find user. Please verify your email and password.",
+            }
+
+    # Try to find the user's most recent report
+    existing_report = db.query(database.ProblemReport)\
+        .filter(database.ProblemReport.user_id == db_user.id)\
+        .order_by(database.ProblemReport.id.desc())\
+        .first()
+    
+    if existing_report:
+        # Update existing report
+        # CHANGE: existing_report.body_part_id = payload.body_part
+        db.commit()
+        db.refresh(existing_report)
+        
+        return {
+            "ok": True,
+            "body_part_received": payload.body_part,
+            "report_id": existing_report.id,
+            "action": "updated"
+        }
+    else:
+        # Create new report if none exists
+        new_report = database.ProblemReport(
+            user_id=db_user.id,
+            # CHANGE body_part_id=payload.body_part,
+            had_this_problem_before=False,
+            had_physical_therapy_before=False
+        )
+        
+        db.add(new_report)
+        db.commit()
+        db.refresh(new_report)
+        
+        return {
+            "ok": True,
+            "body_part_received": payload.body_part,
+            "report_id": new_report.id,
+            "action": "created"
+        }
 
 
-<<<<<<< Updated upstream
-=======
-#llama call
+# Llama Router for LLM API
 app.include_router(llm_api.router, prefix = "/api/llm")
->>>>>>> Stashed changes

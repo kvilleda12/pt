@@ -101,6 +101,31 @@
     animation-delay: var(--fade-delay);
 }
 
+.logoutButton {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    padding: 10px 20px;
+    background-color: transparent;
+    color: #4a5568; /* A muted text color */
+    border: 2px solid #e2e8f0; /* A light border */
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: 1;
+}
+
+.logoutButton:hover {
+    background-color: #4a5568; /* Fills with color on hover */
+    border-color: #4a5568;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px -10px rgba(74, 85, 104, 0.6);
+}
+
 /* Debug button for testing purposes
 .debugButton {
     padding: 0.5rem 1rem;

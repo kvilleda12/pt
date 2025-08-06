@@ -1,5 +1,4 @@
 'use client';
-
 import React, { useState, useEffect, useRef } from 'react';
 import Webcam from 'react-webcam';
 
@@ -23,7 +22,7 @@ const ChatMessage: React.FC<{ message: string; isUser: boolean; }> = ({ message,
 
 export default function ChatbotPage() {
   const [messages, setMessages] = useState<Message[]>([
-    { text: "Hello! I'm your AI Physical Therapy assistant. When you're ready, turn on your camera and type 'Lets Begin' to load your profile.", isUser: false }
+    { text: "Hello! I'm your AI Physical Therapy assistant. When you're ready, turn on your camera and type 'begin' to load your profile.", isUser: false }
   ]);
 
   //we check to see if these things are running for the user. Has camera loaded
@@ -41,7 +40,7 @@ export default function ChatbotPage() {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-  const handleEnableWebcam = () => setIsCameraOn(true);
+  const enableWebcam = () => setIsCameraOn(true);
 
   const handleSendMessage = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -56,7 +55,7 @@ export default function ChatbotPage() {
       let currentContext = userProfileContext;
 
       // getting the users profile if its first time then storing it to use again and again
-      if (userInput.trim().toLowerCase() === 'lets begin' && !currentContext) {
+      if (userInput.trim().toLowerCase() === 'begin' && !currentContext) {
         const currentUserId = 1; // Replace with the user_id
         const contextResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/llm/get_context`, {
           method: 'POST',
@@ -166,7 +165,7 @@ export default function ChatbotPage() {
                 cursor: 'pointer',
                 transition: 'background 0.2s',
               }}
-              onClick={handleEnableWebcam}
+              onClick={enableWebcam}
               >
                 Enable Camera
               </button>
