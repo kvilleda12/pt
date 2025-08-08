@@ -1,0 +1,418 @@
+/* Import Inter font for better typography */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+.qPage {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 4rem 2rem 2rem 2rem;
+    /* Modern glass background with animated gradient */
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 117, 179, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.2) 0%, transparent 50%),
+        linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: rgba(255, 255, 255, 0.95);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Add animated background elements */
+.qPage::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+        radial-gradient(circle, rgba(120, 119, 198, 0.1) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255, 117, 179, 0.05) 1px, transparent 1px);
+    background-size: 100px 100px, 150px 150px;
+    animation: float 20s ease-in-out infinite;
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+.title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 300;
+    margin-bottom: 1rem;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.8) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.025em;
+    position: relative;
+    z-index: 1;
+}
+
+.subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    font-weight: 400;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+}
+
+.questionnaireForm {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.questionSection {
+    margin-bottom: 2rem;
+    padding: 2rem;
+    /* Liquid glass effect */
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.1) 0%, 
+        rgba(255, 255, 255, 0.05) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.questionSection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.4) 50%, 
+        transparent 100%);
+}
+
+.questionSection:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 12px 40px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+.sectionTitle {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    letter-spacing: -0.01em;
+}
+
+.questionGroup {
+    margin-bottom: 1.5rem;
+}
+
+.questionLabel {
+    display: block;
+    font-size: 1rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+}
+
+.radioGroup {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.radioOption {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    padding: 1rem 1.25rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.08) 0%, 
+        rgba(255, 255, 255, 0.03) 100%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+    flex: 1;
+    justify-content: center;
+}
+
+.radioOption::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.1) 50%, 
+        transparent 100%);
+    transition: left 0.5s ease;
+}
+
+.radioOption:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.12) 0%, 
+        rgba(255, 255, 255, 0.06) 100%);
+    transform: translateY(-1px);
+}
+
+.radioOption:hover::before {
+    left: 100%;
+}
+
+.radioOption input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: rgba(120, 119, 198, 0.8);
+}
+
+.radioOption input[type="radio"]:checked + .radioLabel {
+    color: rgba(120, 119, 198, 1);
+    font-weight: 500;
+}
+
+.radioLabel {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 400;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+.dateInput,
+.textArea {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.08) 0%, 
+        rgba(255, 255, 255, 0.03) 100%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.textArea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.5;
+}
+
+.dateInput:focus,
+.textArea:focus {
+    outline: none;
+    border-color: rgba(120, 119, 198, 0.5);
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.12) 0%, 
+        rgba(255, 255, 255, 0.06) 100%);
+    box-shadow: 0 0 0 3px rgba(120, 119, 198, 0.1);
+}
+
+.textArea::placeholder,
+.dateInput::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 300;
+}
+
+.helpText {
+    display: block;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.875rem;
+    margin-top: 0.75rem;
+    font-weight: 300;
+    line-height: 1.4;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 2.5rem;
+}
+
+.continueButton {
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, 
+        rgba(120, 119, 198, 0.8) 0%, 
+        rgba(120, 119, 198, 0.6) 100%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 20px rgba(120, 119, 198, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.continueButton:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(120, 119, 198, 0.4);
+    background: linear-gradient(135deg, 
+        rgba(120, 119, 198, 1) 0%, 
+        rgba(120, 119, 198, 0.8) 100%);
+}
+
+.continueButton:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.errorMessage {
+    background: linear-gradient(135deg, 
+        rgba(244, 67, 54, 0.15) 0%, 
+        rgba(244, 67, 54, 0.08) 100%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(244, 67, 54, 0.3);
+    color: rgba(255, 107, 107, 1);
+    padding: 1rem 1.25rem;
+    border-radius: 16px;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-weight: 400;
+}
+
+/* Navigation buttons with liquid glass effect */
+.navigationContainer {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    right: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.goBackButton,
+.logoutButton {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.5rem;
+    border-radius: 16px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    text-decoration: none;
+    font-size: 0.95rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.goBackButton {
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.1) 0%, 
+        rgba(255, 255, 255, 0.05) 100%);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.goBackButton:hover {
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.15) 0%, 
+        rgba(255, 255, 255, 0.08) 100%);
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: translateX(-2px);
+}
+
+.logoutButton {
+    background: linear-gradient(135deg, 
+        rgba(244, 67, 54, 0.15) 0%, 
+        rgba(244, 67, 54, 0.08) 100%);
+    color: rgba(255, 107, 107, 1);
+    border-color: rgba(244, 67, 54, 0.2);
+}
+
+.logoutButton:hover {
+    background: linear-gradient(135deg, 
+        rgba(244, 67, 54, 0.2) 0%, 
+        rgba(244, 67, 54, 0.12) 100%);
+    border-color: rgba(244, 67, 54, 0.3);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(244, 67, 54, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .qPage {
+        padding: 3rem 1rem 2rem 1rem;
+    }
+    
+    .questionSection {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        border-radius: 16px;
+    }
+    
+    .radioGroup {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .radioOption {
+        justify-content: flex-start;
+        padding: 1rem;
+    }
+    
+    .navigationContainer {
+        top: 1rem;
+        left: 1rem;
+        right: 1rem;
+    }
+    
+    .goBackButton,
+    .logoutButton {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.875rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .goBackButton,
+    .logoutButton {
+        padding: 0.625rem 1rem;
+        font-size: 0.8rem;
+    }
+}

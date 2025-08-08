@@ -1,3 +1,4 @@
+'use client';
 // contexts/BodyPartContext.tsx
 import { createContext, useContext, useState, ReactNode } from 'react';
 

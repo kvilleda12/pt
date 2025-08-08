@@ -44,8 +44,9 @@ class BP(Base):
     __table_args__ = (
         CheckConstraint('id IN ( 1, 2, 3)', name='check_valid_bp_id'), {'schema': 'training_sources'}#makes sure only 1 and 2 are the valuable 
     )
-    
-BODY_PART_LABELS = ('n', 'f', 'h', 'a', 'l', 's', 'c', 'b', 'e')
+
+# neck, chest, l/r shoulder, l/r tricep, l/r bicep, abdomen, back, l/r hamstring, l/r quad, l/r calf, l/r ankle, everything else
+BODY_PART_LABELS = ('n', 'c', 'ls', 'rs', 'lt', 'rt', 'lb', 'rb', 'a', 'b', 'lh', 'rh', 'lq', 'rq', 'lc', 'rc', 'la', 'ra', 'e')
 
 class Body(Base):
     __tablename__ = "body_part_counts"
@@ -142,11 +143,12 @@ class ProblemReport(Base):
     body_part_id: Mapped[str] = mapped_column(
         Enum(*BODY_PART_LABELS, name='body_id_enum'),
         ForeignKey('training_sources.body_part_counts.id'),
-        nullable=True
+        nullable=False
     )
 
     body_part: Mapped["Body"] = relationship(back_populates="reports")
-    # hisstry for specific problem
+    
+    # Questionnaire
     had_this_problem_before: Mapped[bool] = mapped_column(Boolean, server_default="0", nullable=False)
     previous_problem_date: Mapped[datetime] = mapped_column(DateTime, nullable=True)
     what_helped_before: Mapped[str] = mapped_column(Text, nullable=True)
