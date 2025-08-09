@@ -21,7 +21,9 @@ export default function StartContent() {
                         className={styles.continueButton}
                         onClick={() => redirect('/start/questionnaire')}
                     >
-                        Continue with {selectedBodyPart.replace('_', ' ')}
+                        <span>
+                            Continue with {selectedBodyPart.replace('_', ' ')}
+                        </span>
                     </button>
                 )}
             </div>

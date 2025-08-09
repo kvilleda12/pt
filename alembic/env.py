@@ -7,7 +7,14 @@ from alembic import context
 import os, sys
 from dotenv import load_dotenv
 
-load_dotenv()
+script_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Construct the path to the .env file in the project root
+dotenv_path = os.path.join(script_dir, '..', 'backend/.env')
+
+# Load the .env file from the specific path
+load_dotenv(dotenv_path=dotenv_path)
+
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config

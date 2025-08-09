@@ -148,7 +148,7 @@ class ProblemReport(Base):
 
     body_part: Mapped["Body"] = relationship(back_populates="reports")
     
-    # Questionnaire
+    # --- Questionnaire ---
     had_this_problem_before: Mapped[bool] = mapped_column(Boolean, server_default="0", nullable=False)
     previous_problem_date: Mapped[datetime] = mapped_column(DateTime, nullable=True)
     what_helped_before: Mapped[str] = mapped_column(Text, nullable=True)
@@ -156,6 +156,12 @@ class ProblemReport(Base):
     # General History
     had_physical_therapy_before: Mapped[bool] = mapped_column(Boolean, server_default="0", nullable=False)
     previous_unrelated_problem: Mapped[str] = mapped_column(Text, nullable=True)
+    
+    # Personal Opinion 
+    opinion_cause: Mapped[str] = mapped_column(Text, nullable=True)
+    pain_worse: Mapped[str] = mapped_column(Text, nullable=True)
+    pain_better: Mapped[str] = mapped_column(Text, nullable=True)
+    goal_for_pt: Mapped[str] = mapped_column(Text, nullable=True)
 
 class LoginHistory(Base):
     __tablename__ = "login_history"
