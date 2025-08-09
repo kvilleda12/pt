@@ -17,7 +17,7 @@ export async function handleSetupSubmit(
 
     try {
         const questionnaireData = {
-            body_part: (formData.get('body_part') as string).trim(),
+            body_part: formData.get('body_part') as string,
             had_this_problem_before: formData.get('had_this_problem_before') === 'true',
             previous_problem_date: formData.get('previous_problem_date') || null,
             what_helped_before: formData.get('what_helped_before') || null,

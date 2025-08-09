@@ -1,17 +1,18 @@
 'use client';
 // contexts/BodyPartContext.tsx
 import { createContext, useContext, useState, ReactNode } from 'react';
+import { BodyPartKey } from '@/app/utils/BodyPartTypes'
 
 // This file provides a context (global variables) to manage the selected body part state in /start/page.tsx
 interface BodyPartContextType {
-    selectedBodyPart: string;
-    setSelectedBodyPart: (part: string) => void;
+    selectedBodyPart: BodyPartKey | undefined;
+    setSelectedBodyPart: (part: BodyPartKey | undefined) => void;
 }
 
 const BodyPartContext = createContext<BodyPartContextType | undefined>(undefined);
 
 export function BodyPartProvider({ children }: { children: ReactNode }) {
-    const [selectedBodyPart, setSelectedBodyPart] = useState<string>('');
+    const [selectedBodyPart, setSelectedBodyPart] = useState<BodyPartKey | undefined>();
 
     return (
         <BodyPartContext.Provider value={{

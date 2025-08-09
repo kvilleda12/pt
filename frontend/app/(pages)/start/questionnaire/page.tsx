@@ -4,9 +4,10 @@ import { handleSetupSubmit } from '@/app/services/userSetupActions';
 import { useFormStatus } from 'react-dom';
 import { useActionState } from 'react';
 import { useState } from 'react';
-import { useBodyPart } from "@/app/contexts/BodyPartContext";
+import { useBodyPart } from "@/app/utils/BodyPartContext";
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
+import { BodyPartMap } from '@/app/utils/BodyPartTypes'
 
 function SubmitButton() {
     const { pending } = useFormStatus();
@@ -34,23 +35,25 @@ function NavigationButtons() {
 export default function QuestionnairePage() {
     const [errorMessage, dispatch] = useActionState(handleSetupSubmit, undefined);
     const [showPreviousDate, setShowPreviousDate] = useState(false);
-    const [showPhysicalTherapy, setShowPhysicalTherapy] = useState(false);
-    const { selectedBodyPart } = useBodyPart();
 
+    const { selectedBodyPart } = useBodyPart();
     if (!selectedBodyPart) {
-        // TODO: Check the following code
-        console.log('Body part not tracked, redireccting back...')
+        // TODO: Why does loadingTimeout still run without being called? why cant i call it in the JSX?
+        console.log('Body part:', selectedBodyPart, ' not tracked, redireccting back...')
         const loadingTimeout = setTimeout(() => {
             redirect('/start');
         }, 2500)
         return (
             <div>
-                <h2>Body part not tracked, redirecting to body part selection...</h2>
+                <h2 className={styles.redirectMessage}>Body part not tracked, redirecting to body part selection...</h2>
                 {/* TODO: Add Loading Spinner */}
                 {/* {loadingTimeout()} */}
             </div>
         )
     }
+
+    // Map the body part to its label to store properly in the database:
+    const bodyPartLabel = BodyPartMap[selectedBodyPart];
 
     return (
         <div className={styles.qPage}>
@@ -67,7 +70,7 @@ export default function QuestionnairePage() {
                     <input
                         type="hidden"
                         name="body_part"
-                        value={selectedBodyPart || ''}
+                        value={bodyPartLabel || ''}
                     />
 
                     {/* Previous Problem Section */}
@@ -147,7 +150,6 @@ export default function QuestionnairePage() {
                                         type="radio"
                                         name="had_physical_therapy_before"
                                         value="true"
-                                        onChange={(e) => setShowPhysicalTherapy(e.target.checked)}
                                         required
                                     />
                                     <span className={styles.radioLabel}>Yes</span>
@@ -157,7 +159,6 @@ export default function QuestionnairePage() {
                                         type="radio"
                                         name="had_physical_therapy_before"
                                         value="false"
-                                        onChange={(e) => setShowPhysicalTherapy(!e.target.checked)}
                                         required
                                     />
                                     <span className={styles.radioLabel}>No</span>

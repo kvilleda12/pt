@@ -2,7 +2,7 @@
 import { useEffect, useRef } from 'react';
 import { useThree } from '@react-three/fiber';
 import * as THREE from 'three';
-import { useBodyPart } from '../contexts/BodyPartContext';
+import { useBodyPart } from '../utils/BodyPartContext';
 
 export function BodyPartHitboxes() {
     const { scene, raycaster, camera, gl } = useThree();

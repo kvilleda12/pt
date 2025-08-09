@@ -45,7 +45,7 @@ class BP(Base):
         CheckConstraint('id IN ( 1, 2, 3)', name='check_valid_bp_id'), {'schema': 'training_sources'}#makes sure only 1 and 2 are the valuable 
     )
 
-# neck, chest, l/r shoulder, l/r tricep, l/r bicep, abdomen, back, l/r hamstring, l/r quad, l/r calf, l/r ankle, everything else
+# neck, chest, l/r shoulder, l/r tricep, l/r bicep, abdomen, back, l/r hamstring, l/r quad, l/r calf, l/r ankle, everything
 BODY_PART_LABELS = ('n', 'c', 'ls', 'rs', 'lt', 'rt', 'lb', 'rb', 'a', 'b', 'lh', 'rh', 'lq', 'rq', 'lc', 'rc', 'la', 'ra', 'e')
 
 class Body(Base):
@@ -141,7 +141,7 @@ class ProblemReport(Base):
 
     # This column will store the foreign key
     body_part_id: Mapped[str] = mapped_column(
-        Enum(*BODY_PART_LABELS, name='body_id_enum'),
+        # Enum(*BODY_PART_LABELS, name='body_id_enum'),
         ForeignKey('training_sources.body_part_counts.id'),
         nullable=False
     )

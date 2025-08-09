@@ -1,5 +1,5 @@
 // start/layout.tsx
-import { BodyPartProvider } from "@/app/contexts/BodyPartContext";
+import { BodyPartProvider } from "@/app/utils/BodyPartContext";
 
 export default function RootLayout({
     children,
