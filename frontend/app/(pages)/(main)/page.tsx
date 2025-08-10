@@ -1,8 +1,8 @@
 'use client';
 import Link from "next/link";
 import styles from "./page.module.css";
-import SplitText from "@/app/ui-components/reactbits/SplitText.js";
-import Orb from "@/app/ui-components/reactbits/Orb.js";
+import SplitText from "@/app/components/reactbits/SplitText.js";
+import Orb from "@/app/components/reactbits/Orb.js";
 
 
 

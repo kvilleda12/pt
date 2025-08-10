@@ -47,6 +47,5 @@ export async function handleSetupSubmit(
         return 'Failed to save your responses. Please try again.'
     }
     
-    redirect('/results'); // Redirect to next step
-
+    redirect('/dashboard'); // Redirect to next step
 }
