@@ -1,0 +1,9 @@
+{
+  "doc_id": "f5152126-d604-4e61-b523-18916fb543b9",
+  "classification": {
+    "viable": true,
+    "confidence": 0.55,
+    "reason": "heuristic pass",
+    "labels": []
+  }
+}

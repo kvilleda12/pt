@@ -1,0 +1,34 @@
+[
+    {
+        "type": "robots_disallow",
+        "url": "https://www.webmd.com/fitness-exercise/fitness-neck-stretches"
+    },
+    {
+        "type": "robots_disallow",
+        "url": "https://www.hss.edu/health-library/move-better/back-neck-stretches"
+    },
+    {
+        "type": "fetch_error",
+        "url": "https://universityorthopedics.com/educational_resources/neck_exercises.html"
+    },
+    {
+        "type": "url_duplicate",
+        "url": "https://www.webmd.com/fitness-exercise/fitness-neck-stretches"
+    },
+    {
+        "type": "url_duplicate",
+        "url": "https://universityorthopedics.com/educational_resources/neck_exercises.html"
+    },
+    {
+        "type": "url_duplicate",
+        "url": "https://www.healthline.com/health/shoulder-pain-exercises"
+    },
+    {
+        "type": "url_duplicate",
+        "url": "https://www.healthline.com/health/shoulder-pain-exercises"
+    },
+    {
+        "type": "url_duplicate",
+        "url": "https://orthoinfo.aaos.org/en/recovery/rotator-cuff-and-shoulder-conditioning-program/"
+    }
+]
