@@ -11,7 +11,7 @@
     /* Modern glass background with animated gradient */
     background: 
         radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(255, 117, 179, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(230, 117, 255, 0.3) 0%, transparent 50%),
         radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.2) 0%, transparent 50%),
         linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
     color: rgba(255, 255, 255, 0.95);
@@ -44,7 +44,7 @@
 
 .title {
     font-size: clamp(1.75rem, 4vw, 2.5rem);
-    font-weight: 300;
+    font-weight: 400;
     margin-bottom: 1rem;
     text-align: center;
     background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.8) 100%);
@@ -67,9 +67,14 @@
     z-index: 1;
 }
 
+.redirectMessage {
+    text-align: center;
+    margin-top: 140px;
+}
+
 .questionnaireForm {
     width: 100%;
-    max-width: 600px;
+    max-width: 750px;
     margin: 0 auto;
     position: relative;
     z-index: 1;
@@ -360,9 +365,9 @@
 .logoutButton {
     background: linear-gradient(135deg, 
         rgba(244, 67, 54, 0.15) 0%, 
-        rgba(244, 67, 54, 0.08) 100%);
-    color: rgba(255, 107, 107, 1);
-    border-color: rgba(244, 67, 54, 0.2);
+        rgba(232, 27, 12, 0.08) 100%);
+    color: rgb(255, 182, 182);
+    border-color: rgba(152, 52, 42, 0.2);
 }
 
 .logoutButton:hover {
@@ -415,4 +420,19 @@
         padding: 0.625rem 1rem;
         font-size: 0.8rem;
     }
+}
+
+/* Slight accent for new text areas */
+.textArea {
+    border: 1px solid rgba(19, 13, 62, 0.2);
+    border-radius: 8px;
+    padding: 0.75rem;
+    resize: vertical;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.textArea:focus {
+    outline: none;
+    border-color: #3f32a3;
+    box-shadow: 0 0 0 3px rgba(63, 50, 163, 0.15);
 }

@@ -4,8 +4,10 @@ import { handleSetupSubmit } from '@/app/services/userSetupActions';
 import { useFormStatus } from 'react-dom';
 import { useActionState } from 'react';
 import { useState } from 'react';
-import { useBodyPart } from "@/app/contexts/BodyPartContext";
+import { useBodyPart } from "@/app/utils/BodyPartContext";
+import { redirect } from 'next/navigation';
 import Link from 'next/link';
+import { BodyPartMap } from '@/app/utils/BodyPartTypes'
 
 function SubmitButton() {
     const { pending } = useFormStatus();
@@ -33,14 +35,30 @@ function NavigationButtons() {
 export default function QuestionnairePage() {
     const [errorMessage, dispatch] = useActionState(handleSetupSubmit, undefined);
     const [showPreviousDate, setShowPreviousDate] = useState(false);
-    const [showPreviousHelp, setShowPreviousHelp] = useState(false);
-    const [showPhysicalTherapy, setShowPhysicalTherapy] = useState(false);
+
     const { selectedBodyPart } = useBodyPart();
+    if (!selectedBodyPart) {
+        // TODO: Why does loadingTimeout still run without being called? why cant i call it in the JSX?
+        console.log('Body part:', selectedBodyPart, ' not tracked, redireccting back...')
+        const loadingTimeout = setTimeout(() => {
+            redirect('/start');
+        }, 2500)
+        return (
+            <div>
+                <h2 className={styles.redirectMessage}>Body part not tracked, redirecting to body part selection...</h2>
+                {/* TODO: Add Loading Spinner */}
+                {/* {loadingTimeout()} */}
+            </div>
+        )
+    }
+
+    // Map the body part to its label to store properly in the database:
+    const bodyPartLabel = BodyPartMap[selectedBodyPart];
 
     return (
         <div className={styles.qPage}>
             <NavigationButtons />
-            
+
             <div className={styles.formContainer}>
                 <h1 className={styles.title}>Tell us about your condition</h1>
                 <h2 className={styles.subtitle}>
@@ -52,8 +70,9 @@ export default function QuestionnairePage() {
                     <input
                         type="hidden"
                         name="body_part"
-                        value={selectedBodyPart || ''}
+                        value={bodyPartLabel || ''}
                     />
+
                     {/* Previous Problem Section */}
                     <div className={styles.questionSection}>
                         <h2 className={styles.sectionTitle}>Previous Experience</h2>
@@ -90,7 +109,7 @@ export default function QuestionnairePage() {
                             <>
                                 <div className={styles.questionGroup}>
                                     <label className={styles.questionLabel} htmlFor="previous_problem_date">
-                                        When did you last experience this problem?
+                                        When did you last experience this problem? (Estimate)
                                     </label>
                                     <input
                                         type="date"
@@ -103,7 +122,7 @@ export default function QuestionnairePage() {
 
                                 <div className={styles.questionGroup}>
                                     <label className={styles.questionLabel} htmlFor="what_helped_before">
-                                        What helped resolve it before?
+                                        What helped resolve it before? (If anything)
                                     </label>
                                     <textarea
                                         id="what_helped_before"
@@ -131,7 +150,6 @@ export default function QuestionnairePage() {
                                         type="radio"
                                         name="had_physical_therapy_before"
                                         value="true"
-                                        onChange={(e) => setShowPhysicalTherapy(e.target.checked)}
                                         required
                                     />
                                     <span className={styles.radioLabel}>Yes</span>
@@ -141,7 +159,6 @@ export default function QuestionnairePage() {
                                         type="radio"
                                         name="had_physical_therapy_before"
                                         value="false"
-                                        onChange={(e) => setShowPhysicalTherapy(!e.target.checked)}
                                         required
                                     />
                                     <span className={styles.radioLabel}>No</span>
@@ -151,7 +168,7 @@ export default function QuestionnairePage() {
 
                         <div className={styles.questionGroup}>
                             <label className={styles.questionLabel} htmlFor="previous_unrelated_problem">
-                                Do you have any other ongoing health conditions or injuries we should know about?
+                                Do you have any other ongoing health conditions?
                             </label>
                             <textarea
                                 id="previous_unrelated_problem"
@@ -163,6 +180,63 @@ export default function QuestionnairePage() {
                             <small className={styles.helpText}>
                                 This helps us avoid exercises that might aggravate other conditions.
                             </small>
+                        </div>
+                    </div>
+
+                    {/* Additional Pain & Goal Questions */}
+                    <div className={styles.questionSection}>
+                        <h2 className={styles.sectionTitle}>Your Perspective</h2>
+
+                        <div className={styles.questionGroup}>
+                            <label className={styles.questionLabel} htmlFor="opinion_cause">
+                                What in your opinion caused this problem?
+                            </label>
+                            <textarea
+                                id="opinion_cause"
+                                name="opinion_cause"
+                                className={styles.textArea}
+                                placeholder="Describe what you think might have caused this issue..."
+                                rows={3}
+                            />
+                        </div>
+
+                        <div className={styles.questionGroup}>
+                            <label className={styles.questionLabel} htmlFor="pain_worse">
+                                What makes your pain worse?
+                            </label>
+                            <textarea
+                                id="pain_worse"
+                                name="pain_worse"
+                                className={styles.textArea}
+                                placeholder="List activities, movements, or situations that make the pain worse..."
+                                rows={3}
+                            />
+                        </div>
+
+                        <div className={styles.questionGroup}>
+                            <label className={styles.questionLabel} htmlFor="pain_better">
+                                What makes your pain better?
+                            </label>
+                            <textarea
+                                id="pain_better"
+                                name="pain_better"
+                                className={styles.textArea}
+                                placeholder="List anything that relieves the pain, even temporarily..."
+                                rows={3}
+                            />
+                        </div>
+
+                        <div className={styles.questionGroup}>
+                            <label className={styles.questionLabel} htmlFor="goal_for_pt">
+                                What is your goal for physical therapy?
+                            </label>
+                            <textarea
+                                id="goal_for_pt"
+                                name="goal_for_pt"
+                                className={styles.textArea}
+                                placeholder="Describe what you hope to achieve by the end of therapy..."
+                                rows={3}
+                            />
                         </div>
                     </div>
 

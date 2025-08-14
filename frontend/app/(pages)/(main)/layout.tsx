@@ -1,6 +1,6 @@
 'use client';
 import "@/app/globals.css";
-import GooeyNav from "@/app/ui-components/reactbits/GooeyNav.js";
+import GooeyNav from "@/app/components/reactbits/GooeyNav.js";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 
