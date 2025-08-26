@@ -47,7 +47,7 @@ class BP(Base):
         CheckConstraint('id IN ( 1, 2)', name='check_valid_bp_id'), {'schema': 'training_sources'}#makes sure only 1 and 2 are the valuable 
     )
 
-# neck, chest, l/r shoulder, l/r tricep, l/r bicep, abdomen, back, l/r hamstring, l/r quad, l/r calf, l/r ankle, everything else
+# neck, chest, l/r shoulder, l/r tricep, l/r bicep, abdomen, back, l/r hamstring, l/r quad, l/r calf, l/r ankle, everything
 BODY_PART_LABELS = ('n', 'c', 'ls', 'rs', 'lt', 'rt', 'lb', 'rb', 'a', 'b', 'lh', 'rh', 'lq', 'rq', 'lc', 'rc', 'la', 'ra', 'e')
 class BodyId(str, enum.Enum):
     n="n"; c="c"; ls="ls"; rs="rs"; lt="lt"; rt="rt"; lb="lb"; rb="rb"
@@ -208,6 +208,12 @@ class ProblemReport(Base):
     what_helped_before: Mapped[str] = mapped_column(Text, nullable=True)
     had_physical_therapy_before: Mapped[bool] = mapped_column(Boolean, server_default="0", nullable=False)
     previous_unrelated_problem: Mapped[str] = mapped_column(Text, nullable=True)
+    
+    # Personal Opinion 
+    opinion_cause: Mapped[str] = mapped_column(Text, nullable=True)
+    pain_worse: Mapped[str] = mapped_column(Text, nullable=True)
+    pain_better: Mapped[str] = mapped_column(Text, nullable=True)
+    goal_for_pt: Mapped[str] = mapped_column(Text, nullable=True)
 
     
 class LoginHistory(Base):

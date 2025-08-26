@@ -1,7 +1,7 @@
 'use client';
-import HumanModel from "@/app//ui-components/human-model";
+import HumanModel from "@/app/components/human-model";
 import styles from "./start.module.css";
-import { BodyPartProvider, useBodyPart } from "@/app/contexts/BodyPartContext";
+import { BodyPartProvider, useBodyPart } from "@/app/utils/BodyPartContext";
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
@@ -21,7 +21,9 @@ export default function StartContent() {
                         className={styles.continueButton}
                         onClick={() => redirect('/start/questionnaire')}
                     >
-                        Continue with {selectedBodyPart.replace('_', ' ')}
+                        <span>
+                            Continue with {selectedBodyPart.replace('_', ' ')}
+                        </span>
                     </button>
                 )}
             </div>

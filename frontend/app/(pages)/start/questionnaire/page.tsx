@@ -5,8 +5,10 @@ import { handleSetupSubmit } from '@/app/services/userSetupActions';
 import { useFormStatus } from 'react-dom';
 import { useActionState } from 'react';
 import { useState } from 'react';
-import { useBodyPart } from "@/app/contexts/BodyPartContext";
+import { useBodyPart } from "@/app/utils/BodyPartContext";
+import { redirect } from 'next/navigation';
 import Link from 'next/link';
+import { BodyPartMap } from '@/app/utils/BodyPartTypes'
 
 function SubmitButton() {
   const { pending } = useFormStatus();

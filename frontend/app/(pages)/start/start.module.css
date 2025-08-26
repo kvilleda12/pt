@@ -62,28 +62,58 @@
     padding: 1rem 2rem;
     background-color: white;
     color: #130d3e;
-    border: none;
+    border: 2px solid rgba(19, 13, 62, 0.25); /* subtle border */
     border-radius: 20px;
     font-weight: 600;
     cursor: pointer;
     position: absolute;
     right: 50px;
     top: 50%;
+    overflow: hidden; /* Needed for background animation */
     
-    /* Initial state - hidden */
     opacity: 0;
     transform: translateY(-50%);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    
-    /* Fade in animation */
+    transition: 
+        color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
     animation: fadeInButton 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    z-index: 2;
 }
 
+/* Hover background sweep */
+.continueButton::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, #130d3e, #3f32a3);
+    transition: left 0.4s ease;
+    z-index: 1;
+}
+
+.continueButton:hover::before {
+    left: 0;
+}
+
+/* Hover state */
 .continueButton:hover {
-    transform: translateY(-51px);
-    box-shadow: 0 4px 12px rgba(19, 13, 62, 0.15);
+    color: white;
+    transform: translateY(-51px) scale(1.05);
+    border-color: rgba(255, 255, 255, 0.6); /* brighter border */
+    box-shadow: 0 10px 25px rgba(19, 13, 62, 0.25);
 }
 
+/* Keep text above animation */
+.continueButton span {
+    position: relative;
+    z-index: 1;
+}
+
+/* Fade in animation */
 @keyframes fadeInButton {
     from {
         opacity: 0;
@@ -93,12 +123,6 @@
         opacity: 1;
         transform: translateY(-50%) translateX(0);
     }
-}
-
-/* Alternative approach using CSS custom properties for dynamic control */
-.continueButton--fade-in {
-    --fade-delay: 0s;
-    animation-delay: var(--fade-delay);
 }
 
 .logoutButton {
