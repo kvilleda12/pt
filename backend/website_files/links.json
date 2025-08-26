@@ -64,5 +64,16 @@
         "reason": "LLM error; heuristic used",
         "labels": [],
         "hash": "4b0ca04c52a4a548357fb097d7ac3aea2b6bf7b1736172b19ffab3468db160ef"
+    },
+    {
+        "id": "65410d2d-2469-4d37-bbe4-8ac6599c87cd",
+        "url": "https://universityorthopedics.com/educational_resources/neck_exercises.html",
+        "raw_file": "/Users/kevinvilleda/pt/backend/website_files/raw/65410d2d-2469-4d37-bbe4-8ac6599c87cd.txt",
+        "html_file": "/Users/kevinvilleda/pt/backend/website_files/processed/65410d2d-2469-4d37-bbe4-8ac6599c87cd.html",
+        "viable": true,
+        "confidence": 0.55,
+        "reason": "LLM error; heuristic used",
+        "labels": [],
+        "hash": "47ff0c5a8b12b91715d2efd7502a0116876e6d748a395382905a8757aee2baf1"
     }
 ]
