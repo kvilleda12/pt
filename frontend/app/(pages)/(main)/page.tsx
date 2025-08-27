@@ -4,6 +4,7 @@ import styles from "./page.module.css";
 import SplitText from "@/app/components/reactbits/SplitText.js";
 import Orb from "@/app/components/reactbits/Orb.js";
 
+// This is the main page of the application, which serves as the landing page.
 
 
 export default function Home() {

@@ -115,30 +115,34 @@
 }
 
 .aboutImage img {
-  border-radius: 18px;         /* Rounded corners, or use 50% for a circle */
-  box-shadow: 0 8px 32px rgba(162, 0, 255, 0.18), 0 2px 8px rgba(0,0,0,0.12);
-  max-width: 440px;           /* Responsive size */
+  border-radius: 18px;
+  /* Rounded corners, or use 50% for a circle */
+  box-shadow: 0 8px 32px rgba(162, 0, 255, 0.18), 0 2px 8px rgba(0, 0, 0, 0.12);
+  max-width: 440px;
+  /* Responsive size */
   width: 100%;
   height: auto;
-  border: 1.5px solid #9e27ff;  /* Optional: neon border for pop */
+  border: 1.5px solid #9e27ff;
+  /* Optional: neon border for pop */
   object-fit: cover;
-  background: #1a0033;        /* Fallback bg color */
+  background: #1a0033;
+  /* Fallback bg color */
   transition: box-shadow 0.3s;
 }
 
 .aboutImage img:hover {
-  box-shadow: 0 12px 48px #8260ff88, 0 2px 8px rgba(0,0,0,0.18);
+  box-shadow: 0 12px 48px #8260ff88, 0 2px 8px rgba(0, 0, 0, 0.18);
   border-color: #652dff;
 }
 
-.aboutCompanyDescription { 
-  font-size : 1.5rem; 
+.aboutCompanyDescription {
+  font-size: 1.5rem;
   line-height: 1.4;
   color: #ffffff;
   text-align: center;
   margin-top: 120px
-  
 }
+
 /*founder stuff */
 
 .founderProfile {
@@ -155,32 +159,38 @@
 .fadeUp {
   animation-name: fadeInUp;
   animation-duration: 0.8s;
-  animation-fill-mode: forwards; 
+  animation-fill-mode: forwards;
 }
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
+
 .profileMiddle {
-  animation-delay: 0.3s; 
+  animation-delay: 0.3s;
 }
+
 .profileLeft {
-  animation-delay: 0.6s; 
+  animation-delay: 0.6s;
 }
+
 .profileRight {
-  animation-delay: 0.9s; 
+  animation-delay: 0.9s;
 }
+
 .founderName {
   font-size: 1.6rem;
   font-weight: 600;
   color: #ffffff;
-  font-weight: bold;  
+  font-weight: bold;
 }
 
 .founderTitle {
@@ -206,8 +216,8 @@
 .foundersContainer {
   display: flex;
   justify-content: center;
-  gap: 10rem; 
-  flex-wrap: wrap; 
+  gap: 10rem;
+  flex-wrap: wrap;
   align-items: center;
   align-items: flex-start;
 }
@@ -215,7 +225,7 @@
 .founderDescription {
   font-size: 1.2rem;
   color: #ffffff;
-  max-width: 330px; 
+  max-width: 330px;
   line-height: 1.5;
 }
 
@@ -249,18 +259,22 @@ a.secondary {
   font-family: var(--font-geist-sans);
   letter-spacing: -0.02em;
 }
+
 @keyframes dropIn {
   from {
     opacity: 0;
     transform: translateY(-50px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
+
 .animatedLetter {
-  display: inline-block; /* Important for applying transform */
+  display: inline-block;
+  /* Important for applying transform */
   opacity: 0;
   animation: dropIn 0.4s ease-out forwards;
 }
@@ -321,5 +335,186 @@ a.secondary {
 @media (prefers-color-scheme: dark) {
   .logo {
     filter: invert();
+  }
+}
+
+/* =============================================== */
+/*           Styles for Tablet & Smaller           */
+/* =============================================== */
+@media (max-width: 768px) {
+
+  /* --- General Page Layout --- */
+  .page {
+    padding: 60px 40px;
+    /* Reduced padding */
+    gap: 28px;
+    /* Reduced gap between sections */
+  }
+
+  .main {
+    margin-top: 100px;
+    /* Less vertical space */
+  }
+
+  /* --- Typography --- */
+  .title,
+  .aboutTitle {
+    font-size: 2.5rem;
+    /* Slightly smaller title */
+    margin-top: auto;
+  }
+
+  .subheading {
+    font-size: 1.25rem;
+    padding-bottom: 0px;
+  }
+
+  .aboutCompanyDescription {
+    font-size: 1rem;
+    margin-top: 60px;
+  }
+
+  /* --- Founder Section --- */
+  .foundersContainer {
+    gap: 4rem;
+    /* Reduced gap between founder profiles */
+    padding: 0 20px;
+    /* Prevent content from touching edges */
+  }
+}
+
+
+/* =============================================== */
+/*             Styles for Mobile Only              */
+/* =============================================== */
+@media (max-width: 600px) {
+
+  /* --- General Page Layout --- */
+  .page {
+    padding: 40px 20px 80px 20px;
+    /* Your original padding was good, adjusted slightly */
+    grid-template-rows: auto;
+    /* Let content define the row heights */
+    display: flex;
+    /* Switch to flexbox for simpler vertical stacking */
+    flex-direction: column;
+    gap: 15px;
+    /* Smaller gap for mobile */
+  }
+
+  /* --- Main Content & Buttons --- */
+  .main {
+    margin-top: 50px;
+    /* Further reduced top margin */
+    margin-bottom: 20px;
+    align-items: center;
+    /* Keep this from your original code */
+  }
+
+  .buttonPrimary {
+    height: 160px;
+    /* Drastically reduce button size */
+    min-width: 160px;
+    font-size: 20px;
+    /* Make button text smaller */
+  }
+
+  .buttonPrimary span {
+    text-shadow:
+      0 0 5px #a200ff,
+      0 0 1px #ff60ca;
+    /* Simplified text-shadow for smaller text */
+  }
+
+  /* --- Typography --- */
+  .aboutTitle {
+    font-size: 1.7rem;
+    /* Significantly smaller title for mobile */
+    line-height: 1.1;
+    padding-bottom: 50px;
+  }
+
+  .subheading {
+    font-size: 1.1rem;
+    /* Smaller subheading */
+  }
+
+  .aboutCompanyDescription {
+    font-size: .9rem;
+    line-height: 1.5;
+    margin-top: 40px;
+  }
+
+  /* --- About Page Section --- */
+  .aboutPage {
+    padding: 20px 0;
+    /* Reduced padding */
+    gap: 40px;
+    /* Reduced gap */
+  }
+
+  .aboutImage {
+    flex-direction: column;
+    /* Stack images vertically if there are multiple */
+    width: 70%;
+    margin-top: 20px;
+  }
+
+  /* --- Founder Section --- */
+  .sectionHeader {
+    font-size: 2em;
+  }
+
+  .foundersContainer {
+    flex-direction: column;
+    /* Stack founder profiles vertically */
+    gap: 48px;
+    /* Consistent gap between stacked profiles */
+    padding: 0 10px;
+    /* Prevent content from touching edges */
+    align-items: center;
+    /* Center align items */
+  }
+
+  .founderProfile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+  }
+
+  .founderImage {
+    width: 150px;
+    height: 150px;
+    margin: auto;
+  }
+
+  .founderDescription {
+    font-size: 1rem;
+    max-width: 90%;
+    text-align: center;
+    margin: auto;
+  }
+
+  /* --- Footer & CTAs (from your original code, kept for completeness) --- */
+  .ctas {
+    flex-direction: column;
+  }
+
+  .ctas a {
+    font-size: 14px;
+    height: 40px;
+    padding: 0 16px;
+  }
+
+  a.secondary {
+    min-width: auto;
+  }
+
+  .footer {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
   }
 }

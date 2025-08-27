@@ -3,6 +3,9 @@ import "@/app/globals.css";
 import GooeyNav from "@/app/components/reactbits/GooeyNav.js";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
+// import styles from './page.module.css';  className={styles.background}
+
+// This is the layout component for the main pages, which includes the GooeyNav navigation bar.
 
 export default function Layout({
   children,
@@ -33,6 +36,14 @@ export default function Layout({
           colors={[1, 2, 3, 1, 2, 3, 1, 4]}
         />
       </div>
+      {/* Divider line below navbar */}
+      <div style={{
+        borderBottom: '.5px solid #e0e0e0',
+        width: '95%',
+        marginTop: '20px',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+      }} />
       {children}
     </div>
   );
