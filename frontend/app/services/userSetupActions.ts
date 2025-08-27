@@ -13,7 +13,7 @@ export async function handleSetupSubmit(
     }
 
     console.log('User session:', session);
-    console.log('form data:', formData);
+    console.log('Form data:', formData);
 
     try {
         const questionnaireData = {
@@ -38,6 +38,8 @@ export async function handleSetupSubmit(
             })
         });
 
+        console.log('api/set-up-user response:', response);
+
         if (!response.ok) {
             throw new Error('Failed to save questionnaire');
         }
@@ -46,6 +48,6 @@ export async function handleSetupSubmit(
         console.error('Failed to send questionnaire to the server.', error);
         return 'Failed to save your responses. Please try again.'
     }
-    
+
     redirect('/dashboard'); // Redirect to next step
 }
