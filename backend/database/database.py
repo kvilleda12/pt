@@ -1,11 +1,13 @@
-import sqlalchemy
-from sqlalchemy import create_engine, ForeignKey, inspect, Integer, CheckConstraint, String, UniqueConstraint, Boolean, Text, Date
+import enum
+from sqlalchemy import create_engine, ForeignKey, inspect
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import DateTime, select, func, update, Enum, BigInteger
+from sqlalchemy import DateTime, select, func, update,  BigInteger
 from sqlalchemy.orm import relationship, Mapped, mapped_column, Session, sessionmaker
-from datetime import datetime
 from dotenv import load_dotenv
 import os
+from sqlalchemy.orm import Mapped, mapped_column, relationship, foreign
+from sqlalchemy import Enum as SAEnum, Integer, String, Text, Boolean, DateTime, Date, UniqueConstraint, CheckConstraint, ForeignKey
+from datetime import datetime, date
 
 #in the table for any new row increase the textbook_id by one. insert a string which links to the pdf name
 #I want the size of teh converted file into txt. So we take the file size of the txt
@@ -42,67 +44,119 @@ class BP(Base):
     upper_count:Mapped[int] = mapped_column(Integer) 
     lower_count:Mapped[int] = mapped_column(Integer)
     __table_args__ = (
-        CheckConstraint('id IN ( 1, 2, 3)', name='check_valid_bp_id'), {'schema': 'training_sources'}#makes sure only 1 and 2 are the valuable 
+        CheckConstraint('id IN ( 1, 2)', name='check_valid_bp_id'), {'schema': 'training_sources'}#makes sure only 1 and 2 are the valuable 
     )
 
 # neck, chest, l/r shoulder, l/r tricep, l/r bicep, abdomen, back, l/r hamstring, l/r quad, l/r calf, l/r ankle, everything
 BODY_PART_LABELS = ('n', 'c', 'ls', 'rs', 'lt', 'rt', 'lb', 'rb', 'a', 'b', 'lh', 'rh', 'lq', 'rq', 'lc', 'rc', 'la', 'ra', 'e')
+class BodyId(str, enum.Enum):
+    n="n"; c="c"; ls="ls"; rs="rs"; lt="lt"; rt="rt"; lb="lb"; rb="rb"
+    a="a"; b="b"; lh="lh"; rh="rh"; lq="lq"; rq="rq"; lc="lc"; rc="rc"
+    la="la"; ra="ra"; e="e"
+BodyIdEnum = SAEnum(BodyId, name="body_id_enum", native_enum=True, validate_strings=True)
 
 class Body(Base):
     __tablename__ = "body_part_counts"
     __table_args__ = {'schema': 'training_sources'}
-    labels = ('n', 'f', 'h', 'a', 'l', 's', 'c', 'b', 'e') #only these labels can be assigned. n for neck, f for feet, h for head, a for arms, l for legs, s for shoudlers, c for chest, b for back, m for multi (no specfiication in the title)
-    id: Mapped[str] = mapped_column(
-        Enum(*BODY_PART_LABELS, name='body_id_enum'), 
-        primary_key=True
-    )
-    counts:Mapped[int] = mapped_column(Integer)
-    source_part_id:Mapped[int] = mapped_column(Integer, ForeignKey("training_sources.part.id"))
-    textbooks:Mapped[list['Textbook']] = relationship("Textbook", back_populates="part") #can have multiple textbooks
-    research_papers:Mapped[list['Research_paper']] = relationship("Research_paper", back_populates='part') #can have miltiple research papers
-    reports: Mapped[list["ProblemReport"]] = relationship(back_populates="body_part")
 
+    # PK is your shared enum (assume you've defined BodyIdEnum earlier)
+    id: Mapped[str] = mapped_column(BodyIdEnum, primary_key=True)
+
+    counts: Mapped[int] = mapped_column(Integer)
+    # no FK here; keep as plain Integer or drop this column if you don't need it
+    source_part_id: Mapped[int] = mapped_column(Integer)
+
+    # ---- Relationships (explicit joins, no FKs) ----
+    textbooks: Mapped[list['Textbook']] = relationship(
+        "Textbook",
+        primaryjoin=lambda: Body.id == foreign(Textbook.part_id),
+        viewonly=True,
+    )
+
+    research_papers: Mapped[list['Research_paper']] = relationship(
+        "Research_paper",
+        primaryjoin=lambda: Body.id == foreign(Research_paper.part_id),
+        viewonly=True,
+    )
+
+    reports: Mapped[list["ProblemReport"]] = relationship(
+        "ProblemReport",
+        primaryjoin=lambda: Body.id == foreign(ProblemReport.body_part_id),
+        viewonly=True,
+    )
 class Textbook(Base):
     __tablename__ = "textbook_sources"
-    textbook_id:Mapped[int]= mapped_column(Integer, primary_key=True, index=True, unique=True) #make sure constraints are true
-    textbook_name:Mapped[str] = mapped_column(String)
-    author:Mapped[str] = mapped_column(String)
-    size:Mapped[int] = mapped_column(Integer)
-    date_added:Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
-    where:Mapped[str] = mapped_column(String)
-    part_id:Mapped[str] = mapped_column(Enum(*Body.labels, name='body_id_enum'), ForeignKey('training_sources.body_part_counts.id')) #points to the id in body parts
-    part:Mapped['Body'] = relationship("Body", back_populates="textbooks") #can acess the body
-    images:Mapped[list['Image']] = relationship('Image', back_populates='textbook') #textbooks can have many images
     __table_args__ = (
-        UniqueConstraint('textbook_name', 'author', name='uq_textbook_author'), {'schema': 'training_sources'}
+        UniqueConstraint('textbook_name', 'author', name='uq_textbook_author'),
+        {'schema': 'training_sources'}
     )
+
+    textbook_id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True, unique=True)
+    textbook_name: Mapped[str] = mapped_column(String, nullable=False)
+    author: Mapped[str] = mapped_column(String, nullable=False)
+    size: Mapped[int] = mapped_column(Integer, nullable=False)
+    date_added: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, nullable=False)
+    where: Mapped[str] = mapped_column(String, nullable=False)
+
+    #: no ForeignKey here; just the same ENUM type
+    part_id: Mapped[str] = mapped_column(BodyIdEnum, nullable=False)
+
+    # View-only relationship to Body via explicit join
+    part: Mapped['Body'] = relationship(
+        "Body",
+        primaryjoin=lambda: foreign(Textbook.part_id) == Body.id,
+        viewonly=True,
+    )
+
+    images: Mapped[list['Image']] = relationship('Image', back_populates='textbook')
     
 class Research_paper(Base):
     __tablename__ = "research_paper_sources"
-    id:Mapped[int] = mapped_column(Integer, primary_key=True, index=True, unique=True)
-    paper_name:Mapped[str] = mapped_column(String)
-    size:Mapped[int] = mapped_column(Integer)
-    date:Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
-    where:Mapped[str] = mapped_column(String)
-    part_id:Mapped[str] = mapped_column(Enum(*Body.labels, name='body_id_enum'), ForeignKey("training_sources.body_part_counts.id")) #point to body parts id
-    part:Mapped['Body'] = relationship("Body", back_populates="research_papers") #can acess Body
-    images:Mapped[list['Image']] = relationship('Image', back_populates='paper') #can have multiple images
     __table_args__ = (
-        UniqueConstraint('paper_name', name='uq_textbook'), {'schema': 'training_sources'}
+        UniqueConstraint('paper_name', name='uq_research_paper_name'),
+        {'schema': 'training_sources'}
     )
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True, unique=True)
+    paper_name: Mapped[str] = mapped_column(String, nullable=False)
+    size: Mapped[int] = mapped_column(Integer, nullable=False)
+    date: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, nullable=False)
+    where: Mapped[str] = mapped_column(String, nullable=False)
+
+    part_id: Mapped[str] = mapped_column(BodyIdEnum, nullable=False)
+
+    part: Mapped['Body'] = relationship(
+        "Body",
+        primaryjoin=lambda: foreign(Research_paper.part_id) == Body.id,
+        viewonly=True,
+    )
+
+    images: Mapped[list['Image']] = relationship('Image', back_populates='paper')
 
 class Image(Base):
     __tablename__ = "image_sources"
     __table_args__ = {'schema': 'training_sources'}
-    iid:Mapped[str] = mapped_column(String, primary_key=True) # 
-    date_added:Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow) #current time
-    size:Mapped[int] = mapped_column(Integer)
-    file_name:Mapped[str] = mapped_column(String)
-    textbook_id:Mapped[int] = mapped_column(Integer, ForeignKey('training_sources.textbook_sources.textbook_id'), nullable=True) #points to the textbook_id
-    textbook:Mapped['Textbook'] = relationship("Textbook", back_populates='images') #has access to the object
-    paper_id:Mapped[int] = mapped_column(Integer, ForeignKey('training_sources.research_paper_sources.id'), nullable=True) #points to paper
-    paper:Mapped['Research_paper'] = relationship("Research_paper", back_populates='images') #has access to paper
-    page:Mapped[int] = mapped_column(Integer)
+
+    iid: Mapped[str] = mapped_column(String, primary_key=True)
+    date_added: Mapped[DateTime] = mapped_column(DateTime, default=datetime.utcnow)
+    size: Mapped[int] = mapped_column(Integer)
+    file_name: Mapped[str] = mapped_column(String)
+
+    textbook_id: Mapped[int] = mapped_column(
+        Integer,
+        ForeignKey('training_sources.textbook_sources.textbook_id'),
+        nullable=True
+    )
+    textbook: Mapped['Textbook'] = relationship("Textbook", back_populates='images')
+
+    paper_id: Mapped[int] = mapped_column(
+        Integer,
+        ForeignKey('training_sources.research_paper_sources.id'),
+        nullable=True
+    )
+    paper: Mapped['Research_paper'] = relationship("Research_paper", back_populates='images')
+
+    page: Mapped[int] = mapped_column(Integer)
     has_context: Mapped[bool] = mapped_column(Boolean, default=True)
 
 #this is where the front end schema starts 
@@ -135,25 +189,23 @@ class User(Base):
 class ProblemReport(Base):
     __tablename__ = "problem_reports"
     __table_args__ = ({'schema': 'frontend_data'})
+
     id: Mapped[int] = mapped_column(primary_key=True)
     user_id: Mapped[int] = mapped_column(ForeignKey("frontend_data.users.id"), nullable=False, index=True)
     user: Mapped["User"] = relationship(back_populates="reports")
 
-    # This column will store the foreign key
-    body_part_id: Mapped[str] = mapped_column(
-        # Enum(*BODY_PART_LABELS, name='body_id_enum'),
-        ForeignKey('training_sources.body_part_counts.id'),
-        nullable=False
+    # store the enum code; no FK to training_sources.body_part_counts.id
+    body_part_id: Mapped[str] = mapped_column(BodyIdEnum, nullable=False)
+
+    body_part: Mapped["Body"] = relationship(
+        "Body",
+        primaryjoin=lambda: foreign(ProblemReport.body_part_id) == Body.id,
+        viewonly=True,
     )
 
-    body_part: Mapped["Body"] = relationship(back_populates="reports")
-    
-    # --- Questionnaire ---
     had_this_problem_before: Mapped[bool] = mapped_column(Boolean, server_default="0", nullable=False)
     previous_problem_date: Mapped[datetime] = mapped_column(DateTime, nullable=True)
     what_helped_before: Mapped[str] = mapped_column(Text, nullable=True)
-    
-    # General History
     had_physical_therapy_before: Mapped[bool] = mapped_column(Boolean, server_default="0", nullable=False)
     previous_unrelated_problem: Mapped[str] = mapped_column(Text, nullable=True)
     
@@ -163,6 +215,7 @@ class ProblemReport(Base):
     pain_better: Mapped[str] = mapped_column(Text, nullable=True)
     goal_for_pt: Mapped[str] = mapped_column(Text, nullable=True)
 
+    
 class LoginHistory(Base):
     __tablename__ = "login_history"
     __table_args__ = ({'schema': 'frontend_data'})

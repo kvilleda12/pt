@@ -1,11 +1,16 @@
 'use server';
+
 import { auth } from '@/auth';
 import { redirect } from 'next/navigation';
 
-// Server communication function
+function buildApiUrl(path: string) {
+  const base = (process.env.NEXT_PUBLIC_API_URL || '').replace(/\/$/, '');
+  return `${base}/api${path.startsWith('/') ? path : `/${path}`}`;
+}
+
 export async function handleSetupSubmit(
-    prevState: string | undefined,
-    formData: FormData
+  _prevState: string | undefined,
+  formData: FormData
 ) {
     const session = await auth()
     if (!session?.user?.email) {
@@ -51,3 +56,4 @@ export async function handleSetupSubmit(
 
     redirect('/dashboard'); // Redirect to next step
 }
+
