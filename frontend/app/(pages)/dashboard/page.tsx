@@ -6,7 +6,6 @@ import { AnalyticsCard } from "@/app/components/dashboard/AnalyticsCard"
 import { RecentSessions } from "@/app/components/dashboard/RecentSessions"
 
 export default function DashboardPage() {
-
   return (
     <DashboardLayout>
       <div className="space-y-6">
