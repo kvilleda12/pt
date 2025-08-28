@@ -67,6 +67,10 @@
   height: 100%; /* optional, adjust as needed */
 }
 
+@media (max-width: 768px) {
+  
+}
+
 .orbContent > * {
   pointer-events: auto; /* allow button to be clickable */
 }

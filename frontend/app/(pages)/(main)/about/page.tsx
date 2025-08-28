@@ -70,7 +70,7 @@ export default function About() {
         {founders.map((founder, index) => (
           <div
             key={index}
-            className={`${styles.founderProfile} ${inView ? styles.fadeUp : ''} ${founder.profileClass}`}
+            className={`${styles.founderProfile} ${inView ? styles.fadeUp : ''}`}
           >
             <Link
               href={founder.href}

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "PTI | AI Physical Therapy Assistant",
     description: "PTI is an AI-powered bot for physical therapy: get personalized exercises, guidance, and progress tracking.",
-    url: "https://pti.example.com/", // TODO: Replace with your actual URL
+    url: "https://pti.example.com/", // TODO: Replace with actual URL
     siteName: "PTI",
     images: [
       {

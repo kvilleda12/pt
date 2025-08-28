@@ -1,7 +1,7 @@
 'use client';
 import HumanModel from "@/app/components/human-model";
 import styles from "./start.module.css";
-import { BodyPartProvider, useBodyPart } from "@/app/utils/BodyPartContext";
+import { useBodyPart } from "@/app/utils/BodyPartContext";
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 

@@ -154,73 +154,76 @@ def to_datetime_or_none(d: Optional[datetime | str]) -> Optional[datetime]:
 # --- USER DATA ROUTES ---
 @app.post("/api/set-up-user")
 def set_up_user(payload: schemas.SetUp, db: Session = Depends(dependency.get_db)):
-    # 1) find user
+    print(f"In user setup API endpoint, with payload: {payload}")
+    # Find the user by their email
     db_user = db.query(database.User).filter(database.User.email == payload.email).first()
     if not db_user:
-        raise HTTPException(status_code=404, detail="User not found")
+        print(f"Error in API Endpoint: user {payload.email} not found")
+        raise HTTPException(status_code=404, detail="User not found.")
 
-    # 2) normalize body-part labels
-    body_code = normalize_body_part(payload.body_part)
-
-    # 3) coerce date field
-    prev_dt = to_datetime_or_none(payload.previous_problem_date)
-
-    # 4) fetch latest report for this user
-    existing_report = (
-        db.query(database.ProblemReport)
-          .filter(database.ProblemReport.user_id == db_user.id)
-          .order_by(database.ProblemReport.id.desc())
-          .first()
-    )
-
-    # 5) if they said they've *not* had it before, wipe the “previous_*” fields
-    had_before = bool(payload.had_this_problem_before)
-    if not had_before:
-        prev_dt = None
-        what_helped = None
-    else:
-        what_helped = payload.what_helped_before
+    # Try to find the user's most recent report to update it
+    existing_report = db.query(database.ProblemReport)\
+        .filter(database.ProblemReport.user_id == db_user.id)\
+        .order_by(database.ProblemReport.id.desc())\
+        .first()
+    
+    # Safely parse the date string into a datetime object if it exists
+    parsed_date = None
+    if payload.previous_problem_date:
+        try:
+            # Assuming the date format is YYYY-MM-DD
+            parsed_date = datetime.strptime(payload.previous_problem_date, '%Y-%m-%d')
+        except ValueError:
+            raise HTTPException(status_code=400, detail="Invalid date format. Please use YYYY-MM-DD.")
 
     if existing_report:
-        # ---- update path ----
-        existing_report.body_part_id = body_code
-        existing_report.had_this_problem_before = had_before
-        existing_report.previous_problem_date = prev_dt
-        existing_report.what_helped_before = what_helped
-        existing_report.had_physical_therapy_before = bool(payload.had_physical_therapy_before)
+        # --- UPDATE THE EXISTING REPORT ---
+        existing_report.body_part_id = payload.body_part
+        existing_report.had_this_problem_before = payload.had_this_problem_before
+        existing_report.previous_problem_date = parsed_date
+        existing_report.what_helped_before = payload.what_helped_before
+        existing_report.had_physical_therapy_before = payload.had_physical_therapy_before
         existing_report.previous_unrelated_problem = payload.previous_unrelated_problem
-
-        db.add(existing_report)
+        existing_report.opinion_cause = payload.opinion_cause 
+        existing_report.pain_worse = payload.pain_worse
+        existing_report.pain_better = payload.pain_better
+        existing_report.goal_for_pt = payload.goal_for_pt
+        
         db.commit()
         db.refresh(existing_report)
-
+        
         return {
             "ok": True,
-            "action": "updated",
             "report_id": existing_report.id,
-            "body_part_code": body_code,
+            "action": "updated"
+        }
+    else:
+        # --- CREATE A NEW REPORT ---
+        print('creating new problem report')
+        new_report = database.ProblemReport(
+            user_id=db_user.id,
+            body_part_id=payload.body_part,
+            had_this_problem_before=payload.had_this_problem_before,
+            previous_problem_date=parsed_date,
+            what_helped_before=payload.what_helped_before,
+            had_physical_therapy_before=payload.had_physical_therapy_before,
+            previous_unrelated_problem=payload.previous_unrelated_problem,
+            opinion_cause=payload.opinion_cause,
+            pain_worse=payload.pain_worse,
+            pain_better=payload.pain_better,
+            goal_for_pt=payload.goal_for_pt,
+        )
+        
+        db.add(new_report)
+        db.commit()
+        db.refresh(new_report)
+        
+        return {
+            "ok": True,
+            "report_id": new_report.id,
+            "action": "created"
         }
 
-    # ---- create path ----
-    new_report = database.ProblemReport(
-        user_id=db_user.id,
-        body_part_id=body_code,
-        had_this_problem_before=had_before,
-        previous_problem_date=prev_dt,
-        what_helped_before=what_helped,
-        had_physical_therapy_before=bool(payload.had_physical_therapy_before),
-        previous_unrelated_problem=payload.previous_unrelated_problem,
-    )
-    db.add(new_report)
-    db.commit()
-    db.refresh(new_report)
-
-    return {
-        "ok": True,
-        "action": "created",
-        "report_id": new_report.id,
-        "body_part_code": body_code,
-    }
 
 # Llama Router for LLM API
 app.include_router(llm_api.router, prefix = "/api/llm")
