@@ -154,25 +154,18 @@ def to_datetime_or_none(d: Optional[datetime | str]) -> Optional[datetime]:
 # --- USER DATA ROUTES ---
 @app.post("/api/set-up-user")
 def set_up_user(payload: schemas.SetUp, db: Session = Depends(dependency.get_db)):
-    # 1) find user
+    print(f"In user setup API endpoint, with payload: {payload}")
+    # Find the user by their email
     db_user = db.query(database.User).filter(database.User.email == payload.email).first()
     if not db_user:
-        raise HTTPException(status_code=404, detail="User not found")
+        print(f"Error in API Endpoint: user {payload.email} not found")
+        raise HTTPException(status_code=404, detail="User not found.")
 
     # Try to find the user's most recent report to update it
     existing_report = db.query(database.ProblemReport)\
         .filter(database.ProblemReport.user_id == db_user.id)\
         .order_by(database.ProblemReport.id.desc())\
         .first()
-    
-    # OPTION 1: Saving the actual Body Part Object on the PR. Find the parent Body object using the string from the payload
-    # body_part_object = db.query(database.Body)\
-    #     .filter(database.Body.id == payload.body_part)\
-    #     .first()
-
-    # if not body_part_object:
-    #     print(f"Error in API Endpoint: parent Body object not found in database.")
-    #     raise HTTPException(status_code=404, detail=f"Body part '{payload.body_part}' not found.")
     
     # Safely parse the date string into a datetime object if it exists
     parsed_date = None
@@ -191,16 +184,18 @@ def set_up_user(payload: schemas.SetUp, db: Session = Depends(dependency.get_db)
         existing_report.what_helped_before = payload.what_helped_before
         existing_report.had_physical_therapy_before = payload.had_physical_therapy_before
         existing_report.previous_unrelated_problem = payload.previous_unrelated_problem
-
-        db.add(existing_report)
+        existing_report.opinion_cause = payload.opinion_cause 
+        existing_report.pain_worse = payload.pain_worse
+        existing_report.pain_better = payload.pain_better
+        existing_report.goal_for_pt = payload.goal_for_pt
+        
         db.commit()
         db.refresh(existing_report)
-
+        
         return {
             "ok": True,
-            "action": "updated",
             "report_id": existing_report.id,
-            "body_part_code": body_code,
+            "action": "updated"
         }
     else:
         # --- CREATE A NEW REPORT ---
@@ -228,6 +223,7 @@ def set_up_user(payload: schemas.SetUp, db: Session = Depends(dependency.get_db)
             "report_id": new_report.id,
             "action": "created"
         }
+
 
 # Llama Router for LLM API
 app.include_router(llm_api.router, prefix = "/api/llm")
