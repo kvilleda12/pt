@@ -1,5 +1,5 @@
 'use server';
-import { signIn, signOut } from '@/auth';
+import { signIn, signOut, auth } from '@/auth';
 import { redirect } from 'next/navigation';
 
 // server action to handle authentication through useFormState. Caputres and receives form data.
@@ -105,3 +105,13 @@ export const handleSignOut = async () => {
   }
   redirect('/'); // Redirect to home page after sign out
 };
+
+export async function getUserSession() {
+  try {
+    const session = await auth();
+    return session || null;
+  } catch (err) {
+    console.error('Error fetching user session:', err);
+    return null;
+  }
+}
