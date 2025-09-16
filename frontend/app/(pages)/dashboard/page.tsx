@@ -3,6 +3,7 @@ import { redirect } from 'next/navigation';
 import DashboardClientPage from './DashboardLayout'; // We will create this next
 import { auth } from '@/auth';
 
+// Fetch user session on the server side and pass down to the rendered client component.
 export default async function DashboardPage() {
   let session;
   try {

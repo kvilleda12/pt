@@ -57,21 +57,21 @@ export function RecentSessions() {
   }
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Recent Sessions</CardTitle>
-        <CardDescription>Your latest therapy progress</CardDescription>
+    <Card className="relative overflow-hidden group hover:shadow-xl hover:shadow-blue-100/50 border border-blue-200 hover:border-blue-300 transition-all duration-300 bg-white hover:-translate-y-1">
+      <CardHeader className="p-6">
+        <CardTitle className="text-xl text-blue-600">Recent Sessions</CardTitle>
+        <CardDescription className="text-blue-600">Your latest therapy progress</CardDescription>
       </CardHeader>
-      <CardContent className="space-y-4">
+      <CardContent className="space-y-4 p-6">
         {recentSessions.map((session) => (
-          <div key={session.id} className="flex items-center justify-between p-3 border rounded-lg hover:bg-muted/50 transition-colors">
+          <div key={session.id} className="flex items-center justify-between p-4 border border-blue-100 rounded-lg hover:bg-blue-50/50 hover:border-blue-200 transition-all duration-200">
             <div className="space-y-1">
               <div className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-success" />
-                <span className="font-medium">{session.date}</span>
+                <CheckCircle className="h-4 w-4 text-blue-600" />
+                <span className="font-medium text-blue-600">{session.date}</span>
                 {getStatusBadge(session.status)}
               </div>
-              <div className="flex items-center gap-4 text-sm text-muted-foreground">
+              <div className="flex items-center gap-4 text-sm text-blue-500">
                 <div className="flex items-center gap-1">
                   <Clock className="h-3 w-3" />
                   <span>{session.duration} min</span>
@@ -83,8 +83,8 @@ export function RecentSessions() {
               </div>
             </div>
             <div className="text-right">
-              <div className="text-lg font-bold text-primary">{session.score}%</div>
-              <div className="text-xs text-muted-foreground">Score</div>
+              <div className="text-lg font-bold text-blue-600">{session.score}%</div>
+              <div className="text-xs text-blue-500">Score</div>
             </div>
           </div>
         ))}

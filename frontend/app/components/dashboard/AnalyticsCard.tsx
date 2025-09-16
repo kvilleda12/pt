@@ -39,18 +39,18 @@ export function AnalyticsCard() {
 
   if (loading) {
     return (
-      <Card className="col-span-2">
-        <CardHeader>
-          <CardTitle>Analytics Overview</CardTitle>
-          <CardDescription>Your therapy progress summary</CardDescription>
+      <Card className="relative overflow-hidden group hover:shadow-xl hover:shadow-blue-100/50 border border-blue-200 hover:border-blue-300 transition-all duration-300 bg-white hover:-translate-y-1 h-full flex flex-col">
+        <CardHeader className="p-6">
+          <CardTitle className="text-xl text-blue-600">Analytics Overview</CardTitle>
+          <CardDescription className="text-blue-600">Your therapy progress summary</CardDescription>
         </CardHeader>
-        <CardContent>
+        <CardContent className="p-6 flex-1">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {[...Array(6)].map((_, i) => (
               <div key={i} className="space-y-2">
-                <div className="h-4 bg-muted rounded animate-pulse" />
-                <div className="h-8 bg-muted rounded animate-pulse" />
-                <div className="h-3 bg-muted rounded animate-pulse w-2/3" />
+                <div className="h-4 bg-blue-100 rounded animate-pulse" />
+                <div className="h-8 bg-blue-100 rounded animate-pulse" />
+                <div className="h-3 bg-blue-100 rounded animate-pulse w-2/3" />
               </div>
             ))}
           </div>
@@ -102,28 +102,28 @@ export function AnalyticsCard() {
   ]
 
   return (
-    <Card className="col-span-2">
-      <CardHeader>
-        <CardTitle>Analytics Overview</CardTitle>
-        <CardDescription>Your therapy progress summary</CardDescription>
+    <Card className="relative overflow-hidden group hover:shadow-xl hover:shadow-blue-100/50 border border-blue-200 hover:border-blue-300 transition-all duration-300 bg-white hover:-translate-y-1 h-full flex flex-col">
+      <CardHeader className="p-6">
+        <CardTitle className="text-xl text-blue-600">Analytics Overview</CardTitle>
+        <CardDescription className="text-blue-600">Your therapy progress summary</CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="p-6 flex-1">
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {metrics.map((metric, index) => {
             const Icon = metric.icon
             return (
-              <div key={metric.label} className="space-y-2">
+              <div key={metric.label} className="space-y-2 p-3 rounded-lg hover:bg-blue-50/50 transition-colors duration-200">
                 <div className="flex items-center gap-2">
-                  <Icon className={`h-4 w-4 ${metric.color}`} />
-                  <span className="text-sm text-muted-foreground">
+                  <Icon className="h-4 w-4 text-blue-600" />
+                  <span className="text-sm text-blue-600">
                     {metric.label}
                   </span>
                 </div>
-                <div className={`text-2xl font-bold ${metric.isGoal ? 'text-sm font-medium' : ''}`}>
+                <div className={`text-2xl font-bold text-blue-600 ${metric.isGoal ? 'text-sm font-medium' : ''}`}>
                   {metric.value}
                 </div>
                 {!metric.isGoal && (
-                  <div className="text-xs text-muted-foreground">
+                  <div className="text-xs text-blue-500">
                     This month
                   </div>
                 )}

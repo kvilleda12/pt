@@ -10,46 +10,55 @@ import {
 } from "@/app/components/ui/dropdown-menu"
 import { Avatar, AvatarFallback, AvatarImage } from "@/app/components/ui/avatar"
 
-export function ProfileDropdown() {
+export function ProfileDropdown({ username, email }: { username: string, email: string }) {
+
+  const getInitals = (name: string) => {
+    const names = name.split(' ');
+    const initials = names.map(n => n.charAt(0).toUpperCase()).join('');
+    return initials.slice(0, 2); // Limit to 2 characters
+  }
+
+  const initials = getInitals(username);
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Avatar className="h-8 w-8 cursor-pointer hover:ring-2 hover:ring-primary/20 transition-all">
           <AvatarImage src="/placeholder-user.jpg" alt="Profile" />
           <AvatarFallback className="bg-primary text-primary-foreground text-sm font-medium">
-            JD
+            {initials}
           </AvatarFallback>
         </Avatar>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56" align="end">
+      <DropdownMenuContent className="w-56 bg-white text-blue-600" align="end">
         <DropdownMenuLabel>
           <div className="flex flex-col space-y-1">
-            <p className="text-sm font-medium leading-none">John Doe</p>
-            <p className="text-xs leading-none text-muted-foreground">
-              john.doe@example.com
+            <p className="text-sm font-medium leading-none text-blue-700">{username}</p>
+            <p className="text-xs leading-none text-blue-400">
+              {email}
             </p>
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
-          <User className="mr-2 h-4 w-4" />
+        <DropdownMenuItem className="text-blue-600 hover:bg-blue-50">
+          <User className="mr-2 h-4 w-4 text-blue-600" />
           <span>Profile</span>
         </DropdownMenuItem>
-        <DropdownMenuItem>
-          <Settings className="mr-2 h-4 w-4" />
+        <DropdownMenuItem className="text-blue-600 hover:bg-blue-50">
+          <Settings className="mr-2 h-4 w-4 text-blue-600" />
           <span>Settings</span>
         </DropdownMenuItem>
-        <DropdownMenuItem>
-          <Bell className="mr-2 h-4 w-4" />
+        <DropdownMenuItem className="text-blue-600 hover:bg-blue-50">
+          <Bell className="mr-2 h-4 w-4 text-blue-600" />
           <span>Notifications</span>
         </DropdownMenuItem>
-        <DropdownMenuItem>
-          <HelpCircle className="mr-2 h-4 w-4" />
+        <DropdownMenuItem className="text-blue-600 hover:bg-blue-50">
+          <HelpCircle className="mr-2 h-4 w-4 text-blue-600" />
           <span>Help & Support</span>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem className="text-destructive">
-          <LogOut className="mr-2 h-4 w-4" />
+        <DropdownMenuItem className="text-red-600 hover:bg-red-50">
+          <LogOut className="mr-2 h-4 w-4 text-red-600" />
           <span>Log out</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
