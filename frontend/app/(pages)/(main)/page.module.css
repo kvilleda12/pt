@@ -1,8 +1,4 @@
 .page {
-  --button-primary-hover: #661919;
-  --button-secondary-hover: #661919;
-  background: var(--background);
-
   display: grid;
   grid-template-rows: 20px 30px 250px;
   align-items: center;
