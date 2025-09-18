@@ -224,6 +224,38 @@ def set_up_user(payload: schemas.SetUp, db: Session = Depends(dependency.get_db)
             "action": "created"
         }
 
+@app.post("/api/is-user-setup")
+def is_user_setup(payload: schemas.IsSetUp, db: Session = Depends(dependency.get_db)):
+    print(f"In 'is_user_setup' API endpoint, with payload: {payload}")
+    
+    # Find the user by their email
+    db_user = db.query(database.User).filter(database.User.email == payload.email).first()
+    if not db_user:
+        print(f"Error in API Endpoint: user {payload.email} not found")
+        raise HTTPException(status_code=404, detail="User not found.")
+    
+    # possibly replace this with db_user.reports
+    existing_pr = db.query(database.ProblemReport)\
+        .filter(database.ProblemReport.user_id == db_user.id)\
+        .order_by(database.ProblemReport.id.desc())\
+        .first()
+
+    if existing_pr:
+        print(f"User {payload.email} IS set up")
+        return {
+            "ok": True,
+            "is_setup": True,
+            "report_id": existing_pr.id
+        }
+    else:
+        print(f"User {payload.email} is NOT set up")
+        return {
+            "ok": True,
+            "is_setup": False,
+            "report_id": None
+        }
+
 
 # Llama Router for LLM API
 app.include_router(llm_api.router, prefix = "/api/llm")
+

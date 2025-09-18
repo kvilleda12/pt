@@ -30,3 +30,6 @@ class SetUp(BaseModel):
     pain_worse: str
     pain_better: str
     goal_for_pt: str
+    
+class IsSetUp(BaseModel):
+    email: str

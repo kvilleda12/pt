@@ -40,7 +40,7 @@ export default function Home() {
             hue={310}
             forceHoverState={false}
           >
-            <Link href="/sign-up">
+            <Link href="/start">
               <button className={styles.buttonPrimary}>
                 <span>START</span>
               </button>

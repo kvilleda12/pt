@@ -1,3 +1,4 @@
+'use client'
 import { SidebarProvider, SidebarTrigger, SidebarInset } from "@/app/components/ui/sidebar"
 import { DashboardSidebar } from "./DashboardSidebar"
 import { ProfileDropdown } from "./ProfileDropdown"
