@@ -18,6 +18,7 @@ function LogoutLoading() {
 }
 
 // Form component for logout confirmation
+// TODO: Change so that it can return to the page the user was on before logging out if canceled.
 function LogoutForm() {
     return (
         <div className={styles.authPage}>
@@ -29,7 +30,7 @@ function LogoutForm() {
                         Yes, Log Out
                     </button>
                 </form>
-                <Link href="/">
+                <Link href="/app/dashboard">
                     <button className={styles.submitButton}>Cancel</button>
                 </Link>
             </div>

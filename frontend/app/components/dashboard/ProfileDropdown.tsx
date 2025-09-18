@@ -1,4 +1,4 @@
-import { useState } from "react"
+import Link from "next/link"
 import { User, Settings, LogOut, Bell, HelpCircle } from "lucide-react"
 import {
   DropdownMenu,
@@ -40,26 +40,36 @@ export function ProfileDropdown({ username, email }: { username: string, email: 
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem className="text-blue-600 hover:bg-blue-50">
-          <User className="mr-2 h-4 w-4 text-blue-600" />
-          <span>Profile</span>
+        <DropdownMenuItem asChild className="text-blue-600 hover:bg-blue-50">
+          <Link href="/profile">
+            <User className="mr-2 h-4 w-4 text-blue-600" />
+            <span>Profile</span>
+          </Link>
         </DropdownMenuItem>
-        <DropdownMenuItem className="text-blue-600 hover:bg-blue-50">
-          <Settings className="mr-2 h-4 w-4 text-blue-600" />
-          <span>Settings</span>
+        <DropdownMenuItem asChild className="text-blue-600 hover:bg-blue-50">
+          <Link href="/settings">
+            <Settings className="mr-2 h-4 w-4 text-blue-600" />
+            <span>Settings</span>
+          </Link>
         </DropdownMenuItem>
-        <DropdownMenuItem className="text-blue-600 hover:bg-blue-50">
-          <Bell className="mr-2 h-4 w-4 text-blue-600" />
-          <span>Notifications</span>
+        <DropdownMenuItem asChild className="text-blue-600 hover:bg-blue-50">
+          <Link href="/notifications">
+            <Bell className="mr-2 h-4 w-4 text-blue-600" />
+            <span>Notifications</span>
+          </Link>
         </DropdownMenuItem>
-        <DropdownMenuItem className="text-blue-600 hover:bg-blue-50">
-          <HelpCircle className="mr-2 h-4 w-4 text-blue-600" />
-          <span>Help & Support</span>
+        <DropdownMenuItem asChild className="text-blue-600 hover:bg-blue-50">
+          <Link href="/help">
+            <HelpCircle className="mr-2 h-4 w-4 text-blue-600" />
+            <span>Help & Support</span>
+          </Link>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem className="text-red-600 hover:bg-red-50">
-          <LogOut className="mr-2 h-4 w-4 text-red-600" />
-          <span>Log out</span>
+        <DropdownMenuItem asChild className="text-red-600 hover:bg-red-50">
+          <Link href="/logout">
+            <LogOut className="mr-2 h-4 w-4 text-red-600" />
+            <span>Log out</span>
+          </Link>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

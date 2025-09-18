@@ -24,7 +24,7 @@ export function BeginSessionCard() {
       </CardHeader>
       <CardContent className="relative p-8 flex-1 flex flex-col justify-center">
 
-        <Link href="/session" className="block">
+        <Link href="/app/session" className="block">
           <Button 
             variant="hero" 
             size="xl" 
