@@ -1,5 +1,6 @@
 import uuid
 import shutil
+import time
 from pathlib import Path
 from typing import Dict, Any, Optional, Tuple, List
 from config import PROCESSED_DIR, RAW_DIR, ARCHIVE_DIR
@@ -10,12 +11,34 @@ from logger import log
 def save_html_and_convert(url: str, html: str) -> Tuple[str, Path, Path, str]:
     doc_id = str(uuid.uuid4())
     html_path = PROCESSED_DIR / f"{doc_id}.html"
-    html_path.write_text(html, encoding="utf-8")
-    log(f"[STORE] Saved HTML -> {html_path.name}")
-    text = html_to_text(html)
+    
+    # Save HTML with error handling
+    try:
+        html_path.write_text(html, encoding="utf-8")
+        log(f"[STORE] Saved HTML -> {html_path.name}")
+    except Exception as e:
+        log(f"[STORE] ERROR saving HTML {doc_id}: {e}")
+        raise
+    
+    # Convert to text
+    try:
+        text = html_to_text(html)
+        if not text or len(text.strip()) < 50:
+            log(f"[STORE] WARNING: Very short text extracted from {url}")
+    except Exception as e:
+        log(f"[STORE] ERROR converting HTML to text {doc_id}: {e}")
+        text = ""  # Fallback to empty text
+    
+    # Save text file
     raw_path = RAW_DIR / f"{doc_id}.txt"
-    raw_path.write_text(text, encoding="utf-8")
-    log(f"[STORE] Saved RAW -> {raw_path.name}")
+    try:
+        raw_path.write_text(text, encoding="utf-8")
+        log(f"[STORE] Saved RAW -> {raw_path.name} ({len(text)} chars)")
+    except Exception as e:
+        log(f"[STORE] ERROR saving text {doc_id}: {e}")
+        raise
+    
+    # Create metadata entry
     entry: Dict[str, Any] = {
         "id": doc_id,
         "url": url,
@@ -26,8 +49,16 @@ def save_html_and_convert(url: str, html: str) -> Tuple[str, Path, Path, str]:
         "reason": None,
         "labels": [],
         "hash": sha256_text(text),
+        "text_length": len(text),
+        "timestamp": time.time(),
     }
-    add_or_update_link(entry)
+    
+    try:
+        add_or_update_link(entry)
+    except Exception as e:
+        log(f"[STORE] ERROR updating links {doc_id}: {e}")
+        raise
+    
     return doc_id, html_path, raw_path, text
 
 def archive_processed_file(html_path: Path) -> None:

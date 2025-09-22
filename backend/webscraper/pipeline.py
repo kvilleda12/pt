@@ -18,31 +18,59 @@ class RunResult:
     skipped_duplicates: int
 
 def fetch_and_ingest(url: str, criteria: Dict, known_hashes: set) -> Optional[str]:
-    log(f"[PIPE] Checking robots for: {url}")
+    log(f"[PIPE] Processing: {url}")
+    
+    # Check robots.txt
     if not robots_allowed(url):
         log_duplicate({"type":"robots_disallow","url":url})
         log(f"[PIPE] SKIP robots: {url}")
         return None
+    
+    # Fetch content
     resp = http_get(url)
     if not resp:
         log_duplicate({"type":"fetch_error","url":url})
         log(f"[PIPE] SKIP fetch error: {url}")
         return None
-    log(f"[PIPE] Converting HTML -> text for: {url}")
-    doc_id, html_path, raw_path, text = save_html_and_convert(url, resp.text)
-    h = sha256_text(text)
-    if h in known_hashes:
-        update_link_fields(doc_id, reason="duplicate_content_hash", viable=False, confidence=0.0)
+    
+    # Convert HTML to text
+    try:
+        log(f"[PIPE] Converting HTML -> text for: {url}")
+        doc_id, html_path, raw_path, text = save_html_and_convert(url, resp.text)
+        
+        # Check for duplicate content
+        h = sha256_text(text)
+        if h in known_hashes:
+            update_link_fields(doc_id, reason="duplicate_content_hash", viable=False, confidence=0.0)
+            archive_processed_file(html_path)
+            log_duplicate({"type":"content_hash","url":url,"doc_id":doc_id,"hash":h})
+            log(f"[PIPE] DUP content hash -> skip: {url}")
+            return None
+        
+        # Add to known hashes
+        known_hashes.add(h)
+        save_hashes(known_hashes)
+        
+        # Classify content
+        log(f"[PIPE] Classifying content for: {url}")
+        classification_result = classify_text(doc_id, text, criteria)
+        
+        # Archive HTML file
         archive_processed_file(html_path)
-        log_duplicate({"type":"content_hash","url":url,"doc_id":doc_id,"hash":h})
-        log(f"[PIPE] DUP content hash -> skip: {url}")
+        
+        # Log successful processing
+        if classification_result.get("viable", False):
+            log(f"[PIPE] SUCCESS: {url} -> viable content")
+        else:
+            log(f"[PIPE] FILTERED: {url} -> not viable")
+        
+        time.sleep(FETCH_SLEEP)
+        return doc_id
+        
+    except Exception as e:
+        log(f"[PIPE] ERROR processing {url}: {e}")
+        log_duplicate({"type":"processing_error","url":url,"error":str(e)})
         return None
-    known_hashes.add(h)
-    save_hashes(known_hashes)
-    classify_text(doc_id, text, criteria)
-    archive_processed_file(html_path)
-    time.sleep(FETCH_SLEEP)
-    return doc_id
 
 def run_pipeline(
     labels: Optional[List[str]] = None,
