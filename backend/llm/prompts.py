@@ -30,6 +30,9 @@ Only propose safe, clearly-instructed exercises. Choose the best {n_recs} option
 PATIENT PROFILE CONTEXT (may be empty):
 {user_context}
 
+AGE-AWARE GUIDANCE:
+{age_instructions}
+
 RETRIEVED EXERCISE CARDS (ID | NAME | BODY_PART | TYPE | EQUIPMENT):
 {cards_brief}
 
@@ -38,6 +41,7 @@ INSTRUCTIONS:
 - Then list {n_recs} exercises. For each: show **Name** (ID), **What it helps**, **Equipment**, and **Step-by-step** (3–6 bullets from the card). Keep steps concrete and actionable.
 - Prefer matching body part(s) and constraints implied by the user query.
 - If left/right is specified by the user, tailor cues accordingly.
+- Adjust difficulty by age if needed (use seated, low-impact, slower progressions for older adults).
 - End with a brief safety note.
 
 USER QUESTION:
@@ -45,3 +49,4 @@ USER QUESTION:
 
 Answer:"""
 )
+
