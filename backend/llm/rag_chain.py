@@ -45,36 +45,30 @@ def answer_with_rag(
 
     llm = ChatGroq(model_name="llama-3.1-8b-instant", temperature=TEMPERATURE, max_tokens=MAX_TOKENS)
 
-    # Guess labels from the natural language query
+    # Guess + merge labels
     guessed_labels = guess_labels_from_query(user_question, name_to_code)
-
-    # Merge guessed + forced (from DB)
-    label_filter = []
-    if guessed_labels:
-        label_filter.extend(guessed_labels)
-    if force_labels:
-        for lbl in force_labels:
-            if lbl and lbl not in label_filter:
-                label_filter.append(lbl)
+    label_filter = list({*(guessed_labels or []), *(force_labels or [])})
 
     fused_docs = retrieve_fused(
         llm=llm,
         vectorstore=_vectorstore,
         all_docs=_all_docs,
         query=user_question,
-        label_filter=label_filter or None
+        label_filter=label_filter or None,
     )
-
     top_docs = fused_docs[:TOP_K_FINAL]
 
-    prompt = FINAL_ANSWER_PROMPT.format(
+    # Build final prompt text
+    final_prompt = FINAL_ANSWER_PROMPT.format(
         n_recs=min(3, len(top_docs)),
         user_context=user_context or "(no profile data provided)",
         age_instructions=_age_instructions(age_years),
         cards_brief=_cards_brief(top_docs),
-        question=user_question
+        question=user_question,
     )
 
-    chain = ChatPromptTemplate.from_template("{prompt}").format_prompt(prompt=prompt) | llm | StrOutputParser()
-    answer = chain.invoke({})
+    # Call the model directly with the string
+    raw_response = llm.invoke(final_prompt)
+    answer = StrOutputParser().invoke(raw_response)
+
     return f"{answer}\n\n**Safety:** {SAFETY_DISCLAIMER}"
