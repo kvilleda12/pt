@@ -1,8 +1,12 @@
 from pathlib import Path
 import os
-from dotenv import load_dotenv
 
-load_dotenv()
+# Try to load dotenv if available
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass  # dotenv not available, continue without it
 
 BASE_DIR = Path(__file__).resolve().parents[1]
 
@@ -42,13 +46,25 @@ OLLAMA_MAX_TOKENS = int(os.getenv("OLLAMA_MAX_TOKENS", "512"))
 DEFAULT_CRITERIA = {
     "keywords_any": [
         "physical therapy", "rehabilitation", "stretch", "exercise",
-        "range of motion", "mobility", "strengthening", "PT"
+        "range of motion", "mobility", "strengthening", "PT", "physiotherapy",
+        "therapeutic", "manual therapy", "recovery", "injury", "pain relief",
+        "muscle", "joint", "flexibility", "stability", "posture", "movement",
+        "treatment", "therapy", "rehab", "conditioning", "restoration"
     ],
-    "min_text_len": 400,
-    "reject_phrases_any": ["casino", "coupon", "price list", "terms of service", "disclaimer only"],
+    "min_text_len": 300,
+    "reject_phrases_any": [
+        "casino", "coupon", "price list", "terms of service", "disclaimer only",
+        "buy now", "click here", "advertisement", "sponsored", "affiliate",
+        "medical advice", "consult your doctor", "emergency", "call 911"
+    ],
     "require_precision": True,
     "body_parts": [
         "neck", "chest", "shoulder", "tricep", "bicep", "abdomen",
-        "back", "hamstring", "quad", "calf", "ankle"
+        "back", "hamstring", "quad", "calf", "ankle", "knee", "hip",
+        "wrist", "elbow", "foot", "spine", "pelvis", "core"
     ],
+    "quality_indicators": [
+        "step by step", "instructions", "repetitions", "sets", "duration",
+        "technique", "form", "safety", "contraindications", "progression"
+    ]
 }

@@ -1,0 +1,9 @@
+{
+  "doc_id": "test_good",
+  "classification": {
+    "viable": true,
+    "confidence": 0.8,
+    "reason": "heuristic pass (quality indicators: 2) (body parts: 3)",
+    "labels": []
+  }
+}

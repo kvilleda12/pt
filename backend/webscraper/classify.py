@@ -11,11 +11,27 @@ from logger import log
 SYSTEM_PROMPT = "You are a strict information quality reviewer for a physical therapy instruction corpus. Return JSON only."
 USER_PROMPT_TEMPLATE = """Task: Evaluate if the page content is VIABLE for precise physical-therapy instructions.
 
-Criteria:
-- The text must describe specific PT exercises or stretches, with clear steps, cues, reps/sets, or safety notes.
-- Avoid vague wellness content without actionable steps.
-- Prefer medically sound terminology and accurate anatomy.
-- Reject sales pages, thin content, or unrelated topics.
+STRICT CRITERIA FOR VIABLE CONTENT:
+1. Must contain specific exercise instructions, stretches, or therapeutic movements
+2. Should include actionable steps, repetitions, sets, duration, or technique guidance
+3. Must be medically/therapeutically relevant (not general fitness or wellness)
+4. Should contain proper anatomical terminology
+5. Must be educational/informational, not promotional or sales-focused
+
+QUALITY INDICATORS (higher confidence if present):
+- Step-by-step instructions
+- Repetitions, sets, or duration specified
+- Proper technique/form guidance
+- Safety considerations or contraindications
+- Anatomical references
+- Therapeutic progression or modifications
+
+REJECT IF:
+- Vague wellness content without specific exercises
+- Sales pages, advertisements, or promotional content
+- General fitness advice without therapeutic focus
+- Emergency medical advice or urgent care instructions
+- Content without actionable therapeutic value
 
 Custom criteria (JSON):
 {criteria_json}
@@ -28,8 +44,8 @@ lq: left quadriceps, rq: right quadriceps, lc: left calf, rc: right calf, la: le
 Output JSON schema (strict):
 {
   "viable": true|false,
-  "confidence": float,
-  "reason": "short reason",
+  "confidence": float (0.0-1.0),
+  "reason": "brief explanation",
   "labels": ["n","c","ls","rs","lt","rt","lb","rb","a","b","lh","rh","lq","rq","lc","rc","la","ra","e"]
 }
 
@@ -106,14 +122,43 @@ def _extract_json_block(s: str) -> Dict[str, Any]:
     return {}
 
 def _heuristic(text: str, criteria: Dict[str, Any]) -> Dict[str, Any]:
-    if not text or len(text) < int(criteria.get("min_text_len", 500)):
-        return {"viable": False, "confidence": 0.3, "reason": "too short", "labels": []}
+    if not text or len(text) < int(criteria.get("min_text_len", 300)):
+        return {"viable": False, "confidence": 0.2, "reason": "too short", "labels": []}
+    
+    text_lower = text.lower()
+    
+    # Check for required keywords
     kws = [k.lower() for k in criteria.get("keywords_any", [])]
-    has_kw = any(k in text.lower() for k in kws) if kws else True
+    has_kw = any(k in text_lower for k in kws) if kws else True
+    
+    # Check for rejection phrases
     rej = [r.lower() for r in criteria.get("reject_phrases_any", [])]
-    has_reject = any(r in text.lower() for r in rej)
-    viable = bool(has_kw and not has_reject)
-    return {"viable": viable, "confidence": 0.55 if viable else 0.35, "reason": "heuristic pass" if viable else "heuristic reject", "labels": []}
+    has_reject = any(r in text_lower for r in rej)
+    
+    # Check for quality indicators
+    quality_indicators = criteria.get("quality_indicators", [])
+    quality_score = sum(1 for indicator in quality_indicators if indicator.lower() in text_lower)
+    
+    # Check for body parts mentioned
+    body_parts = criteria.get("body_parts", [])
+    body_part_score = sum(1 for part in body_parts if part.lower() in text_lower)
+    
+    # Calculate viability
+    viable = bool(has_kw and not has_reject and len(text) >= 300)
+    
+    # Calculate confidence based on quality indicators
+    confidence = 0.3
+    if viable:
+        confidence = 0.5 + (quality_score * 0.1) + (body_part_score * 0.05)
+        confidence = min(confidence, 0.8)  # Cap heuristic confidence
+    
+    reason = "heuristic pass" if viable else "heuristic reject"
+    if quality_score > 0:
+        reason += f" (quality indicators: {quality_score})"
+    if body_part_score > 0:
+        reason += f" (body parts: {body_part_score})"
+    
+    return {"viable": viable, "confidence": confidence, "reason": reason, "labels": []}
 
 def classify_text(doc_id: str, text: str, criteria: Dict[str, Any] = None) -> Dict[str, Any]:
     criteria = criteria or DEFAULT_CRITERIA

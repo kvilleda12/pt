@@ -1,0 +1,7653 @@
+{
+  "metadata": {
+    "note": "Query dataset for RAG evaluation. target_labels refer to body part labels."
+  },
+  "queries": [
+    {
+      "id": "q_n_1",
+      "query": "Can you suggest band exercises for the neck?",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_2",
+      "query": "What exercises help loosen a stiff neck?",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_3",
+      "query": "Simple at-home exercises for the neck.",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_4",
+      "query": "Bodyweight drills that target the neck.",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_5",
+      "query": "Best exercises to improve flexibility in my neck.",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_6",
+      "query": "Simple at-home exercises for the neck.",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_7",
+      "query": "Balance exercises involving the neck.",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_8",
+      "query": "How do I prevent injury in my neck with exercise?",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_9",
+      "query": "How can I improve endurance of my neck?",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_10",
+      "query": "How can I strengthen my neck?",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_11",
+      "query": "What are good stretches for my neck?",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_12",
+      "query": "How to increase stability in my neck?",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_13",
+      "query": "How do I warm up my neck before sports?",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_14",
+      "query": "Can you suggest band exercises for the neck?",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_15",
+      "query": "Give me mobility drills for the neck.",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_16",
+      "query": "How do I prevent injury in my neck with exercise?",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_17",
+      "query": "How can I improve endurance of my neck?",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_18",
+      "query": "Any isometric exercises for the neck?",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_19",
+      "query": "How to increase stability in my neck?",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_20",
+      "query": "Balance exercises involving the neck.",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_21",
+      "query": "Best exercises to improve flexibility in my neck.",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_22",
+      "query": "Gentle stretches to relieve tightness in my neck.",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_23",
+      "query": "What exercises help loosen a stiff neck?",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_24",
+      "query": "What are some rehab exercises for neck pain?",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_25",
+      "query": "Simple at-home exercises for the neck.",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_26",
+      "query": "Balance exercises involving the neck.",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_27",
+      "query": "Give me mobility drills for the neck.",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_28",
+      "query": "Gentle stretches to relieve tightness in my neck.",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_29",
+      "query": "How do I prevent injury in my neck with exercise?",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_30",
+      "query": "What recovery exercises help with sore neck?",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_31",
+      "query": "What are some rehab exercises for neck pain?",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_32",
+      "query": "How do I prevent injury in my neck with exercise?",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_33",
+      "query": "How to increase stability in my neck?",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_34",
+      "query": "Best exercises to improve flexibility in my neck.",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_35",
+      "query": "Bodyweight drills that target the neck.",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_36",
+      "query": "Can you suggest band exercises for the neck?",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_37",
+      "query": "Any isometric exercises for the neck?",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_38",
+      "query": "Balance exercises involving the neck.",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_39",
+      "query": "Rehab moves for an injured neck.",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_40",
+      "query": "How can I strengthen my neck?",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_41",
+      "query": "Balance exercises involving the neck.",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_42",
+      "query": "Exercises for seniors to improve neck mobility.",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_43",
+      "query": "Gentle stretches to relieve tightness in my neck.",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_44",
+      "query": "Bodyweight drills that target the neck.",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_45",
+      "query": "What recovery exercises help with sore neck?",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_46",
+      "query": "Gentle stretches to relieve tightness in my neck.",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_47",
+      "query": "What exercises help loosen a stiff neck?",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_48",
+      "query": "Show me strengthening moves for the neck.",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_49",
+      "query": "Gentle stretches to relieve tightness in my neck.",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_n_50",
+      "query": "How can I improve endurance of my neck?",
+      "target_labels": [
+        "n"
+      ]
+    },
+    {
+      "id": "q_c_1",
+      "query": "Show me strengthening moves for the chest.",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_2",
+      "query": "How do I warm up my chest before sports?",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_3",
+      "query": "How to increase stability in my chest?",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_4",
+      "query": "Best exercises to improve flexibility in my chest.",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_5",
+      "query": "How do I prevent injury in my chest with exercise?",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_6",
+      "query": "Simple at-home exercises for the chest.",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_7",
+      "query": "Show me strengthening moves for the chest.",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_8",
+      "query": "Can you suggest band exercises for the chest?",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_9",
+      "query": "Simple at-home exercises for the chest.",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_10",
+      "query": "Any isometric exercises for the chest?",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_11",
+      "query": "Exercises for seniors to improve chest mobility.",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_12",
+      "query": "How do I warm up my chest before sports?",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_13",
+      "query": "Best exercises to improve flexibility in my chest.",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_14",
+      "query": "How can I strengthen my chest?",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_15",
+      "query": "What are good stretches for my chest?",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_16",
+      "query": "Bodyweight drills that target the chest.",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_17",
+      "query": "What recovery exercises help with sore chest?",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_18",
+      "query": "Exercises for seniors to improve chest mobility.",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_19",
+      "query": "Exercises for seniors to improve chest mobility.",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_20",
+      "query": "What exercises help loosen a stiff chest?",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_21",
+      "query": "Balance exercises involving the chest.",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_22",
+      "query": "Bodyweight drills that target the chest.",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_23",
+      "query": "What exercises help loosen a stiff chest?",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_24",
+      "query": "Bodyweight drills that target the chest.",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_25",
+      "query": "Simple at-home exercises for the chest.",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_26",
+      "query": "Give me mobility drills for the chest.",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_27",
+      "query": "Can you suggest band exercises for the chest?",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_28",
+      "query": "Any isometric exercises for the chest?",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_29",
+      "query": "What are good stretches for my chest?",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_30",
+      "query": "How to increase stability in my chest?",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_31",
+      "query": "What are good stretches for my chest?",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_32",
+      "query": "How can I improve endurance of my chest?",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_33",
+      "query": "Simple at-home exercises for the chest.",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_34",
+      "query": "Gentle stretches to relieve tightness in my chest.",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_35",
+      "query": "Balance exercises involving the chest.",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_36",
+      "query": "Bodyweight drills that target the chest.",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_37",
+      "query": "Rehab moves for an injured chest.",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_38",
+      "query": "Any isometric exercises for the chest?",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_39",
+      "query": "What are good stretches for my chest?",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_40",
+      "query": "How do I warm up my chest before sports?",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_41",
+      "query": "Best exercises to improve flexibility in my chest.",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_42",
+      "query": "What are good stretches for my chest?",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_43",
+      "query": "Give me mobility drills for the chest.",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_44",
+      "query": "What exercises help loosen a stiff chest?",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_45",
+      "query": "Gentle stretches to relieve tightness in my chest.",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_46",
+      "query": "How do I warm up my chest before sports?",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_47",
+      "query": "Gentle stretches to relieve tightness in my chest.",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_48",
+      "query": "Exercises for seniors to improve chest mobility.",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_49",
+      "query": "Show me strengthening moves for the chest.",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_c_50",
+      "query": "How do I prevent injury in my chest with exercise?",
+      "target_labels": [
+        "c"
+      ]
+    },
+    {
+      "id": "q_ls_1",
+      "query": "What exercises help loosen a stiff left shoulder?",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_2",
+      "query": "Show me strengthening moves for the left shoulder.",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_3",
+      "query": "What are some rehab exercises for left shoulder pain?",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_4",
+      "query": "Exercises for seniors to improve left shoulder mobility.",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_5",
+      "query": "Bodyweight drills that target the left shoulder.",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_6",
+      "query": "What are good stretches for my left shoulder?",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_7",
+      "query": "Rehab moves for an injured left shoulder.",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_8",
+      "query": "Show me strengthening moves for the left shoulder.",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_9",
+      "query": "Best exercises to improve flexibility in my left shoulder.",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_10",
+      "query": "How can I improve endurance of my left shoulder?",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_11",
+      "query": "Bodyweight drills that target the left shoulder.",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_12",
+      "query": "What recovery exercises help with sore left shoulder?",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_13",
+      "query": "Best exercises to improve flexibility in my left shoulder.",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_14",
+      "query": "What are some rehab exercises for left shoulder pain?",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_15",
+      "query": "Bodyweight drills that target the left shoulder.",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_16",
+      "query": "How can I improve endurance of my left shoulder?",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_17",
+      "query": "Rehab moves for an injured left shoulder.",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_18",
+      "query": "Best exercises to improve flexibility in my left shoulder.",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_19",
+      "query": "How do I warm up my left shoulder before sports?",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_20",
+      "query": "How do I warm up my left shoulder before sports?",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_21",
+      "query": "What are some rehab exercises for left shoulder pain?",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_22",
+      "query": "Give me mobility drills for the left shoulder.",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_23",
+      "query": "How can I strengthen my left shoulder?",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_24",
+      "query": "Give me mobility drills for the left shoulder.",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_25",
+      "query": "Best exercises to improve flexibility in my left shoulder.",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_26",
+      "query": "How can I strengthen my left shoulder?",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_27",
+      "query": "How do I prevent injury in my left shoulder with exercise?",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_28",
+      "query": "How can I improve endurance of my left shoulder?",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_29",
+      "query": "How can I strengthen my left shoulder?",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_30",
+      "query": "Show me strengthening moves for the left shoulder.",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_31",
+      "query": "What exercises help loosen a stiff left shoulder?",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_32",
+      "query": "Can you suggest band exercises for the left shoulder?",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_33",
+      "query": "Rehab moves for an injured left shoulder.",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_34",
+      "query": "Best exercises to improve flexibility in my left shoulder.",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_35",
+      "query": "Best exercises to improve flexibility in my left shoulder.",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_36",
+      "query": "Any isometric exercises for the left shoulder?",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_37",
+      "query": "Rehab moves for an injured left shoulder.",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_38",
+      "query": "Can you suggest band exercises for the left shoulder?",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_39",
+      "query": "Simple at-home exercises for the left shoulder.",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_40",
+      "query": "Any isometric exercises for the left shoulder?",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_41",
+      "query": "What are good stretches for my left shoulder?",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_42",
+      "query": "What are some rehab exercises for left shoulder pain?",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_43",
+      "query": "Bodyweight drills that target the left shoulder.",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_44",
+      "query": "Can you suggest band exercises for the left shoulder?",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_45",
+      "query": "How do I prevent injury in my left shoulder with exercise?",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_46",
+      "query": "Simple at-home exercises for the left shoulder.",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_47",
+      "query": "Rehab moves for an injured left shoulder.",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_48",
+      "query": "Simple at-home exercises for the left shoulder.",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_49",
+      "query": "Any isometric exercises for the left shoulder?",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_ls_50",
+      "query": "What recovery exercises help with sore left shoulder?",
+      "target_labels": [
+        "ls"
+      ]
+    },
+    {
+      "id": "q_rs_1",
+      "query": "Simple at-home exercises for the right shoulder.",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_2",
+      "query": "What exercises help loosen a stiff right shoulder?",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_3",
+      "query": "How do I warm up my right shoulder before sports?",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_4",
+      "query": "What recovery exercises help with sore right shoulder?",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_5",
+      "query": "What exercises help loosen a stiff right shoulder?",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_6",
+      "query": "How to increase stability in my right shoulder?",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_7",
+      "query": "How can I improve endurance of my right shoulder?",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_8",
+      "query": "How do I warm up my right shoulder before sports?",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_9",
+      "query": "Any isometric exercises for the right shoulder?",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_10",
+      "query": "What exercises help loosen a stiff right shoulder?",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_11",
+      "query": "What recovery exercises help with sore right shoulder?",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_12",
+      "query": "What are good stretches for my right shoulder?",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_13",
+      "query": "Bodyweight drills that target the right shoulder.",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_14",
+      "query": "What recovery exercises help with sore right shoulder?",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_15",
+      "query": "What are some rehab exercises for right shoulder pain?",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_16",
+      "query": "How can I strengthen my right shoulder?",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_17",
+      "query": "How to increase stability in my right shoulder?",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_18",
+      "query": "Any isometric exercises for the right shoulder?",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_19",
+      "query": "What are some rehab exercises for right shoulder pain?",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_20",
+      "query": "What exercises help loosen a stiff right shoulder?",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_21",
+      "query": "What recovery exercises help with sore right shoulder?",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_22",
+      "query": "Give me mobility drills for the right shoulder.",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_23",
+      "query": "Rehab moves for an injured right shoulder.",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_24",
+      "query": "How to increase stability in my right shoulder?",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_25",
+      "query": "What are good stretches for my right shoulder?",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_26",
+      "query": "Balance exercises involving the right shoulder.",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_27",
+      "query": "Rehab moves for an injured right shoulder.",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_28",
+      "query": "What are some rehab exercises for right shoulder pain?",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_29",
+      "query": "Simple at-home exercises for the right shoulder.",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_30",
+      "query": "How do I warm up my right shoulder before sports?",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_31",
+      "query": "What exercises help loosen a stiff right shoulder?",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_32",
+      "query": "How can I improve endurance of my right shoulder?",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_33",
+      "query": "What are some rehab exercises for right shoulder pain?",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_34",
+      "query": "How can I strengthen my right shoulder?",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_35",
+      "query": "Gentle stretches to relieve tightness in my right shoulder.",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_36",
+      "query": "Bodyweight drills that target the right shoulder.",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_37",
+      "query": "What are good stretches for my right shoulder?",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_38",
+      "query": "Gentle stretches to relieve tightness in my right shoulder.",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_39",
+      "query": "Rehab moves for an injured right shoulder.",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_40",
+      "query": "Rehab moves for an injured right shoulder.",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_41",
+      "query": "Can you suggest band exercises for the right shoulder?",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_42",
+      "query": "How do I warm up my right shoulder before sports?",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_43",
+      "query": "What exercises help loosen a stiff right shoulder?",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_44",
+      "query": "Give me mobility drills for the right shoulder.",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_45",
+      "query": "What are some rehab exercises for right shoulder pain?",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_46",
+      "query": "How do I prevent injury in my right shoulder with exercise?",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_47",
+      "query": "Show me strengthening moves for the right shoulder.",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_48",
+      "query": "Show me strengthening moves for the right shoulder.",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_49",
+      "query": "What are good stretches for my right shoulder?",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_rs_50",
+      "query": "Give me mobility drills for the right shoulder.",
+      "target_labels": [
+        "rs"
+      ]
+    },
+    {
+      "id": "q_lt_1",
+      "query": "Show me strengthening moves for the left tricep.",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_2",
+      "query": "Exercises for seniors to improve left tricep mobility.",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_3",
+      "query": "How can I strengthen my left tricep?",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_4",
+      "query": "How can I improve endurance of my left tricep?",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_5",
+      "query": "How do I warm up my left tricep before sports?",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_6",
+      "query": "What exercises help loosen a stiff left tricep?",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_7",
+      "query": "What recovery exercises help with sore left tricep?",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_8",
+      "query": "Any isometric exercises for the left tricep?",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_9",
+      "query": "What exercises help loosen a stiff left tricep?",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_10",
+      "query": "Rehab moves for an injured left tricep.",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_11",
+      "query": "What recovery exercises help with sore left tricep?",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_12",
+      "query": "Rehab moves for an injured left tricep.",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_13",
+      "query": "Give me mobility drills for the left tricep.",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_14",
+      "query": "What are good stretches for my left tricep?",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_15",
+      "query": "How do I warm up my left tricep before sports?",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_16",
+      "query": "Simple at-home exercises for the left tricep.",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_17",
+      "query": "Simple at-home exercises for the left tricep.",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_18",
+      "query": "Bodyweight drills that target the left tricep.",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_19",
+      "query": "What exercises help loosen a stiff left tricep?",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_20",
+      "query": "How to increase stability in my left tricep?",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_21",
+      "query": "How to increase stability in my left tricep?",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_22",
+      "query": "Any isometric exercises for the left tricep?",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_23",
+      "query": "Show me strengthening moves for the left tricep.",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_24",
+      "query": "Can you suggest band exercises for the left tricep?",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_25",
+      "query": "Rehab moves for an injured left tricep.",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_26",
+      "query": "What are good stretches for my left tricep?",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_27",
+      "query": "Show me strengthening moves for the left tricep.",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_28",
+      "query": "How can I strengthen my left tricep?",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_29",
+      "query": "How do I prevent injury in my left tricep with exercise?",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_30",
+      "query": "Simple at-home exercises for the left tricep.",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_31",
+      "query": "How can I improve endurance of my left tricep?",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_32",
+      "query": "What are good stretches for my left tricep?",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_33",
+      "query": "How do I prevent injury in my left tricep with exercise?",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_34",
+      "query": "How to increase stability in my left tricep?",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_35",
+      "query": "How can I strengthen my left tricep?",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_36",
+      "query": "Simple at-home exercises for the left tricep.",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_37",
+      "query": "Gentle stretches to relieve tightness in my left tricep.",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_38",
+      "query": "Simple at-home exercises for the left tricep.",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_39",
+      "query": "How to increase stability in my left tricep?",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_40",
+      "query": "What are some rehab exercises for left tricep pain?",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_41",
+      "query": "Exercises for seniors to improve left tricep mobility.",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_42",
+      "query": "Rehab moves for an injured left tricep.",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_43",
+      "query": "Bodyweight drills that target the left tricep.",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_44",
+      "query": "What are good stretches for my left tricep?",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_45",
+      "query": "How can I improve endurance of my left tricep?",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_46",
+      "query": "Exercises for seniors to improve left tricep mobility.",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_47",
+      "query": "Rehab moves for an injured left tricep.",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_48",
+      "query": "Exercises for seniors to improve left tricep mobility.",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_49",
+      "query": "How can I improve endurance of my left tricep?",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_lt_50",
+      "query": "How can I strengthen my left tricep?",
+      "target_labels": [
+        "lt"
+      ]
+    },
+    {
+      "id": "q_rt_1",
+      "query": "Simple at-home exercises for the right tricep.",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_2",
+      "query": "Bodyweight drills that target the right tricep.",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_3",
+      "query": "Balance exercises involving the right tricep.",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_4",
+      "query": "Gentle stretches to relieve tightness in my right tricep.",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_5",
+      "query": "Give me mobility drills for the right tricep.",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_6",
+      "query": "Rehab moves for an injured right tricep.",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_7",
+      "query": "What exercises help loosen a stiff right tricep?",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_8",
+      "query": "Simple at-home exercises for the right tricep.",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_9",
+      "query": "How do I warm up my right tricep before sports?",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_10",
+      "query": "How can I strengthen my right tricep?",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_11",
+      "query": "Show me strengthening moves for the right tricep.",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_12",
+      "query": "How do I warm up my right tricep before sports?",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_13",
+      "query": "What are good stretches for my right tricep?",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_14",
+      "query": "Gentle stretches to relieve tightness in my right tricep.",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_15",
+      "query": "Show me strengthening moves for the right tricep.",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_16",
+      "query": "Rehab moves for an injured right tricep.",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_17",
+      "query": "Exercises for seniors to improve right tricep mobility.",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_18",
+      "query": "Simple at-home exercises for the right tricep.",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_19",
+      "query": "How do I warm up my right tricep before sports?",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_20",
+      "query": "Gentle stretches to relieve tightness in my right tricep.",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_21",
+      "query": "Give me mobility drills for the right tricep.",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_22",
+      "query": "Bodyweight drills that target the right tricep.",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_23",
+      "query": "How do I prevent injury in my right tricep with exercise?",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_24",
+      "query": "Balance exercises involving the right tricep.",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_25",
+      "query": "Best exercises to improve flexibility in my right tricep.",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_26",
+      "query": "Show me strengthening moves for the right tricep.",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_27",
+      "query": "How can I improve endurance of my right tricep?",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_28",
+      "query": "Exercises for seniors to improve right tricep mobility.",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_29",
+      "query": "How to increase stability in my right tricep?",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_30",
+      "query": "Show me strengthening moves for the right tricep.",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_31",
+      "query": "How can I improve endurance of my right tricep?",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_32",
+      "query": "How to increase stability in my right tricep?",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_33",
+      "query": "Can you suggest band exercises for the right tricep?",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_34",
+      "query": "Exercises for seniors to improve right tricep mobility.",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_35",
+      "query": "Balance exercises involving the right tricep.",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_36",
+      "query": "How can I strengthen my right tricep?",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_37",
+      "query": "How can I strengthen my right tricep?",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_38",
+      "query": "Gentle stretches to relieve tightness in my right tricep.",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_39",
+      "query": "Any isometric exercises for the right tricep?",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_40",
+      "query": "What exercises help loosen a stiff right tricep?",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_41",
+      "query": "Exercises for seniors to improve right tricep mobility.",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_42",
+      "query": "What exercises help loosen a stiff right tricep?",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_43",
+      "query": "How can I strengthen my right tricep?",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_44",
+      "query": "Simple at-home exercises for the right tricep.",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_45",
+      "query": "Gentle stretches to relieve tightness in my right tricep.",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_46",
+      "query": "Rehab moves for an injured right tricep.",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_47",
+      "query": "How do I warm up my right tricep before sports?",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_48",
+      "query": "Best exercises to improve flexibility in my right tricep.",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_49",
+      "query": "Exercises for seniors to improve right tricep mobility.",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_rt_50",
+      "query": "Bodyweight drills that target the right tricep.",
+      "target_labels": [
+        "rt"
+      ]
+    },
+    {
+      "id": "q_lb_1",
+      "query": "What recovery exercises help with sore left bicep?",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_2",
+      "query": "What are some rehab exercises for left bicep pain?",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_3",
+      "query": "How do I warm up my left bicep before sports?",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_4",
+      "query": "What are good stretches for my left bicep?",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_5",
+      "query": "How do I prevent injury in my left bicep with exercise?",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_6",
+      "query": "Bodyweight drills that target the left bicep.",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_7",
+      "query": "Exercises for seniors to improve left bicep mobility.",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_8",
+      "query": "Exercises for seniors to improve left bicep mobility.",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_9",
+      "query": "Simple at-home exercises for the left bicep.",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_10",
+      "query": "Balance exercises involving the left bicep.",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_11",
+      "query": "Rehab moves for an injured left bicep.",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_12",
+      "query": "Simple at-home exercises for the left bicep.",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_13",
+      "query": "How can I strengthen my left bicep?",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_14",
+      "query": "How can I strengthen my left bicep?",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_15",
+      "query": "Simple at-home exercises for the left bicep.",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_16",
+      "query": "Can you suggest band exercises for the left bicep?",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_17",
+      "query": "How do I prevent injury in my left bicep with exercise?",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_18",
+      "query": "Bodyweight drills that target the left bicep.",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_19",
+      "query": "Gentle stretches to relieve tightness in my left bicep.",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_20",
+      "query": "How do I warm up my left bicep before sports?",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_21",
+      "query": "Gentle stretches to relieve tightness in my left bicep.",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_22",
+      "query": "What exercises help loosen a stiff left bicep?",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_23",
+      "query": "What recovery exercises help with sore left bicep?",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_24",
+      "query": "What are some rehab exercises for left bicep pain?",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_25",
+      "query": "Bodyweight drills that target the left bicep.",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_26",
+      "query": "How can I improve endurance of my left bicep?",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_27",
+      "query": "Bodyweight drills that target the left bicep.",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_28",
+      "query": "Gentle stretches to relieve tightness in my left bicep.",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_29",
+      "query": "How can I improve endurance of my left bicep?",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_30",
+      "query": "Simple at-home exercises for the left bicep.",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_31",
+      "query": "What are some rehab exercises for left bicep pain?",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_32",
+      "query": "Show me strengthening moves for the left bicep.",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_33",
+      "query": "Any isometric exercises for the left bicep?",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_34",
+      "query": "Rehab moves for an injured left bicep.",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_35",
+      "query": "What are good stretches for my left bicep?",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_36",
+      "query": "How can I improve endurance of my left bicep?",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_37",
+      "query": "Exercises for seniors to improve left bicep mobility.",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_38",
+      "query": "How can I improve endurance of my left bicep?",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_39",
+      "query": "Exercises for seniors to improve left bicep mobility.",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_40",
+      "query": "How do I warm up my left bicep before sports?",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_41",
+      "query": "Show me strengthening moves for the left bicep.",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_42",
+      "query": "Show me strengthening moves for the left bicep.",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_43",
+      "query": "Show me strengthening moves for the left bicep.",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_44",
+      "query": "Rehab moves for an injured left bicep.",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_45",
+      "query": "Show me strengthening moves for the left bicep.",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_46",
+      "query": "Can you suggest band exercises for the left bicep?",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_47",
+      "query": "How can I improve endurance of my left bicep?",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_48",
+      "query": "How can I improve endurance of my left bicep?",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_49",
+      "query": "Exercises for seniors to improve left bicep mobility.",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_lb_50",
+      "query": "What are some rehab exercises for left bicep pain?",
+      "target_labels": [
+        "lb"
+      ]
+    },
+    {
+      "id": "q_rb_1",
+      "query": "Give me mobility drills for the right bicep.",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_2",
+      "query": "How can I improve endurance of my right bicep?",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_3",
+      "query": "Can you suggest band exercises for the right bicep?",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_4",
+      "query": "What are good stretches for my right bicep?",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_5",
+      "query": "Gentle stretches to relieve tightness in my right bicep.",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_6",
+      "query": "Exercises for seniors to improve right bicep mobility.",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_7",
+      "query": "Any isometric exercises for the right bicep?",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_8",
+      "query": "What are good stretches for my right bicep?",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_9",
+      "query": "Rehab moves for an injured right bicep.",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_10",
+      "query": "How to increase stability in my right bicep?",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_11",
+      "query": "What exercises help loosen a stiff right bicep?",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_12",
+      "query": "Show me strengthening moves for the right bicep.",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_13",
+      "query": "Any isometric exercises for the right bicep?",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_14",
+      "query": "Give me mobility drills for the right bicep.",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_15",
+      "query": "What are good stretches for my right bicep?",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_16",
+      "query": "How do I warm up my right bicep before sports?",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_17",
+      "query": "How can I strengthen my right bicep?",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_18",
+      "query": "Rehab moves for an injured right bicep.",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_19",
+      "query": "Give me mobility drills for the right bicep.",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_20",
+      "query": "Any isometric exercises for the right bicep?",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_21",
+      "query": "Any isometric exercises for the right bicep?",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_22",
+      "query": "How do I warm up my right bicep before sports?",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_23",
+      "query": "How can I strengthen my right bicep?",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_24",
+      "query": "What are some rehab exercises for right bicep pain?",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_25",
+      "query": "Bodyweight drills that target the right bicep.",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_26",
+      "query": "Can you suggest band exercises for the right bicep?",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_27",
+      "query": "How do I prevent injury in my right bicep with exercise?",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_28",
+      "query": "What are good stretches for my right bicep?",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_29",
+      "query": "Show me strengthening moves for the right bicep.",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_30",
+      "query": "Simple at-home exercises for the right bicep.",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_31",
+      "query": "What are good stretches for my right bicep?",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_32",
+      "query": "Rehab moves for an injured right bicep.",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_33",
+      "query": "Best exercises to improve flexibility in my right bicep.",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_34",
+      "query": "How to increase stability in my right bicep?",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_35",
+      "query": "Best exercises to improve flexibility in my right bicep.",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_36",
+      "query": "Best exercises to improve flexibility in my right bicep.",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_37",
+      "query": "What exercises help loosen a stiff right bicep?",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_38",
+      "query": "What recovery exercises help with sore right bicep?",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_39",
+      "query": "What exercises help loosen a stiff right bicep?",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_40",
+      "query": "How can I strengthen my right bicep?",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_41",
+      "query": "How can I improve endurance of my right bicep?",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_42",
+      "query": "How do I warm up my right bicep before sports?",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_43",
+      "query": "How do I prevent injury in my right bicep with exercise?",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_44",
+      "query": "Exercises for seniors to improve right bicep mobility.",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_45",
+      "query": "How do I prevent injury in my right bicep with exercise?",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_46",
+      "query": "How do I warm up my right bicep before sports?",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_47",
+      "query": "How do I warm up my right bicep before sports?",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_48",
+      "query": "What are good stretches for my right bicep?",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_49",
+      "query": "What recovery exercises help with sore right bicep?",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_rb_50",
+      "query": "Bodyweight drills that target the right bicep.",
+      "target_labels": [
+        "rb"
+      ]
+    },
+    {
+      "id": "q_a_1",
+      "query": "Bodyweight drills that target the abdomen.",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_2",
+      "query": "Balance exercises involving the abdomen.",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_3",
+      "query": "What are good stretches for my abdomen?",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_4",
+      "query": "Exercises for seniors to improve abdomen mobility.",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_5",
+      "query": "What are good stretches for my abdomen?",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_6",
+      "query": "How do I prevent injury in my abdomen with exercise?",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_7",
+      "query": "Bodyweight drills that target the abdomen.",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_8",
+      "query": "How can I improve endurance of my abdomen?",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_9",
+      "query": "What exercises help loosen a stiff abdomen?",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_10",
+      "query": "How can I strengthen my abdomen?",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_11",
+      "query": "How do I prevent injury in my abdomen with exercise?",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_12",
+      "query": "How can I strengthen my abdomen?",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_13",
+      "query": "Rehab moves for an injured abdomen.",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_14",
+      "query": "How to increase stability in my abdomen?",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_15",
+      "query": "Give me mobility drills for the abdomen.",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_16",
+      "query": "What exercises help loosen a stiff abdomen?",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_17",
+      "query": "How to increase stability in my abdomen?",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_18",
+      "query": "How do I prevent injury in my abdomen with exercise?",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_19",
+      "query": "How can I strengthen my abdomen?",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_20",
+      "query": "How can I strengthen my abdomen?",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_21",
+      "query": "How to increase stability in my abdomen?",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_22",
+      "query": "Gentle stretches to relieve tightness in my abdomen.",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_23",
+      "query": "Any isometric exercises for the abdomen?",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_24",
+      "query": "What exercises help loosen a stiff abdomen?",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_25",
+      "query": "Rehab moves for an injured abdomen.",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_26",
+      "query": "How do I warm up my abdomen before sports?",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_27",
+      "query": "What recovery exercises help with sore abdomen?",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_28",
+      "query": "Gentle stretches to relieve tightness in my abdomen.",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_29",
+      "query": "Any isometric exercises for the abdomen?",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_30",
+      "query": "Show me strengthening moves for the abdomen.",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_31",
+      "query": "What recovery exercises help with sore abdomen?",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_32",
+      "query": "How can I improve endurance of my abdomen?",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_33",
+      "query": "Best exercises to improve flexibility in my abdomen.",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_34",
+      "query": "How to increase stability in my abdomen?",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_35",
+      "query": "Bodyweight drills that target the abdomen.",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_36",
+      "query": "How can I improve endurance of my abdomen?",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_37",
+      "query": "Simple at-home exercises for the abdomen.",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_38",
+      "query": "Show me strengthening moves for the abdomen.",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_39",
+      "query": "What are some rehab exercises for abdomen pain?",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_40",
+      "query": "Any isometric exercises for the abdomen?",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_41",
+      "query": "Rehab moves for an injured abdomen.",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_42",
+      "query": "Balance exercises involving the abdomen.",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_43",
+      "query": "Exercises for seniors to improve abdomen mobility.",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_44",
+      "query": "What are good stretches for my abdomen?",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_45",
+      "query": "Can you suggest band exercises for the abdomen?",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_46",
+      "query": "How to increase stability in my abdomen?",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_47",
+      "query": "Rehab moves for an injured abdomen.",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_48",
+      "query": "Show me strengthening moves for the abdomen.",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_49",
+      "query": "Give me mobility drills for the abdomen.",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_a_50",
+      "query": "How can I strengthen my abdomen?",
+      "target_labels": [
+        "a"
+      ]
+    },
+    {
+      "id": "q_b_1",
+      "query": "Any isometric exercises for the back?",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_2",
+      "query": "Any isometric exercises for the back?",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_3",
+      "query": "Balance exercises involving the back.",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_4",
+      "query": "Simple at-home exercises for the back.",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_5",
+      "query": "Rehab moves for an injured back.",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_6",
+      "query": "Any isometric exercises for the back?",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_7",
+      "query": "What exercises help loosen a stiff back?",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_8",
+      "query": "What recovery exercises help with sore back?",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_9",
+      "query": "How do I warm up my back before sports?",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_10",
+      "query": "Show me strengthening moves for the back.",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_11",
+      "query": "Rehab moves for an injured back.",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_12",
+      "query": "Show me strengthening moves for the back.",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_13",
+      "query": "Give me mobility drills for the back.",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_14",
+      "query": "What exercises help loosen a stiff back?",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_15",
+      "query": "Balance exercises involving the back.",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_16",
+      "query": "Simple at-home exercises for the back.",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_17",
+      "query": "What exercises help loosen a stiff back?",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_18",
+      "query": "How can I improve endurance of my back?",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_19",
+      "query": "What are good stretches for my back?",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_20",
+      "query": "Give me mobility drills for the back.",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_21",
+      "query": "Balance exercises involving the back.",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_22",
+      "query": "Gentle stretches to relieve tightness in my back.",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_23",
+      "query": "How to increase stability in my back?",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_24",
+      "query": "What exercises help loosen a stiff back?",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_25",
+      "query": "What recovery exercises help with sore back?",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_26",
+      "query": "Can you suggest band exercises for the back?",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_27",
+      "query": "How can I improve endurance of my back?",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_28",
+      "query": "How do I prevent injury in my back with exercise?",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_29",
+      "query": "Exercises for seniors to improve back mobility.",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_30",
+      "query": "What are some rehab exercises for back pain?",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_31",
+      "query": "Gentle stretches to relieve tightness in my back.",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_32",
+      "query": "Any isometric exercises for the back?",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_33",
+      "query": "What are good stretches for my back?",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_34",
+      "query": "How do I warm up my back before sports?",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_35",
+      "query": "How to increase stability in my back?",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_36",
+      "query": "How can I improve endurance of my back?",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_37",
+      "query": "What recovery exercises help with sore back?",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_38",
+      "query": "What are some rehab exercises for back pain?",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_39",
+      "query": "How to increase stability in my back?",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_40",
+      "query": "Bodyweight drills that target the back.",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_41",
+      "query": "What recovery exercises help with sore back?",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_42",
+      "query": "What are some rehab exercises for back pain?",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_43",
+      "query": "Bodyweight drills that target the back.",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_44",
+      "query": "How do I warm up my back before sports?",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_45",
+      "query": "How can I strengthen my back?",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_46",
+      "query": "Any isometric exercises for the back?",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_47",
+      "query": "Can you suggest band exercises for the back?",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_48",
+      "query": "Can you suggest band exercises for the back?",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_49",
+      "query": "How to increase stability in my back?",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_b_50",
+      "query": "Exercises for seniors to improve back mobility.",
+      "target_labels": [
+        "b"
+      ]
+    },
+    {
+      "id": "q_lh_1",
+      "query": "Can you suggest band exercises for the left hamstring?",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_2",
+      "query": "What are some rehab exercises for left hamstring pain?",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_3",
+      "query": "How do I prevent injury in my left hamstring with exercise?",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_4",
+      "query": "Rehab moves for an injured left hamstring.",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_5",
+      "query": "What exercises help loosen a stiff left hamstring?",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_6",
+      "query": "Best exercises to improve flexibility in my left hamstring.",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_7",
+      "query": "What are some rehab exercises for left hamstring pain?",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_8",
+      "query": "How do I warm up my left hamstring before sports?",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_9",
+      "query": "Balance exercises involving the left hamstring.",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_10",
+      "query": "Balance exercises involving the left hamstring.",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_11",
+      "query": "How to increase stability in my left hamstring?",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_12",
+      "query": "What are good stretches for my left hamstring?",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_13",
+      "query": "Best exercises to improve flexibility in my left hamstring.",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_14",
+      "query": "How do I warm up my left hamstring before sports?",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_15",
+      "query": "How do I prevent injury in my left hamstring with exercise?",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_16",
+      "query": "Rehab moves for an injured left hamstring.",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_17",
+      "query": "What exercises help loosen a stiff left hamstring?",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_18",
+      "query": "Balance exercises involving the left hamstring.",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_19",
+      "query": "Exercises for seniors to improve left hamstring mobility.",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_20",
+      "query": "How can I strengthen my left hamstring?",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_21",
+      "query": "Exercises for seniors to improve left hamstring mobility.",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_22",
+      "query": "Give me mobility drills for the left hamstring.",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_23",
+      "query": "Rehab moves for an injured left hamstring.",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_24",
+      "query": "How to increase stability in my left hamstring?",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_25",
+      "query": "What exercises help loosen a stiff left hamstring?",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_26",
+      "query": "Can you suggest band exercises for the left hamstring?",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_27",
+      "query": "What are good stretches for my left hamstring?",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_28",
+      "query": "Show me strengthening moves for the left hamstring.",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_29",
+      "query": "Exercises for seniors to improve left hamstring mobility.",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_30",
+      "query": "How can I improve endurance of my left hamstring?",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_31",
+      "query": "Exercises for seniors to improve left hamstring mobility.",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_32",
+      "query": "How can I strengthen my left hamstring?",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_33",
+      "query": "How to increase stability in my left hamstring?",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_34",
+      "query": "Exercises for seniors to improve left hamstring mobility.",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_35",
+      "query": "What exercises help loosen a stiff left hamstring?",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_36",
+      "query": "What are some rehab exercises for left hamstring pain?",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_37",
+      "query": "Give me mobility drills for the left hamstring.",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_38",
+      "query": "What exercises help loosen a stiff left hamstring?",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_39",
+      "query": "Gentle stretches to relieve tightness in my left hamstring.",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_40",
+      "query": "How do I prevent injury in my left hamstring with exercise?",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_41",
+      "query": "Exercises for seniors to improve left hamstring mobility.",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_42",
+      "query": "Give me mobility drills for the left hamstring.",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_43",
+      "query": "How can I improve endurance of my left hamstring?",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_44",
+      "query": "Bodyweight drills that target the left hamstring.",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_45",
+      "query": "Best exercises to improve flexibility in my left hamstring.",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_46",
+      "query": "Rehab moves for an injured left hamstring.",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_47",
+      "query": "How can I strengthen my left hamstring?",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_48",
+      "query": "How to increase stability in my left hamstring?",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_49",
+      "query": "Rehab moves for an injured left hamstring.",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_lh_50",
+      "query": "Rehab moves for an injured left hamstring.",
+      "target_labels": [
+        "lh"
+      ]
+    },
+    {
+      "id": "q_rh_1",
+      "query": "What are good stretches for my right hamstring?",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_2",
+      "query": "How to increase stability in my right hamstring?",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_3",
+      "query": "Simple at-home exercises for the right hamstring.",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_4",
+      "query": "Exercises for seniors to improve right hamstring mobility.",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_5",
+      "query": "Best exercises to improve flexibility in my right hamstring.",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_6",
+      "query": "Balance exercises involving the right hamstring.",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_7",
+      "query": "Give me mobility drills for the right hamstring.",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_8",
+      "query": "Best exercises to improve flexibility in my right hamstring.",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_9",
+      "query": "Simple at-home exercises for the right hamstring.",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_10",
+      "query": "Any isometric exercises for the right hamstring?",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_11",
+      "query": "Simple at-home exercises for the right hamstring.",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_12",
+      "query": "Can you suggest band exercises for the right hamstring?",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_13",
+      "query": "Balance exercises involving the right hamstring.",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_14",
+      "query": "Exercises for seniors to improve right hamstring mobility.",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_15",
+      "query": "How do I warm up my right hamstring before sports?",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_16",
+      "query": "How can I improve endurance of my right hamstring?",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_17",
+      "query": "How do I warm up my right hamstring before sports?",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_18",
+      "query": "How to increase stability in my right hamstring?",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_19",
+      "query": "Rehab moves for an injured right hamstring.",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_20",
+      "query": "How can I strengthen my right hamstring?",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_21",
+      "query": "Any isometric exercises for the right hamstring?",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_22",
+      "query": "What are good stretches for my right hamstring?",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_23",
+      "query": "How to increase stability in my right hamstring?",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_24",
+      "query": "Show me strengthening moves for the right hamstring.",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_25",
+      "query": "What exercises help loosen a stiff right hamstring?",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_26",
+      "query": "What are some rehab exercises for right hamstring pain?",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_27",
+      "query": "Give me mobility drills for the right hamstring.",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_28",
+      "query": "How do I warm up my right hamstring before sports?",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_29",
+      "query": "Exercises for seniors to improve right hamstring mobility.",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_30",
+      "query": "Rehab moves for an injured right hamstring.",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_31",
+      "query": "What are good stretches for my right hamstring?",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_32",
+      "query": "How do I warm up my right hamstring before sports?",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_33",
+      "query": "Give me mobility drills for the right hamstring.",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_34",
+      "query": "Show me strengthening moves for the right hamstring.",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_35",
+      "query": "How do I warm up my right hamstring before sports?",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_36",
+      "query": "Balance exercises involving the right hamstring.",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_37",
+      "query": "Exercises for seniors to improve right hamstring mobility.",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_38",
+      "query": "What exercises help loosen a stiff right hamstring?",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_39",
+      "query": "What are good stretches for my right hamstring?",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_40",
+      "query": "How do I warm up my right hamstring before sports?",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_41",
+      "query": "What exercises help loosen a stiff right hamstring?",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_42",
+      "query": "Rehab moves for an injured right hamstring.",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_43",
+      "query": "What are good stretches for my right hamstring?",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_44",
+      "query": "Bodyweight drills that target the right hamstring.",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_45",
+      "query": "Bodyweight drills that target the right hamstring.",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_46",
+      "query": "How do I warm up my right hamstring before sports?",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_47",
+      "query": "How to increase stability in my right hamstring?",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_48",
+      "query": "What are good stretches for my right hamstring?",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_49",
+      "query": "Show me strengthening moves for the right hamstring.",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_rh_50",
+      "query": "How to increase stability in my right hamstring?",
+      "target_labels": [
+        "rh"
+      ]
+    },
+    {
+      "id": "q_lq_1",
+      "query": "What recovery exercises help with sore left quadriceps?",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_2",
+      "query": "Balance exercises involving the left quadriceps.",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_3",
+      "query": "Can you suggest band exercises for the left quadriceps?",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_4",
+      "query": "Exercises for seniors to improve left quadriceps mobility.",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_5",
+      "query": "Exercises for seniors to improve left quadriceps mobility.",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_6",
+      "query": "Show me strengthening moves for the left quadriceps.",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_7",
+      "query": "How can I improve endurance of my left quadriceps?",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_8",
+      "query": "How can I improve endurance of my left quadriceps?",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_9",
+      "query": "Simple at-home exercises for the left quadriceps.",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_10",
+      "query": "Show me strengthening moves for the left quadriceps.",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_11",
+      "query": "Gentle stretches to relieve tightness in my left quadriceps.",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_12",
+      "query": "How do I prevent injury in my left quadriceps with exercise?",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_13",
+      "query": "Balance exercises involving the left quadriceps.",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_14",
+      "query": "Show me strengthening moves for the left quadriceps.",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_15",
+      "query": "What exercises help loosen a stiff left quadriceps?",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_16",
+      "query": "Show me strengthening moves for the left quadriceps.",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_17",
+      "query": "Best exercises to improve flexibility in my left quadriceps.",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_18",
+      "query": "How can I improve endurance of my left quadriceps?",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_19",
+      "query": "What are good stretches for my left quadriceps?",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_20",
+      "query": "How can I improve endurance of my left quadriceps?",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_21",
+      "query": "Simple at-home exercises for the left quadriceps.",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_22",
+      "query": "Show me strengthening moves for the left quadriceps.",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_23",
+      "query": "Simple at-home exercises for the left quadriceps.",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_24",
+      "query": "What are some rehab exercises for left quadriceps pain?",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_25",
+      "query": "Any isometric exercises for the left quadriceps?",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_26",
+      "query": "How do I prevent injury in my left quadriceps with exercise?",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_27",
+      "query": "How do I warm up my left quadriceps before sports?",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_28",
+      "query": "How can I improve endurance of my left quadriceps?",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_29",
+      "query": "Best exercises to improve flexibility in my left quadriceps.",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_30",
+      "query": "How can I strengthen my left quadriceps?",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_31",
+      "query": "What are some rehab exercises for left quadriceps pain?",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_32",
+      "query": "Exercises for seniors to improve left quadriceps mobility.",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_33",
+      "query": "How to increase stability in my left quadriceps?",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_34",
+      "query": "Gentle stretches to relieve tightness in my left quadriceps.",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_35",
+      "query": "Rehab moves for an injured left quadriceps.",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_36",
+      "query": "How can I improve endurance of my left quadriceps?",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_37",
+      "query": "How do I prevent injury in my left quadriceps with exercise?",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_38",
+      "query": "What exercises help loosen a stiff left quadriceps?",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_39",
+      "query": "Any isometric exercises for the left quadriceps?",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_40",
+      "query": "Any isometric exercises for the left quadriceps?",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_41",
+      "query": "How do I prevent injury in my left quadriceps with exercise?",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_42",
+      "query": "Show me strengthening moves for the left quadriceps.",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_43",
+      "query": "Balance exercises involving the left quadriceps.",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_44",
+      "query": "What are some rehab exercises for left quadriceps pain?",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_45",
+      "query": "Bodyweight drills that target the left quadriceps.",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_46",
+      "query": "What recovery exercises help with sore left quadriceps?",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_47",
+      "query": "Balance exercises involving the left quadriceps.",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_48",
+      "query": "How can I improve endurance of my left quadriceps?",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_49",
+      "query": "How can I improve endurance of my left quadriceps?",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_lq_50",
+      "query": "Gentle stretches to relieve tightness in my left quadriceps.",
+      "target_labels": [
+        "lq"
+      ]
+    },
+    {
+      "id": "q_rq_1",
+      "query": "Simple at-home exercises for the right quadriceps.",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_2",
+      "query": "How can I strengthen my right quadriceps?",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_3",
+      "query": "Gentle stretches to relieve tightness in my right quadriceps.",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_4",
+      "query": "Give me mobility drills for the right quadriceps.",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_5",
+      "query": "Best exercises to improve flexibility in my right quadriceps.",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_6",
+      "query": "Bodyweight drills that target the right quadriceps.",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_7",
+      "query": "How can I improve endurance of my right quadriceps?",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_8",
+      "query": "Best exercises to improve flexibility in my right quadriceps.",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_9",
+      "query": "How do I warm up my right quadriceps before sports?",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_10",
+      "query": "How can I improve endurance of my right quadriceps?",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_11",
+      "query": "Show me strengthening moves for the right quadriceps.",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_12",
+      "query": "What exercises help loosen a stiff right quadriceps?",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_13",
+      "query": "Best exercises to improve flexibility in my right quadriceps.",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_14",
+      "query": "Any isometric exercises for the right quadriceps?",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_15",
+      "query": "Gentle stretches to relieve tightness in my right quadriceps.",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_16",
+      "query": "Rehab moves for an injured right quadriceps.",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_17",
+      "query": "How do I warm up my right quadriceps before sports?",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_18",
+      "query": "What are good stretches for my right quadriceps?",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_19",
+      "query": "Any isometric exercises for the right quadriceps?",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_20",
+      "query": "Give me mobility drills for the right quadriceps.",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_21",
+      "query": "Can you suggest band exercises for the right quadriceps?",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_22",
+      "query": "How can I strengthen my right quadriceps?",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_23",
+      "query": "What recovery exercises help with sore right quadriceps?",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_24",
+      "query": "What recovery exercises help with sore right quadriceps?",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_25",
+      "query": "Gentle stretches to relieve tightness in my right quadriceps.",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_26",
+      "query": "Gentle stretches to relieve tightness in my right quadriceps.",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_27",
+      "query": "Any isometric exercises for the right quadriceps?",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_28",
+      "query": "Best exercises to improve flexibility in my right quadriceps.",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_29",
+      "query": "Gentle stretches to relieve tightness in my right quadriceps.",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_30",
+      "query": "Balance exercises involving the right quadriceps.",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_31",
+      "query": "Any isometric exercises for the right quadriceps?",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_32",
+      "query": "What are good stretches for my right quadriceps?",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_33",
+      "query": "How can I improve endurance of my right quadriceps?",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_34",
+      "query": "Balance exercises involving the right quadriceps.",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_35",
+      "query": "Balance exercises involving the right quadriceps.",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_36",
+      "query": "How can I strengthen my right quadriceps?",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_37",
+      "query": "Balance exercises involving the right quadriceps.",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_38",
+      "query": "Simple at-home exercises for the right quadriceps.",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_39",
+      "query": "Exercises for seniors to improve right quadriceps mobility.",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_40",
+      "query": "Gentle stretches to relieve tightness in my right quadriceps.",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_41",
+      "query": "How do I warm up my right quadriceps before sports?",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_42",
+      "query": "What are some rehab exercises for right quadriceps pain?",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_43",
+      "query": "Can you suggest band exercises for the right quadriceps?",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_44",
+      "query": "Exercises for seniors to improve right quadriceps mobility.",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_45",
+      "query": "How do I prevent injury in my right quadriceps with exercise?",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_46",
+      "query": "Give me mobility drills for the right quadriceps.",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_47",
+      "query": "Gentle stretches to relieve tightness in my right quadriceps.",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_48",
+      "query": "How to increase stability in my right quadriceps?",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_49",
+      "query": "Can you suggest band exercises for the right quadriceps?",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_rq_50",
+      "query": "How can I strengthen my right quadriceps?",
+      "target_labels": [
+        "rq"
+      ]
+    },
+    {
+      "id": "q_lc_1",
+      "query": "How do I warm up my left calf before sports?",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_2",
+      "query": "What are some rehab exercises for left calf pain?",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_3",
+      "query": "How do I warm up my left calf before sports?",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_4",
+      "query": "What are good stretches for my left calf?",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_5",
+      "query": "How can I strengthen my left calf?",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_6",
+      "query": "Gentle stretches to relieve tightness in my left calf.",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_7",
+      "query": "Simple at-home exercises for the left calf.",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_8",
+      "query": "Can you suggest band exercises for the left calf?",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_9",
+      "query": "Bodyweight drills that target the left calf.",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_10",
+      "query": "Give me mobility drills for the left calf.",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_11",
+      "query": "Simple at-home exercises for the left calf.",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_12",
+      "query": "How do I prevent injury in my left calf with exercise?",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_13",
+      "query": "How can I strengthen my left calf?",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_14",
+      "query": "Show me strengthening moves for the left calf.",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_15",
+      "query": "Can you suggest band exercises for the left calf?",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_16",
+      "query": "Show me strengthening moves for the left calf.",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_17",
+      "query": "How do I prevent injury in my left calf with exercise?",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_18",
+      "query": "What exercises help loosen a stiff left calf?",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_19",
+      "query": "Bodyweight drills that target the left calf.",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_20",
+      "query": "How to increase stability in my left calf?",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_21",
+      "query": "How can I strengthen my left calf?",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_22",
+      "query": "Can you suggest band exercises for the left calf?",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_23",
+      "query": "What recovery exercises help with sore left calf?",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_24",
+      "query": "Balance exercises involving the left calf.",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_25",
+      "query": "What are good stretches for my left calf?",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_26",
+      "query": "Simple at-home exercises for the left calf.",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_27",
+      "query": "What recovery exercises help with sore left calf?",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_28",
+      "query": "Simple at-home exercises for the left calf.",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_29",
+      "query": "Rehab moves for an injured left calf.",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_30",
+      "query": "What are some rehab exercises for left calf pain?",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_31",
+      "query": "Can you suggest band exercises for the left calf?",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_32",
+      "query": "Simple at-home exercises for the left calf.",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_33",
+      "query": "Gentle stretches to relieve tightness in my left calf.",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_34",
+      "query": "Best exercises to improve flexibility in my left calf.",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_35",
+      "query": "How do I warm up my left calf before sports?",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_36",
+      "query": "How do I warm up my left calf before sports?",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_37",
+      "query": "How do I warm up my left calf before sports?",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_38",
+      "query": "Balance exercises involving the left calf.",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_39",
+      "query": "Simple at-home exercises for the left calf.",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_40",
+      "query": "How to increase stability in my left calf?",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_41",
+      "query": "How to increase stability in my left calf?",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_42",
+      "query": "Rehab moves for an injured left calf.",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_43",
+      "query": "Rehab moves for an injured left calf.",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_44",
+      "query": "What exercises help loosen a stiff left calf?",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_45",
+      "query": "How can I strengthen my left calf?",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_46",
+      "query": "How can I strengthen my left calf?",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_47",
+      "query": "What are some rehab exercises for left calf pain?",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_48",
+      "query": "Give me mobility drills for the left calf.",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_49",
+      "query": "Can you suggest band exercises for the left calf?",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_lc_50",
+      "query": "What recovery exercises help with sore left calf?",
+      "target_labels": [
+        "lc"
+      ]
+    },
+    {
+      "id": "q_rc_1",
+      "query": "Exercises for seniors to improve right calf mobility.",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_2",
+      "query": "How do I prevent injury in my right calf with exercise?",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_3",
+      "query": "Rehab moves for an injured right calf.",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_4",
+      "query": "How to increase stability in my right calf?",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_5",
+      "query": "Rehab moves for an injured right calf.",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_6",
+      "query": "Rehab moves for an injured right calf.",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_7",
+      "query": "How do I prevent injury in my right calf with exercise?",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_8",
+      "query": "How to increase stability in my right calf?",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_9",
+      "query": "Gentle stretches to relieve tightness in my right calf.",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_10",
+      "query": "What recovery exercises help with sore right calf?",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_11",
+      "query": "Gentle stretches to relieve tightness in my right calf.",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_12",
+      "query": "How can I improve endurance of my right calf?",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_13",
+      "query": "What are some rehab exercises for right calf pain?",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_14",
+      "query": "Best exercises to improve flexibility in my right calf.",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_15",
+      "query": "What are some rehab exercises for right calf pain?",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_16",
+      "query": "Rehab moves for an injured right calf.",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_17",
+      "query": "Balance exercises involving the right calf.",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_18",
+      "query": "Any isometric exercises for the right calf?",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_19",
+      "query": "Any isometric exercises for the right calf?",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_20",
+      "query": "How to increase stability in my right calf?",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_21",
+      "query": "How can I improve endurance of my right calf?",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_22",
+      "query": "Balance exercises involving the right calf.",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_23",
+      "query": "Show me strengthening moves for the right calf.",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_24",
+      "query": "Give me mobility drills for the right calf.",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_25",
+      "query": "How can I improve endurance of my right calf?",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_26",
+      "query": "Bodyweight drills that target the right calf.",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_27",
+      "query": "How to increase stability in my right calf?",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_28",
+      "query": "Best exercises to improve flexibility in my right calf.",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_29",
+      "query": "What are some rehab exercises for right calf pain?",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_30",
+      "query": "How to increase stability in my right calf?",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_31",
+      "query": "What are some rehab exercises for right calf pain?",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_32",
+      "query": "What are good stretches for my right calf?",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_33",
+      "query": "Give me mobility drills for the right calf.",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_34",
+      "query": "What are good stretches for my right calf?",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_35",
+      "query": "How do I warm up my right calf before sports?",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_36",
+      "query": "How do I prevent injury in my right calf with exercise?",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_37",
+      "query": "Any isometric exercises for the right calf?",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_38",
+      "query": "What are some rehab exercises for right calf pain?",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_39",
+      "query": "What are good stretches for my right calf?",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_40",
+      "query": "How can I strengthen my right calf?",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_41",
+      "query": "Rehab moves for an injured right calf.",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_42",
+      "query": "How do I warm up my right calf before sports?",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_43",
+      "query": "How to increase stability in my right calf?",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_44",
+      "query": "Best exercises to improve flexibility in my right calf.",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_45",
+      "query": "What recovery exercises help with sore right calf?",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_46",
+      "query": "Exercises for seniors to improve right calf mobility.",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_47",
+      "query": "How do I prevent injury in my right calf with exercise?",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_48",
+      "query": "How can I improve endurance of my right calf?",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_49",
+      "query": "Bodyweight drills that target the right calf.",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_rc_50",
+      "query": "What are some rehab exercises for right calf pain?",
+      "target_labels": [
+        "rc"
+      ]
+    },
+    {
+      "id": "q_la_1",
+      "query": "Bodyweight drills that target the left ankle.",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_2",
+      "query": "Bodyweight drills that target the left ankle.",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_3",
+      "query": "Simple at-home exercises for the left ankle.",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_4",
+      "query": "Best exercises to improve flexibility in my left ankle.",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_5",
+      "query": "Rehab moves for an injured left ankle.",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_6",
+      "query": "Gentle stretches to relieve tightness in my left ankle.",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_7",
+      "query": "Simple at-home exercises for the left ankle.",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_8",
+      "query": "How can I strengthen my left ankle?",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_9",
+      "query": "Rehab moves for an injured left ankle.",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_10",
+      "query": "Can you suggest band exercises for the left ankle?",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_11",
+      "query": "Rehab moves for an injured left ankle.",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_12",
+      "query": "What are some rehab exercises for left ankle pain?",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_13",
+      "query": "How do I prevent injury in my left ankle with exercise?",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_14",
+      "query": "Exercises for seniors to improve left ankle mobility.",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_15",
+      "query": "How can I strengthen my left ankle?",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_16",
+      "query": "What are some rehab exercises for left ankle pain?",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_17",
+      "query": "Can you suggest band exercises for the left ankle?",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_18",
+      "query": "Rehab moves for an injured left ankle.",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_19",
+      "query": "What exercises help loosen a stiff left ankle?",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_20",
+      "query": "Can you suggest band exercises for the left ankle?",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_21",
+      "query": "Gentle stretches to relieve tightness in my left ankle.",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_22",
+      "query": "Best exercises to improve flexibility in my left ankle.",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_23",
+      "query": "Exercises for seniors to improve left ankle mobility.",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_24",
+      "query": "What recovery exercises help with sore left ankle?",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_25",
+      "query": "Can you suggest band exercises for the left ankle?",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_26",
+      "query": "Best exercises to improve flexibility in my left ankle.",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_27",
+      "query": "What are some rehab exercises for left ankle pain?",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_28",
+      "query": "Gentle stretches to relieve tightness in my left ankle.",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_29",
+      "query": "Simple at-home exercises for the left ankle.",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_30",
+      "query": "What exercises help loosen a stiff left ankle?",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_31",
+      "query": "Balance exercises involving the left ankle.",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_32",
+      "query": "Exercises for seniors to improve left ankle mobility.",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_33",
+      "query": "Simple at-home exercises for the left ankle.",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_34",
+      "query": "Any isometric exercises for the left ankle?",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_35",
+      "query": "Bodyweight drills that target the left ankle.",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_36",
+      "query": "Bodyweight drills that target the left ankle.",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_37",
+      "query": "What are good stretches for my left ankle?",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_38",
+      "query": "What are good stretches for my left ankle?",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_39",
+      "query": "Exercises for seniors to improve left ankle mobility.",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_40",
+      "query": "Best exercises to improve flexibility in my left ankle.",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_41",
+      "query": "How do I warm up my left ankle before sports?",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_42",
+      "query": "Exercises for seniors to improve left ankle mobility.",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_43",
+      "query": "Best exercises to improve flexibility in my left ankle.",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_44",
+      "query": "How do I prevent injury in my left ankle with exercise?",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_45",
+      "query": "Gentle stretches to relieve tightness in my left ankle.",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_46",
+      "query": "What are good stretches for my left ankle?",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_47",
+      "query": "What are some rehab exercises for left ankle pain?",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_48",
+      "query": "Gentle stretches to relieve tightness in my left ankle.",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_49",
+      "query": "Can you suggest band exercises for the left ankle?",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_la_50",
+      "query": "Can you suggest band exercises for the left ankle?",
+      "target_labels": [
+        "la"
+      ]
+    },
+    {
+      "id": "q_ra_1",
+      "query": "What are some rehab exercises for right ankle pain?",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_2",
+      "query": "Balance exercises involving the right ankle.",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_3",
+      "query": "Any isometric exercises for the right ankle?",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_4",
+      "query": "Rehab moves for an injured right ankle.",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_5",
+      "query": "What exercises help loosen a stiff right ankle?",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_6",
+      "query": "Bodyweight drills that target the right ankle.",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_7",
+      "query": "How can I improve endurance of my right ankle?",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_8",
+      "query": "How to increase stability in my right ankle?",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_9",
+      "query": "Give me mobility drills for the right ankle.",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_10",
+      "query": "Any isometric exercises for the right ankle?",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_11",
+      "query": "Give me mobility drills for the right ankle.",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_12",
+      "query": "Simple at-home exercises for the right ankle.",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_13",
+      "query": "How do I warm up my right ankle before sports?",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_14",
+      "query": "Can you suggest band exercises for the right ankle?",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_15",
+      "query": "How do I warm up my right ankle before sports?",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_16",
+      "query": "Exercises for seniors to improve right ankle mobility.",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_17",
+      "query": "Show me strengthening moves for the right ankle.",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_18",
+      "query": "Simple at-home exercises for the right ankle.",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_19",
+      "query": "How do I warm up my right ankle before sports?",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_20",
+      "query": "How do I warm up my right ankle before sports?",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_21",
+      "query": "What recovery exercises help with sore right ankle?",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_22",
+      "query": "What are good stretches for my right ankle?",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_23",
+      "query": "Can you suggest band exercises for the right ankle?",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_24",
+      "query": "How do I warm up my right ankle before sports?",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_25",
+      "query": "How to increase stability in my right ankle?",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_26",
+      "query": "How can I strengthen my right ankle?",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_27",
+      "query": "Give me mobility drills for the right ankle.",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_28",
+      "query": "Gentle stretches to relieve tightness in my right ankle.",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_29",
+      "query": "How to increase stability in my right ankle?",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_30",
+      "query": "What exercises help loosen a stiff right ankle?",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_31",
+      "query": "Give me mobility drills for the right ankle.",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_32",
+      "query": "What are some rehab exercises for right ankle pain?",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_33",
+      "query": "How can I strengthen my right ankle?",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_34",
+      "query": "Show me strengthening moves for the right ankle.",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_35",
+      "query": "Simple at-home exercises for the right ankle.",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_36",
+      "query": "Show me strengthening moves for the right ankle.",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_37",
+      "query": "How can I strengthen my right ankle?",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_38",
+      "query": "How do I prevent injury in my right ankle with exercise?",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_39",
+      "query": "Bodyweight drills that target the right ankle.",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_40",
+      "query": "Exercises for seniors to improve right ankle mobility.",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_41",
+      "query": "What are some rehab exercises for right ankle pain?",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_42",
+      "query": "Exercises for seniors to improve right ankle mobility.",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_43",
+      "query": "How can I strengthen my right ankle?",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_44",
+      "query": "Best exercises to improve flexibility in my right ankle.",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_45",
+      "query": "How do I warm up my right ankle before sports?",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_46",
+      "query": "Balance exercises involving the right ankle.",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_47",
+      "query": "Bodyweight drills that target the right ankle.",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_48",
+      "query": "What are good stretches for my right ankle?",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_49",
+      "query": "Give me mobility drills for the right ankle.",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_ra_50",
+      "query": "How do I warm up my right ankle before sports?",
+      "target_labels": [
+        "ra"
+      ]
+    },
+    {
+      "id": "q_e_1",
+      "query": "Rehab moves for an injured everything general.",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_2",
+      "query": "What exercises help loosen a stiff everything general?",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_3",
+      "query": "Can you suggest band exercises for the everything general?",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_4",
+      "query": "What exercises help loosen a stiff everything general?",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_5",
+      "query": "How do I warm up my everything general before sports?",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_6",
+      "query": "How to increase stability in my everything general?",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_7",
+      "query": "What are good stretches for my everything general?",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_8",
+      "query": "Simple at-home exercises for the everything general.",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_9",
+      "query": "What exercises help loosen a stiff everything general?",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_10",
+      "query": "Gentle stretches to relieve tightness in my everything general.",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_11",
+      "query": "What are good stretches for my everything general?",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_12",
+      "query": "What recovery exercises help with sore everything general?",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_13",
+      "query": "Give me mobility drills for the everything general.",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_14",
+      "query": "Exercises for seniors to improve everything general mobility.",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_15",
+      "query": "How do I prevent injury in my everything general with exercise?",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_16",
+      "query": "Balance exercises involving the everything general.",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_17",
+      "query": "Gentle stretches to relieve tightness in my everything general.",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_18",
+      "query": "Show me strengthening moves for the everything general.",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_19",
+      "query": "Simple at-home exercises for the everything general.",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_20",
+      "query": "Show me strengthening moves for the everything general.",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_21",
+      "query": "Give me mobility drills for the everything general.",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_22",
+      "query": "What exercises help loosen a stiff everything general?",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_23",
+      "query": "Gentle stretches to relieve tightness in my everything general.",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_24",
+      "query": "Show me strengthening moves for the everything general.",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_25",
+      "query": "Show me strengthening moves for the everything general.",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_26",
+      "query": "How can I strengthen my everything general?",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_27",
+      "query": "Give me mobility drills for the everything general.",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_28",
+      "query": "How do I warm up my everything general before sports?",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_29",
+      "query": "Balance exercises involving the everything general.",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_30",
+      "query": "Can you suggest band exercises for the everything general?",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_31",
+      "query": "How can I strengthen my everything general?",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_32",
+      "query": "Rehab moves for an injured everything general.",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_33",
+      "query": "How do I prevent injury in my everything general with exercise?",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_34",
+      "query": "What recovery exercises help with sore everything general?",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_35",
+      "query": "Best exercises to improve flexibility in my everything general.",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_36",
+      "query": "Bodyweight drills that target the everything general.",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_37",
+      "query": "What recovery exercises help with sore everything general?",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_38",
+      "query": "Give me mobility drills for the everything general.",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_39",
+      "query": "How to increase stability in my everything general?",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_40",
+      "query": "How do I warm up my everything general before sports?",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_41",
+      "query": "How do I warm up my everything general before sports?",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_42",
+      "query": "How can I strengthen my everything general?",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_43",
+      "query": "What are some rehab exercises for everything general pain?",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_44",
+      "query": "Can you suggest band exercises for the everything general?",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_45",
+      "query": "Show me strengthening moves for the everything general.",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_46",
+      "query": "Can you suggest band exercises for the everything general?",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_47",
+      "query": "What are some rehab exercises for everything general pain?",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_48",
+      "query": "How can I strengthen my everything general?",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_49",
+      "query": "Can you suggest band exercises for the everything general?",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_e_50",
+      "query": "Give me mobility drills for the everything general.",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_multi_1",
+      "query": "Upper body strengthening routine.",
+      "target_labels": [
+        "ls",
+        "rs",
+        "lt",
+        "rt",
+        "lb",
+        "rb",
+        "c"
+      ]
+    },
+    {
+      "id": "q_multi_2",
+      "query": "Best endurance exercises for arms and shoulders.",
+      "target_labels": [
+        "ls",
+        "rs",
+        "lt",
+        "rt",
+        "lb",
+        "rb"
+      ]
+    },
+    {
+      "id": "q_multi_3",
+      "query": "Stability drills for core and back.",
+      "target_labels": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "id": "q_multi_4",
+      "query": "Stability drills for core and back.",
+      "target_labels": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "id": "q_multi_5",
+      "query": "Give me stretches for both shoulders and chest.",
+      "target_labels": [
+        "ls",
+        "rs",
+        "c"
+      ]
+    },
+    {
+      "id": "q_multi_6",
+      "query": "Stability drills for core and back.",
+      "target_labels": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "id": "q_multi_7",
+      "query": "Upper body strengthening routine.",
+      "target_labels": [
+        "ls",
+        "rs",
+        "lt",
+        "rt",
+        "lb",
+        "rb",
+        "c"
+      ]
+    },
+    {
+      "id": "q_multi_8",
+      "query": "Best endurance exercises for arms and shoulders.",
+      "target_labels": [
+        "ls",
+        "rs",
+        "lt",
+        "rt",
+        "lb",
+        "rb"
+      ]
+    },
+    {
+      "id": "q_multi_9",
+      "query": "Exercises to prevent sports injuries in the legs.",
+      "target_labels": [
+        "lh",
+        "rh",
+        "lq",
+        "rq",
+        "lc",
+        "rc",
+        "la",
+        "ra"
+      ]
+    },
+    {
+      "id": "q_multi_10",
+      "query": "Which mobility drills help my hips and hamstrings?",
+      "target_labels": [
+        "lh",
+        "rh",
+        "lq",
+        "rq"
+      ]
+    },
+    {
+      "id": "q_multi_11",
+      "query": "What are exercises to recover from sitting all day?",
+      "target_labels": [
+        "n",
+        "c",
+        "b",
+        "a"
+      ]
+    },
+    {
+      "id": "q_multi_12",
+      "query": "How can I strengthen both my legs?",
+      "target_labels": [
+        "lh",
+        "rh",
+        "lq",
+        "rq",
+        "lc",
+        "rc"
+      ]
+    },
+    {
+      "id": "q_multi_13",
+      "query": "Gentle recovery workout for the whole body.",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_multi_14",
+      "query": "Stability drills for core and back.",
+      "target_labels": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "id": "q_multi_15",
+      "query": "Which mobility drills help my hips and hamstrings?",
+      "target_labels": [
+        "lh",
+        "rh",
+        "lq",
+        "rq"
+      ]
+    },
+    {
+      "id": "q_multi_16",
+      "query": "Stability drills for core and back.",
+      "target_labels": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "id": "q_multi_17",
+      "query": "What are good full body warmup routines?",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_multi_18",
+      "query": "Give me stretches for both shoulders and chest.",
+      "target_labels": [
+        "ls",
+        "rs",
+        "c"
+      ]
+    },
+    {
+      "id": "q_multi_19",
+      "query": "Lower body strengthening routine.",
+      "target_labels": [
+        "lh",
+        "rh",
+        "lq",
+        "rq",
+        "lc",
+        "rc",
+        "la",
+        "ra"
+      ]
+    },
+    {
+      "id": "q_multi_20",
+      "query": "Give me rehab moves for both shoulders.",
+      "target_labels": [
+        "ls",
+        "rs"
+      ]
+    },
+    {
+      "id": "q_multi_21",
+      "query": "What are good full body warmup routines?",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_multi_22",
+      "query": "Give me rehab moves for both shoulders.",
+      "target_labels": [
+        "ls",
+        "rs"
+      ]
+    },
+    {
+      "id": "q_multi_23",
+      "query": "How do I increase flexibility in both quads and hamstrings?",
+      "target_labels": [
+        "lh",
+        "rh",
+        "lq",
+        "rq"
+      ]
+    },
+    {
+      "id": "q_multi_24",
+      "query": "Show me balance exercises involving ankles and calves.",
+      "target_labels": [
+        "la",
+        "ra",
+        "lc",
+        "rc"
+      ]
+    },
+    {
+      "id": "q_multi_25",
+      "query": "How can I strengthen both my legs?",
+      "target_labels": [
+        "lh",
+        "rh",
+        "lq",
+        "rq",
+        "lc",
+        "rc"
+      ]
+    },
+    {
+      "id": "q_multi_26",
+      "query": "Upper body strengthening routine.",
+      "target_labels": [
+        "ls",
+        "rs",
+        "lt",
+        "rt",
+        "lb",
+        "rb",
+        "c"
+      ]
+    },
+    {
+      "id": "q_multi_27",
+      "query": "Exercises for overall core stability.",
+      "target_labels": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "id": "q_multi_28",
+      "query": "Exercises for overall core stability.",
+      "target_labels": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "id": "q_multi_29",
+      "query": "What are good full body warmup routines?",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_multi_30",
+      "query": "Give me stretches for both shoulders and chest.",
+      "target_labels": [
+        "ls",
+        "rs",
+        "c"
+      ]
+    },
+    {
+      "id": "q_multi_31",
+      "query": "How do I increase flexibility in both quads and hamstrings?",
+      "target_labels": [
+        "lh",
+        "rh",
+        "lq",
+        "rq"
+      ]
+    },
+    {
+      "id": "q_multi_32",
+      "query": "Stability drills for core and back.",
+      "target_labels": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "id": "q_multi_33",
+      "query": "How do I increase flexibility in both quads and hamstrings?",
+      "target_labels": [
+        "lh",
+        "rh",
+        "lq",
+        "rq"
+      ]
+    },
+    {
+      "id": "q_multi_34",
+      "query": "Upper body strengthening routine.",
+      "target_labels": [
+        "ls",
+        "rs",
+        "lt",
+        "rt",
+        "lb",
+        "rb",
+        "c"
+      ]
+    },
+    {
+      "id": "q_multi_35",
+      "query": "Stability drills for core and back.",
+      "target_labels": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "id": "q_multi_36",
+      "query": "Which mobility drills help my hips and hamstrings?",
+      "target_labels": [
+        "lh",
+        "rh",
+        "lq",
+        "rq"
+      ]
+    },
+    {
+      "id": "q_multi_37",
+      "query": "What are good bodyweight exercises for arms?",
+      "target_labels": [
+        "lt",
+        "rt",
+        "lb",
+        "rb"
+      ]
+    },
+    {
+      "id": "q_multi_38",
+      "query": "Upper body strengthening routine.",
+      "target_labels": [
+        "ls",
+        "rs",
+        "lt",
+        "rt",
+        "lb",
+        "rb",
+        "c"
+      ]
+    },
+    {
+      "id": "q_multi_39",
+      "query": "Show me balance exercises involving ankles and calves.",
+      "target_labels": [
+        "la",
+        "ra",
+        "lc",
+        "rc"
+      ]
+    },
+    {
+      "id": "q_multi_40",
+      "query": "Give me stretches for both shoulders and chest.",
+      "target_labels": [
+        "ls",
+        "rs",
+        "c"
+      ]
+    },
+    {
+      "id": "q_multi_41",
+      "query": "What are exercises to recover from sitting all day?",
+      "target_labels": [
+        "n",
+        "c",
+        "b",
+        "a"
+      ]
+    },
+    {
+      "id": "q_multi_42",
+      "query": "Show me a routine for neck and upper back relief.",
+      "target_labels": [
+        "n",
+        "b"
+      ]
+    },
+    {
+      "id": "q_multi_43",
+      "query": "Give me rehab moves for both shoulders.",
+      "target_labels": [
+        "ls",
+        "rs"
+      ]
+    },
+    {
+      "id": "q_multi_44",
+      "query": "Stability drills for core and back.",
+      "target_labels": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "id": "q_multi_45",
+      "query": "What are good full body warmup routines?",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_multi_46",
+      "query": "What are good bodyweight exercises for arms?",
+      "target_labels": [
+        "lt",
+        "rt",
+        "lb",
+        "rb"
+      ]
+    },
+    {
+      "id": "q_multi_47",
+      "query": "Exercises to prevent sports injuries in the legs.",
+      "target_labels": [
+        "lh",
+        "rh",
+        "lq",
+        "rq",
+        "lc",
+        "rc",
+        "la",
+        "ra"
+      ]
+    },
+    {
+      "id": "q_multi_48",
+      "query": "Show me balance exercises involving ankles and calves.",
+      "target_labels": [
+        "la",
+        "ra",
+        "lc",
+        "rc"
+      ]
+    },
+    {
+      "id": "q_multi_49",
+      "query": "What are good full body warmup routines?",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_multi_50",
+      "query": "Best endurance exercises for arms and shoulders.",
+      "target_labels": [
+        "ls",
+        "rs",
+        "lt",
+        "rt",
+        "lb",
+        "rb"
+      ]
+    },
+    {
+      "id": "q_multi_51",
+      "query": "What are good full body warmup routines?",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_multi_52",
+      "query": "What are good bodyweight exercises for arms?",
+      "target_labels": [
+        "lt",
+        "rt",
+        "lb",
+        "rb"
+      ]
+    },
+    {
+      "id": "q_multi_53",
+      "query": "What are some exercises to improve posture?",
+      "target_labels": [
+        "n",
+        "c",
+        "b",
+        "a"
+      ]
+    },
+    {
+      "id": "q_multi_54",
+      "query": "Exercises for overall core stability.",
+      "target_labels": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "id": "q_multi_55",
+      "query": "What are exercises to recover from sitting all day?",
+      "target_labels": [
+        "n",
+        "c",
+        "b",
+        "a"
+      ]
+    },
+    {
+      "id": "q_multi_56",
+      "query": "Gentle recovery workout for the whole body.",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_multi_57",
+      "query": "Lower body strengthening routine.",
+      "target_labels": [
+        "lh",
+        "rh",
+        "lq",
+        "rq",
+        "lc",
+        "rc",
+        "la",
+        "ra"
+      ]
+    },
+    {
+      "id": "q_multi_58",
+      "query": "Stability drills for core and back.",
+      "target_labels": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "id": "q_multi_59",
+      "query": "Strengthening moves for calves, quads, and hamstrings.",
+      "target_labels": [
+        "lh",
+        "rh",
+        "lq",
+        "rq",
+        "lc",
+        "rc"
+      ]
+    },
+    {
+      "id": "q_multi_60",
+      "query": "Exercises to prevent sports injuries in the legs.",
+      "target_labels": [
+        "lh",
+        "rh",
+        "lq",
+        "rq",
+        "lc",
+        "rc",
+        "la",
+        "ra"
+      ]
+    },
+    {
+      "id": "q_multi_61",
+      "query": "Gentle recovery workout for the whole body.",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_multi_62",
+      "query": "What are exercises to recover from sitting all day?",
+      "target_labels": [
+        "n",
+        "c",
+        "b",
+        "a"
+      ]
+    },
+    {
+      "id": "q_multi_63",
+      "query": "What are good bodyweight exercises for arms?",
+      "target_labels": [
+        "lt",
+        "rt",
+        "lb",
+        "rb"
+      ]
+    },
+    {
+      "id": "q_multi_64",
+      "query": "Show me balance exercises involving ankles and calves.",
+      "target_labels": [
+        "la",
+        "ra",
+        "lc",
+        "rc"
+      ]
+    },
+    {
+      "id": "q_multi_65",
+      "query": "Give me stretches for both shoulders and chest.",
+      "target_labels": [
+        "ls",
+        "rs",
+        "c"
+      ]
+    },
+    {
+      "id": "q_multi_66",
+      "query": "What are exercises to recover from sitting all day?",
+      "target_labels": [
+        "n",
+        "c",
+        "b",
+        "a"
+      ]
+    },
+    {
+      "id": "q_multi_67",
+      "query": "How can I strengthen both my legs?",
+      "target_labels": [
+        "lh",
+        "rh",
+        "lq",
+        "rq",
+        "lc",
+        "rc"
+      ]
+    },
+    {
+      "id": "q_multi_68",
+      "query": "Suggest a stretching routine for my whole body.",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_multi_69",
+      "query": "Lower body strengthening routine.",
+      "target_labels": [
+        "lh",
+        "rh",
+        "lq",
+        "rq",
+        "lc",
+        "rc",
+        "la",
+        "ra"
+      ]
+    },
+    {
+      "id": "q_multi_70",
+      "query": "Strengthening moves for calves, quads, and hamstrings.",
+      "target_labels": [
+        "lh",
+        "rh",
+        "lq",
+        "rq",
+        "lc",
+        "rc"
+      ]
+    },
+    {
+      "id": "q_multi_71",
+      "query": "What are exercises to recover from sitting all day?",
+      "target_labels": [
+        "n",
+        "c",
+        "b",
+        "a"
+      ]
+    },
+    {
+      "id": "q_multi_72",
+      "query": "What are exercises to recover from sitting all day?",
+      "target_labels": [
+        "n",
+        "c",
+        "b",
+        "a"
+      ]
+    },
+    {
+      "id": "q_multi_73",
+      "query": "Show me a routine for neck and upper back relief.",
+      "target_labels": [
+        "n",
+        "b"
+      ]
+    },
+    {
+      "id": "q_multi_74",
+      "query": "What are good bodyweight exercises for arms?",
+      "target_labels": [
+        "lt",
+        "rt",
+        "lb",
+        "rb"
+      ]
+    },
+    {
+      "id": "q_multi_75",
+      "query": "Exercises for overall core stability.",
+      "target_labels": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "id": "q_multi_76",
+      "query": "Stability drills for core and back.",
+      "target_labels": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "id": "q_multi_77",
+      "query": "What are some exercises to improve posture?",
+      "target_labels": [
+        "n",
+        "c",
+        "b",
+        "a"
+      ]
+    },
+    {
+      "id": "q_multi_78",
+      "query": "Show me a routine for neck and upper back relief.",
+      "target_labels": [
+        "n",
+        "b"
+      ]
+    },
+    {
+      "id": "q_multi_79",
+      "query": "Show me balance exercises involving ankles and calves.",
+      "target_labels": [
+        "la",
+        "ra",
+        "lc",
+        "rc"
+      ]
+    },
+    {
+      "id": "q_multi_80",
+      "query": "Best endurance exercises for arms and shoulders.",
+      "target_labels": [
+        "ls",
+        "rs",
+        "lt",
+        "rt",
+        "lb",
+        "rb"
+      ]
+    },
+    {
+      "id": "q_multi_81",
+      "query": "Best endurance exercises for arms and shoulders.",
+      "target_labels": [
+        "ls",
+        "rs",
+        "lt",
+        "rt",
+        "lb",
+        "rb"
+      ]
+    },
+    {
+      "id": "q_multi_82",
+      "query": "Exercises to prevent sports injuries in the legs.",
+      "target_labels": [
+        "lh",
+        "rh",
+        "lq",
+        "rq",
+        "lc",
+        "rc",
+        "la",
+        "ra"
+      ]
+    },
+    {
+      "id": "q_multi_83",
+      "query": "How do I increase flexibility in both quads and hamstrings?",
+      "target_labels": [
+        "lh",
+        "rh",
+        "lq",
+        "rq"
+      ]
+    },
+    {
+      "id": "q_multi_84",
+      "query": "Exercises to prevent sports injuries in the legs.",
+      "target_labels": [
+        "lh",
+        "rh",
+        "lq",
+        "rq",
+        "lc",
+        "rc",
+        "la",
+        "ra"
+      ]
+    },
+    {
+      "id": "q_multi_85",
+      "query": "Best endurance exercises for arms and shoulders.",
+      "target_labels": [
+        "ls",
+        "rs",
+        "lt",
+        "rt",
+        "lb",
+        "rb"
+      ]
+    },
+    {
+      "id": "q_multi_86",
+      "query": "Gentle recovery workout for the whole body.",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_multi_87",
+      "query": "Stability drills for core and back.",
+      "target_labels": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "id": "q_multi_88",
+      "query": "Exercises to prevent sports injuries in the legs.",
+      "target_labels": [
+        "lh",
+        "rh",
+        "lq",
+        "rq",
+        "lc",
+        "rc",
+        "la",
+        "ra"
+      ]
+    },
+    {
+      "id": "q_multi_89",
+      "query": "What are exercises to recover from sitting all day?",
+      "target_labels": [
+        "n",
+        "c",
+        "b",
+        "a"
+      ]
+    },
+    {
+      "id": "q_multi_90",
+      "query": "Lower body strengthening routine.",
+      "target_labels": [
+        "lh",
+        "rh",
+        "lq",
+        "rq",
+        "lc",
+        "rc",
+        "la",
+        "ra"
+      ]
+    },
+    {
+      "id": "q_multi_91",
+      "query": "Exercises to prevent sports injuries in the legs.",
+      "target_labels": [
+        "lh",
+        "rh",
+        "lq",
+        "rq",
+        "lc",
+        "rc",
+        "la",
+        "ra"
+      ]
+    },
+    {
+      "id": "q_multi_92",
+      "query": "Suggest a stretching routine for my whole body.",
+      "target_labels": [
+        "e"
+      ]
+    },
+    {
+      "id": "q_multi_93",
+      "query": "Strengthening moves for calves, quads, and hamstrings.",
+      "target_labels": [
+        "lh",
+        "rh",
+        "lq",
+        "rq",
+        "lc",
+        "rc"
+      ]
+    },
+    {
+      "id": "q_multi_94",
+      "query": "What are exercises to recover from sitting all day?",
+      "target_labels": [
+        "n",
+        "c",
+        "b",
+        "a"
+      ]
+    },
+    {
+      "id": "q_multi_95",
+      "query": "Which mobility drills help my hips and hamstrings?",
+      "target_labels": [
+        "lh",
+        "rh",
+        "lq",
+        "rq"
+      ]
+    },
+    {
+      "id": "q_multi_96",
+      "query": "Exercises for overall core stability.",
+      "target_labels": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "id": "q_multi_97",
+      "query": "What are exercises to recover from sitting all day?",
+      "target_labels": [
+        "n",
+        "c",
+        "b",
+        "a"
+      ]
+    },
+    {
+      "id": "q_multi_98",
+      "query": "How can I strengthen both my legs?",
+      "target_labels": [
+        "lh",
+        "rh",
+        "lq",
+        "rq",
+        "lc",
+        "rc"
+      ]
+    },
+    {
+      "id": "q_multi_99",
+      "query": "Give me rehab moves for both shoulders.",
+      "target_labels": [
+        "ls",
+        "rs"
+      ]
+    },
+    {
+      "id": "q_multi_100",
+      "query": "Stability drills for core and back.",
+      "target_labels": [
+        "a",
+        "b"
+      ]
+    }
+  ]
+}

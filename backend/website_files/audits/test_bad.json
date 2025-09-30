@@ -1,0 +1,9 @@
+{
+  "doc_id": "test_bad",
+  "classification": {
+    "viable": false,
+    "confidence": 0.2,
+    "reason": "too short",
+    "labels": []
+  }
+}
