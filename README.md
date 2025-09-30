@@ -1,12 +1,19 @@
 # PTI 
 Your intelligent physical therapy asssitant
 
-PTI is an AI powered bot that helps you with physical therapy in many ways. It gives you excersices you can do after telling it what body part you have problems with, guides you through excersices and analyzes them if you are doing them correctly. It also helps track a variety of data that can be used by others to hopefully revolutionize a sector or sectors fo the body. 
+PTI is an AI powered bot that helps you with physical therapy in many ways. It gives you excersices you can do after telling it what body part you have problems with, guides you through excersices and analyzes them if you are doing them correctly. It also helps track a variety of data that can be used by others to hopefully revolutionize a sector or sectors of the body. 
 
-- RAG powered LLM combing both MediaPipe and Mistral7b.
-- Data analytics dashboard to analyze sources and people
-- Fully automated textbook scraper with Postgre SQL database
+**the breakdown of what you can find in the folders**
 
-If you are interested in using the tool. The link to our website is here: ... 
 
-Please let us know how we do by emailing and giving us feedback: ...
+**FRONTEND**
+
+Components: Built using React, Typsecript, and Tailwind 
+3d Model, questionairre, dashboard with analytics
+
+
+**Backend**
+
+- Database: Built using SQLAlchemy and Alembic for migration. Hosted on Supabase. Connected to the frontend using FastAPI
+- Scrapers: Built using Selenium, BeautifulSoup and help us gather resources for our LLM
+- LLM: RAG tuned Llama3b using RAG-fusion
